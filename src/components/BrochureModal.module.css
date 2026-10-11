@@ -1,0 +1,486 @@
+.brochureBannerSection {
+  position: relative;
+  width: 100%;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  background-color: var(--color-canvas); /* Warm ivory */
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.bannerContainer {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bannerVisualCol {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  background-color: var(--color-canvas-alt);
+  overflow: hidden;
+}
+
+.bannerImageFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bannerImg {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s var(--ease-soft);
+}
+
+.bannerContainer:hover .bannerImg {
+  transform: scale(1.02);
+}
+
+.bannerCornerTopLeft,
+.bannerCornerBottomRight {
+  display: none;
+}
+
+.bannerContentCol {
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bannerEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.bannerGoldDot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+}
+
+.bannerEyebrowText {
+  color: var(--color-gold);
+}
+
+.bannerTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.bannerDesc {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.bannerActionRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.requestBrochureBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.95rem 2rem;
+  background: var(--color-text-primary);
+  color: #FFFFFF;
+  font-family: var(--font-nav);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--site-radius, 10px);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-soft);
+}
+
+.requestBrochureBtn:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.btnArrow {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.bannerFormatTag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+/* Refined Accessible Modal Dialog */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(41, 39, 34, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalCard {
+  width: 100%;
+  max-width: 600px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.75rem 2.25rem;
+  background: var(--color-canvas-alt);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.modalTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.modalTag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.closeBtn {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-strong);
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--site-radius, 10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+  border-color: var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+.modalBody {
+  padding: 2.25rem;
+  background: #FFFFFF;
+}
+
+.formIntro {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.fieldLabel {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.asterisk {
+  color: var(--color-gold);
+}
+
+.inputField {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.85rem 1rem;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--site-radius, 10px);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.inputField:focus {
+  border-color: var(--color-gold);
+}
+
+.inputError {
+  border-color: #d9534f !important;
+}
+
+.errorMessage {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: #c9302c;
+}
+
+.privacyText {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  padding-top: 0.25rem;
+}
+
+.privacyLink {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.modalSubmitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 48px;
+  padding: 1rem 1.5rem;
+  background: var(--color-text-primary);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--site-radius, 10px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.modalSubmitBtn:hover:not(:disabled) {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.modalSubmitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Validation Preview State */
+.previewNotice {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--color-canvas-alt);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  padding: 1.75rem;
+}
+
+.verifiedBadge {
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--color-gold);
+  background: #FFFFFF;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius-sm, 6px);
+}
+
+.previewTitle {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-text-primary);
+  font-weight: 400;
+}
+
+.previewBody {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.statusBox {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statusRow {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+.statusKey {
+  color: var(--color-text-muted);
+}
+
+.statusVal {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.downloadNotice {
+  padding-top: 0.5rem;
+}
+
+.downloadLinkBtn {
+  display: block;
+  text-align: center;
+  min-height: 44px;
+  padding: 1rem;
+  background: var(--color-gold);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--site-radius, 10px);
+}
+
+.filePendingNote {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  display: block;
+}
+
+.resetModalBtn {
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Responsive Adaptations */
+@media (max-width: 1024px) {
+  .bannerContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .bannerVisualCol {
+    min-height: 280px;
+  }
+
+  .bannerContentCol {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .bannerContentCol {
+    padding: 1.75rem;
+  }
+
+  .inputGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalHeader {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .modalBody {
+    padding: 1.5rem;
+  }
+}

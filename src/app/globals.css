@@ -1,0 +1,270 @@
+/* ==========================================================================
+   FORTUNE HAVEN — REFINED LUXURY ARCHITECTURAL EDITORIAL DESIGN SYSTEM
+   Art Direction: Editorial Architecture Publication, Precise, Understated
+   Palette: Warm Ivory, Soft Limestone, Deep Charcoal, Warm Grey, Restrained Gold
+   ========================================================================== */
+
+:root {
+  /* Editorial Color Palette */
+  --color-canvas: #F7F5F0;            /* Primary page background: warm ivory */
+  --color-canvas-alt: #EEEAE2;        /* Alternate section background: soft limestone */
+  --color-canvas-elevated: #FFFFFF;   /* Clean architectural white for deliberate contrast */
+  --color-canvas-dark: #1E1C18;       /* Deep charcoal tone for footer and modal overlays */
+  
+  /* Text Tokens */
+  --color-text-primary: #292722;      /* Main text: deep charcoal */
+  --color-text-secondary: #716D65;    /* Secondary text: warm grey */
+  --color-text-muted: #959086;        /* Subtle architectural annotations */
+  --color-text-inverse: #F7F5F0;      /* Warm ivory on dark surfaces */
+  
+  /* Restrained Champagne Gold Accent (Not dominant) */
+  --color-gold: #B68D40;              /* Restrained champagne gold */
+  --color-gold-light: #C9A458;
+  --color-gold-subtle: rgba(182, 141, 64, 0.12);
+  --color-gold-border: rgba(182, 141, 64, 0.4);
+
+  /* Precise Architectural Borders & Separators */
+  --color-border-subtle: #DDD7CC;     /* Image and subtle separator borders */
+  --color-border-light: #E7E2D8;
+  --color-border-strong: #BCB4A4;
+
+  /* Typography Stacks:
+     Headlines, Navigation & Buttons: Montserrat (weights 500, 600, 700)
+     Body text, Captions & Labels: Lato (weights 400, 500)
+  */
+  --font-display: var(--font-montserrat), 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: var(--font-montserrat), 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: var(--font-lato), 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-nav: var(--font-montserrat), 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-lato), 'Lato', -apple-system, sans-serif;
+
+  /* Spacing Scale */
+  --space-xxs: 0.25rem;  /* 4px */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2.5rem;    /* 40px */
+  --space-xl: 4rem;      /* 64px */
+  --space-2xl: 6rem;     /* 96px */
+  --space-3xl: 8.5rem;   /* 136px */
+
+  /* Layout */
+  --header-height: 96px;
+  --header-height-scrolled: 74px;
+  --container-max: 1440px;
+  --container-padding: 3rem;
+
+  /* Consistent Corner Radius */
+  --site-radius: 10px;
+  --site-radius-sm: 6px;
+
+  /* Motion Curves (Human art-directed, zero scroll hijacking) */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-reveal: 0.8s;
+  --duration-interact: 0.25s;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 2rem;
+    --header-height: 84px;
+    --header-height-scrolled: 68px;
+    --space-3xl: 6.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 1.25rem;
+    --header-height: 72px;
+    --header-height-scrolled: 62px;
+    --space-2xl: 4.5rem;
+    --space-3xl: 5rem;
+  }
+}
+
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.7;
+}
+
+/* Precise Editorial Headings (Montserrat 500, 600, 700) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+p {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-interact) var(--ease-soft);
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Editorial Utility Classes
+   ========================================================================== */
+
+.editorial-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.hairline-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border-subtle);
+}
+
+/* Small Upper Eyebrow label */
+.editorial-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.editorial-eyebrow-line {
+  width: 24px;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+/* Architectural Clean Buttons (Consistent 10px geometry) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.95rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: var(--color-text-primary);
+  color: #FFFFFF;
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--site-radius, 10px);
+  transition: all var(--duration-interact) var(--ease-soft);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.95rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--site-radius, 10px);
+  transition: all var(--duration-interact) var(--ease-soft);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-text-primary);
+  background-color: rgba(41, 39, 34, 0.04);
+  transform: translateY(-1px);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

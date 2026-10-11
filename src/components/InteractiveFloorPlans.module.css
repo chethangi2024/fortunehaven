@@ -1,0 +1,799 @@
+.floorPlansSection {
+  position: relative;
+  width: 100%;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-3xl);
+  background-color: var(--color-canvas); /* Warm ivory */
+  color: var(--color-text-primary);
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* ==========================================================================
+   1. SECTION INTRO BLOCK
+   ========================================================================== */
+
+.introBlock {
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--space-xl);
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.introColLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-nav);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.introColRight {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.25rem;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0 0 1.25rem 0;
+}
+
+.scaleMetrics {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.metricItem {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.metricDot {
+  color: var(--color-gold);
+  font-size: 0.75rem;
+}
+
+/* Level Selector Bar */
+.selectorWrapper {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.selectorRow {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0.5rem;
+}
+
+.selectorRow::-webkit-scrollbar {
+  display: none;
+}
+
+.levelTab {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding: 0.75rem 0.2rem;
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s var(--ease-soft);
+}
+
+.levelTab:hover {
+  color: var(--color-text-primary);
+}
+
+.tabNumber {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.tabDivider {
+  color: var(--color-border-strong);
+  font-size: 0.75rem;
+}
+
+.tabText {
+  font-family: var(--font-nav);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.activeTab {
+  color: var(--color-text-primary);
+}
+
+.activeTab .tabText {
+  color: var(--color-text-primary);
+}
+
+.activeHairline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-gold);
+}
+
+/* Plan Stage Grid */
+.planStageGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* Floor Plan Display Card */
+.planDisplayCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.planCard {
+  position: relative;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Drafting Canvas */
+.planImageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  background-color: #FFFFFF;
+  border-radius: var(--site-radius, 10px);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s var(--ease-soft), box-shadow 0.2s var(--ease-soft);
+}
+
+.planImageFrame:hover {
+  box-shadow: 0 8px 24px rgba(41, 39, 34, 0.06);
+}
+
+.planImageFrame:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.planImg {
+  object-fit: contain;
+  object-position: center;
+  padding: 1rem;
+  transition: transform 0.3s var(--ease-soft);
+}
+
+.planImageFrame:hover .planImg {
+  transform: scale(1.015);
+}
+
+.planClickHint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  background: rgba(247, 245, 240, 0.94);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius-sm, 6px);
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  pointer-events: none;
+  transition: all 0.2s var(--ease-soft);
+  z-index: 2;
+}
+
+.planImageFrame:hover .planClickHint {
+  background: var(--color-gold);
+  color: #FFFFFF;
+  border-color: var(--color-gold);
+}
+
+.hintIcon {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.hintText {
+  font-size: 0.66rem;
+}
+
+.captionCode {
+  color: var(--color-gold);
+}
+
+.captionDivider {
+  color: var(--color-border-strong);
+}
+
+.captionSource {
+  color: var(--color-text-muted);
+}
+
+.cornerNotchTopLeft,
+.cornerNotchBottomRight {
+  display: none;
+}
+
+/* Details Column & Floor Descriptions */
+.detailsCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsCard {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.detailsBadge {
+  display: inline-flex;
+  margin-bottom: 0.75rem;
+}
+
+.badgeIndex {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-gold);
+  padding: 0.25rem 0.65rem;
+  background: var(--color-gold-subtle);
+  border-radius: var(--site-radius-sm, 6px);
+}
+
+.detailsTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.detailsSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-gold);
+  line-height: 1.5;
+}
+
+.detailsDivider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.highlightsBlock {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.75rem;
+}
+
+.highlightsTag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.highlightsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.highlightBullet {
+  width: 5px;
+  height: 5px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transform: translateY(-2px);
+}
+
+.highlightText {
+  color: var(--color-text-secondary);
+}
+
+.architecturalNote {
+  background: var(--color-canvas-alt);
+  border: 1px solid var(--color-border-subtle);
+  padding: 1.25rem;
+  border-left: 3px solid var(--color-gold);
+}
+
+.noteTitle {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.noteBody {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Enlarged View Modal */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(41, 39, 34, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modalContent {
+  width: 100%;
+  max-width: 1100px;
+  height: 88vh;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background: var(--color-canvas-alt);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.modalTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.modalBadge {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-text-primary);
+  font-weight: 400;
+}
+
+.closeBtn {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--color-border-strong);
+  background: #FFFFFF;
+  border-radius: var(--site-radius, 10px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: var(--color-text-primary);
+  color: #FFFFFF;
+  border-color: var(--color-text-primary);
+}
+
+.modalImageContainer {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modalImg {
+  object-fit: contain;
+  object-position: center;
+}
+
+.tabArea {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin-left: 0.25rem;
+}
+
+.badgeArea {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-left: 0.75rem;
+}
+
+/* Materials & Specifications Section (Brochure Page 12) */
+.materialsSection {
+  position: relative;
+  z-index: 2;
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.materialsHeaderLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.materialsTag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.materialsTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.materialsSource {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.materialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.materialCard {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  padding: 1.75rem;
+  transition: transform 0.25s var(--ease-soft), box-shadow 0.25s var(--ease-soft);
+}
+
+.materialCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(41, 39, 34, 0.04);
+}
+
+.materialCategory {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 0.65rem;
+}
+
+.materialSpec {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.01em;
+}
+
+.materialDetail {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Responsive Adaptations */
+@media (max-width: 1024px) {
+  .introGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .planStageGrid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .detailsCard {
+    padding: 1.75rem;
+  }
+
+  .materialsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .floorPlansSection {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .introGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .headline {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    word-break: break-word;
+  }
+
+  .scaleMetrics {
+    gap: 0.45rem 0.6rem;
+    font-size: 0.76rem;
+  }
+
+  .selectorWrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1.75rem;
+  }
+
+  .selectorRow {
+    gap: 0.85rem;
+    width: max-content;
+    min-width: 100%;
+    padding-bottom: 0.75rem;
+  }
+
+  .levelTab {
+    padding: 0.5rem 0.4rem;
+    gap: 0.45rem;
+    font-size: 0.74rem;
+    flex-shrink: 0;
+  }
+
+  .tabNumber {
+    font-size: 0.74rem;
+  }
+
+  .tabText {
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+  }
+
+  .tabArea {
+    font-size: 0.68rem;
+  }
+
+  .planStageGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    width: 100%;
+  }
+
+  .planDisplayCol {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .planCard {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .planImageFrame {
+    aspect-ratio: 4 / 3.2;
+    padding: 0.5rem;
+    min-height: 240px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .planImg {
+    padding: 0.35rem;
+  }
+
+  .detailsCol {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .detailsCard {
+    padding: 1.35rem 1.15rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .detailsTitle {
+    font-size: 1.35rem;
+    word-break: break-word;
+  }
+
+  .detailsSubtitle {
+    font-size: 0.88rem;
+    word-break: break-word;
+  }
+
+  .highlightText {
+    font-size: 0.88rem;
+    word-break: break-word;
+  }
+
+  .materialsHeaderLine {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .materialsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .materialCard {
+    padding: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .modalContent {
+    height: 94vh;
+  }
+
+  .modalHeader {
+    padding: 1rem;
+  }
+
+  .modalImageContainer {
+    padding: 1rem;
+  }
+}

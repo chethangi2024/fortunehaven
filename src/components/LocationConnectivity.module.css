@@ -1,0 +1,365 @@
+.locationSection {
+  position: relative;
+  width: 100%;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-3xl);
+  background-color: var(--color-canvas-alt); /* Soft limestone alternate tone #EEEAE2 */
+  color: var(--color-text-primary);
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* ==========================================================================
+   1. MAIN TWO-COLUMN COMPOSITION: MAP (LEFT) & CONTEXT / PROXIMITIES (RIGHT)
+   ========================================================================== */
+
+.mainTwoColLayout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: stretch;
+  margin-bottom: var(--space-2xl);
+}
+
+/* Left Column: Google Map Embed */
+.mapCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.mapCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  background-color: #FFFFFF;
+  border-radius: var(--site-radius, 10px);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: 0 4px 20px rgba(41, 39, 34, 0.04);
+  overflow: hidden;
+}
+
+.mapIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.92) contrast(1.02);
+}
+
+/* Right Column: Heading, Brochure Intro, Quick Corridors, Verified Address */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-nav);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin: 0 0 1.25rem 0;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: clamp(0.96rem, 1.05vw, 1.06rem);
+  font-weight: 400;
+  line-height: 1.68;
+  color: var(--color-text-secondary);
+  margin: 0 0 1.75rem 0;
+}
+
+/* Quick Proximity Pill Badges */
+.quickPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--color-text-secondary);
+}
+
+.pillDot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pillValue {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Compact Key Nearby Highlights List */
+.keyHighlightsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.25rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  margin-bottom: 1.75rem;
+}
+
+.keyHighlightItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+.keyHighlightItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.keyDestName {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.keyDestDist {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+/* Verified Address Box */
+.verifiedAddressCard {
+  padding: 1.15rem 1.35rem;
+  background: var(--color-canvas);
+  border: 1px solid var(--color-border-subtle);
+  border-left: 3px solid var(--color-gold);
+  border-radius: var(--site-radius, 10px);
+}
+
+.verifiedAddressTag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 0.4rem;
+}
+
+.verifiedAddressBody {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-style: normal;
+  line-height: 1.55;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   2. CONNECTIVITY MATRIX (CLEAN GROUPED TABLE / TILES)
+   ========================================================================== */
+
+.connectivityMatrixSection {
+  position: relative;
+  z-index: 2;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.matrixHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.matrixTag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 0.4rem;
+}
+
+.matrixTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.matrixNote {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* 4-Column Restrained Group Layout */
+.matrixGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.matrixCol {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  padding: 1.35rem 1.25rem;
+  transition: transform 0.25s var(--ease-soft), box-shadow 0.25s var(--ease-soft);
+}
+
+.matrixCol:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(41, 39, 34, 0.04);
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-bottom: 0.65rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.categoryNumber {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.categoryHeading {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.destinationList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.destinationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px dashed var(--color-border-light);
+}
+
+.destinationItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.destTitle {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.destDistance {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .matrixGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainTwoColLayout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .mapCard {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .locationSection {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .matrixGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .mapCard {
+    min-height: 340px;
+  }
+
+  .matrixHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

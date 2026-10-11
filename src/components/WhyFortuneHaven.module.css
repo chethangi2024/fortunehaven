@@ -1,0 +1,270 @@
+/* ==========================================================================
+   WHY FORTUNE HAVEN — SECTION 08
+   Brochure Page 15: 10 Approved Reasons, Developer Accreditation
+   Clean Architectural Layout: Typographic List, No repetitive cards
+   ========================================================================== */
+
+.whySection {
+  position: relative;
+  width: 100%;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-3xl);
+  background-color: var(--color-canvas); /* Warm ivory #F7F5F0 */
+  color: var(--color-text-primary);
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* ==========================================================================
+   1. SECTION INTRO BLOCK
+   ========================================================================== */
+
+.introBlock {
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--space-2xl);
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.introColLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-nav);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.introColRight {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.25rem;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0 0 1.25rem 0;
+}
+
+.reasonsSummary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.sumItem {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.sumDot {
+  color: var(--color-gold);
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   2. 10 REASONS ARCHITECTURAL TYPOGRAPHIC LIST
+   ========================================================================== */
+
+.reasonsList {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 4rem;
+  margin-bottom: var(--space-3xl);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.reasonItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.reasonHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.reasonNumber {
+  font-family: var(--font-nav);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.08em;
+}
+
+.reasonSep {
+  color: var(--color-border-strong);
+  font-size: 0.75rem;
+}
+
+.reasonTitle {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.reasonDescription {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. DEVELOPER ACCREDITATION BANNER
+   ========================================================================== */
+
+.developerBanner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  padding: 2.25rem 2.5rem;
+  background-color: var(--color-canvas-alt);
+  border-left: 2px solid var(--color-gold);
+  border-radius: var(--site-radius, 10px);
+}
+
+.devColLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.devTag {
+  font-family: var(--font-nav);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.devTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.devDesc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.devColRight {
+  display: flex;
+  gap: 2rem;
+}
+
+.devStat {
+  display: flex;
+  flex-direction: column;
+}
+
+.statVal {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.statLabel {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .introGrid {
+    gap: 2.5rem;
+  }
+
+  .reasonsList {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .developerBanner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .whySection {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .introGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .headline {
+    font-size: 2rem;
+  }
+
+  .devColRight {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
