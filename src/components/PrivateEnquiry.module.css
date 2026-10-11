@@ -555,11 +555,14 @@
   padding: 0.5rem 0;
   cursor: pointer;
   text-decoration: underline;
+}
+
 .contactLink {
   color: var(--color-text-primary);
   text-decoration: none;
   font-weight: 600;
   word-break: break-word;
+  overflow-wrap: anywhere;
   transition: color 0.2s var(--ease-soft);
 }
 
@@ -586,142 +589,315 @@
   }
 }
 
-@media (max-width: 640px) {
+/* Mobile Layout: 767px and below */
+@media (max-width: 767px) {
   .enquirySection {
-    padding-top: var(--space-2xl);
-    padding-bottom: var(--space-2xl);
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .enquirySection :global(.editorial-container) {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .introBlock {
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .introGrid {
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1rem;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .introColLeft,
+  .introColRight {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding-top: 0;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    word-break: break-word;
   }
 
   .headline {
-    font-size: 1.85rem;
+    font-size: clamp(1.75rem, 6.5vw, 2.2rem);
     line-height: 1.2;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .description {
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 1rem;
+    width: 100%;
+    max-width: 100%;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .viewingChannels {
-    gap: 0.45rem 0.6rem;
-    font-size: 0.76rem;
-  }
-
-  .enquiryLayoutGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.8rem;
     width: 100%;
+    max-width: 100%;
   }
 
-  .leftCol {
-    width: 100%;
-    min-width: 0;
-    gap: 1.25rem;
-  }
-
-  .desktopImageCard {
+  .chanDot {
     display: none;
   }
 
-  .mobileImageCard {
-    display: block;
+  .chanItem {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .enquiryLayoutGrid {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
     width: 100%;
-    margin-top: 1.5rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .leftCol {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    gap: 1.75rem;
+    box-sizing: border-box;
   }
 
   .leftColNotes {
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
     padding-top: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .noteItem {
+    display: flex;
     gap: 0.85rem;
     padding-bottom: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .noteNumber {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+  }
+
+  .noteTextGroup {
+    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .noteTitle {
     font-size: 0.95rem;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .noteDesc {
     font-size: 0.88rem;
+    line-height: 1.55;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Responsive image card placed right after contact details */
+  .desktopImageCard {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+    box-sizing: border-box;
+    border-radius: var(--site-radius, 10px);
+    overflow: hidden;
+  }
+
+  .imageOverlayTag {
+    bottom: 10px;
+    left: 10px;
+    right: auto;
+    max-width: calc(100% - 20px);
+    padding: 0.35rem 0.65rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    box-sizing: border-box;
+    white-space: normal;
     word-break: break-word;
   }
 
   .rightCol {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    max-width: 100%;
     min-width: 0;
+    box-sizing: border-box;
   }
 
   .formContainer {
-    padding: 1.25rem 1rem;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 1.5rem 1.15rem;
+    box-sizing: border-box;
+    border-radius: var(--site-radius, 10px);
+  }
+
+  .formHeader {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   }
 
   .formTitle {
     font-size: 1.35rem;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .formSubtitle {
     font-size: 0.88rem;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
-  .fieldRow {
-    grid-template-columns: 1fr;
-    gap: 1.15rem;
-  }
-
-  .radioGroup {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
-
-  .radioCard {
-    padding: 0.75rem 0.85rem;
+  .enquiryForm {
     width: 100%;
+    max-width: 100%;
+    gap: 1.15rem;
     box-sizing: border-box;
   }
 
-  .radioTextGroup {
+  .fieldRow {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .fieldGroup {
+    width: 100%;
+    max-width: 100%;
     min-width: 0;
+    box-sizing: border-box;
   }
 
-  .radioLabel {
-    font-size: 0.76rem;
+  .radioGroup {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .radioCard {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0.85rem 1rem;
+    box-sizing: border-box;
+    border-radius: var(--site-radius, 10px);
+  }
+
+  .radioText {
     word-break: break-word;
   }
 
-  .radioSub {
-    font-size: 0.72rem;
-    word-break: break-word;
+  .selectWrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .inputField,
   .textareaField,
   .selectField {
-    font-size: 0.9rem;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    font-size: 0.92rem;
     box-sizing: border-box;
+    border-radius: var(--site-radius, 10px);
+  }
+
+  .privacyNotice {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .submitBtn {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    border-radius: var(--site-radius, 10px);
+  }
+
+  .pendingNoticeCard {
+    padding: 1.25rem 1rem;
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   }
+
+  .summaryBox {
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .summaryRow {
+    flex-direction: column;
+    gap: 0.2rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
 }
+
