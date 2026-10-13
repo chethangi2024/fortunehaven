@@ -1,0 +1,68 @@
+.floatingBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #25D366;
+  color: #FFFFFF;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35), 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.2s ease;
+}
+
+.floatingBtn:hover {
+  transform: translateY(-3px) scale(1.02);
+  background-color: #22BF5B;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45), 0 4px 10px rgba(0, 0, 0, 0.12);
+  color: #FFFFFF;
+}
+
+.floatingBtn:focus-visible {
+  outline: 2px solid #25D366;
+  outline-offset: 3px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.label {
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Mobile responsive: compact circular floating icon to avoid covering forms/content */
+@media (max-width: 640px) {
+  .floatingBtn {
+    bottom: 20px;
+    right: 20px;
+    padding: 0.75rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+  }
+
+  .label {
+    display: none;
+  }
+
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+}

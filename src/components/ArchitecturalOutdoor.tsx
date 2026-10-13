@@ -34,7 +34,7 @@ const OUTDOOR_FEATURES: OutdoorFeature[] = [
     number: "03",
     title: "4 PRIVATE BALCONIES",
     description:
-      "Every bedroom opens directly to the outdoors through its own dedicated balcony, bringing fresh mountain air and natural cross-ventilation into daily routines.",
+      "Every bedroom opens directly to the outdoors through its own dedicated balcony, bringing fresh air and natural cross-ventilation into daily routines.",
   },
   {
     number: "04",

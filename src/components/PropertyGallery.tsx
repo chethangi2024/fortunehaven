@@ -316,7 +316,7 @@ export const PropertyGallery: React.FC = () => {
                 <span className={styles.metaDot}>•</span>
                 <span className={styles.metaHighlight}>24 Boutique Villas</span>
                 <span className={styles.metaDot}>•</span>
-                <span className={styles.metaHighlight}>High-Resolution Photography</span>
+                <span className={styles.metaHighlight}>Architectural Visualization</span>
               </div>
             </div>
           </div>

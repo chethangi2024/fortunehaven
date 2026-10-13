@@ -78,7 +78,7 @@ const KEY_NEARBY_HIGHLIGHTS = [
   { destination: "Devanahalli Fort & Town", distance: "2 km" },
   { destination: "Prestige Tech Cloud", distance: "11 km" },
   { destination: "Kempegowda International Airport (BLR)", distance: "15 km" },
-  { destination: "Nandi Hills Foothills & Sanctuary", distance: "15 km" },
+  { destination: "Nandi Hills", distance: "20 km" },
 ];
 
 export const LocationConnectivity: React.FC = () => {
@@ -226,9 +226,6 @@ export const LocationConnectivity: React.FC = () => {
               <span className={styles.matrixTag}>REGIONAL CONNECTIVITY MATRIX</span>
               <h3 className={styles.matrixTitle}>Verified Proximities from Fortune Haven</h3>
             </div>
-            <span className={styles.matrixNote}>
-              *Distances directly transcribed from client-approved brochure page 14 (subject to route verification).
-            </span>
           </div>
 
           <div className={styles.matrixGrid}>

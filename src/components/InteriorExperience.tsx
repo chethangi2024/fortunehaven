@@ -143,6 +143,7 @@ export const InteriorExperience: React.FC = () => {
                 />
               </div>
             </div>
+            <p className={styles.imageCaption}>Model villa showing in optional furnishing</p>
           </div>
 
           <div className={styles.sceneContent}>

@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,8 +18,6 @@ interface FormState {
   phone: string;
   email: string;
   contactMethod: "Phone Call" | "WhatsApp";
-  enquiryType: "Property Details" | "Floor Plans" | "Site Visit" | "General Enquiry";
-  message: string;
 }
 
 interface FormErrors {
@@ -28,6 +27,7 @@ interface FormErrors {
 }
 
 export const PrivateEnquiry: React.FC = () => {
+  const router = useRouter();
   const sectionRef = useRef<HTMLElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const formCardRef = useRef<HTMLDivElement>(null);
@@ -37,8 +37,6 @@ export const PrivateEnquiry: React.FC = () => {
     phone: "",
     email: "",
     contactMethod: "Phone Call",
-    enquiryType: "Property Details",
-    message: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -49,51 +47,15 @@ export const PrivateEnquiry: React.FC = () => {
   // GSAP Entrance
   useGSAP(
     () => {
-      const headerTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: `.${styles.introBlock}`,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-
-      headerTl
-        .from(`.${styles.eyebrow}`, {
-          y: 14,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-        })
-        .from(
-          `.${styles.headline}`,
-          {
-            y: 20,
-            opacity: 0,
-            duration: 0.85,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .from(
-          `.${styles.description}`,
-          {
-            y: 16,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-          },
-          "-=0.5"
-        );
-
       // Staggered reveal for two columns
       gsap.from(leftColRef.current, {
-        y: 35,
+        y: 28,
         opacity: 0,
-        duration: 1.1,
+        duration: 1.0,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: leftColRef.current,
-          start: "top 80%",
+          trigger: `.${styles.enquiryLayoutGrid}`,
+          start: "top 82%",
           toggleActions: "play none none none",
         },
       });
@@ -178,6 +140,7 @@ export const PrivateEnquiry: React.FC = () => {
 
       setSubmissionResponse(data.data || null);
       setSubmissionStatus("validation_preview");
+      router.push("/thank-you");
     } catch {
       setServerError("Network error communicating with enquiry server. Please retry.");
       setSubmissionStatus("idle");
@@ -195,15 +158,13 @@ export const PrivateEnquiry: React.FC = () => {
       <div className={styles.transitionGlow} />
 
       <div className="editorial-container">
-        {/* Section Heading & Intro */}
-        <div className={styles.introBlock}>
-          <div className={styles.introGrid}>
-            <div className={styles.introColLeft}>
+        {/* Editorial Consultation Layout — Unified Top-Aligned 2-Column Grid */}
+        <div className={styles.enquiryLayoutGrid}>
+          {/* Left Column: Heading, Description & Contact Details */}
+          <div ref={leftColRef} className={styles.leftCol}>
+            <div className={styles.leftHeader}>
               <span className={styles.eyebrow}>BOOK A PRIVATE VIEWING</span>
               <h2 className={styles.headline}>Book a Private Viewing.</h2>
-            </div>
-
-            <div className={styles.introColRight}>
               <p className={styles.description}>
                 Discover the experience of a fully furnished four-storey model villa in Devanahalli,
                 ready for inspection. Schedule a private guided walk-through or request detailed
@@ -211,20 +172,12 @@ export const PrivateEnquiry: React.FC = () => {
               </p>
 
               <div className={styles.viewingChannels}>
-                <span className={styles.chanItem}>Model Villa Ready</span>
-                <span className={styles.chanDot}>•</span>
                 <span className={styles.chanItem}>Call/WhatsApp: +91 91640 16999</span>
                 <span className={styles.chanDot}>•</span>
                 <span className={styles.chanItem}>sales@fortunehavens.com</span>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Editorial Consultation Layout */}
-        <div className={styles.enquiryLayoutGrid}>
-          {/* Notes / Contact Information Column */}
-          <div ref={leftColRef} className={styles.leftCol}>
             <div className={styles.leftColNotes}>
               <div className={styles.noteItem}>
                 <span className={styles.noteNumber}>01</span>
@@ -268,24 +221,6 @@ export const PrivateEnquiry: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            <div className={styles.desktopImageCard}>
-              <div className={styles.imageInner}>
-                <Image
-                  src="/digital-assets/Villa Images/Sunlit Rooftop Terrace with Mountain Views.png"
-                  alt="Fortune Haven Private Sunlit Rooftop Terrace Overlooking Nandi Hills"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 680px"
-                  className={styles.editorialImg}
-                  quality={92}
-                />
-              </div>
-
-              <div className={styles.imageOverlayTag}>
-                <span className={styles.overlayDot} />
-                <span className={styles.overlayText}>NANDI HILLS FOOTHILLS • NH-207</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Integrated Editorial Form */}
@@ -324,10 +259,6 @@ export const PrivateEnquiry: React.FC = () => {
                       </span>
                     </div>
                     <div className={styles.summaryRow}>
-                      <span className={styles.summaryKey}>Enquiry Type:</span>
-                      <span className={styles.summaryVal}>{form.enquiryType}</span>
-                    </div>
-                    <div className={styles.summaryRow}>
                       <span className={styles.summaryKey}>Registered Email:</span>
                       <span className={styles.summaryVal}>{form.email}</span>
                     </div>
@@ -342,8 +273,6 @@ export const PrivateEnquiry: React.FC = () => {
                         phone: "",
                         email: "",
                         contactMethod: "Phone Call",
-                        enquiryType: "Property Details",
-                        message: "",
                       });
                     }}
                   >
@@ -478,49 +407,6 @@ export const PrivateEnquiry: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Enquiry Type */}
-                  <div className={styles.fieldGroup}>
-                    <label htmlFor="enquiryType" className={styles.fieldLabel}>
-                      ENQUIRY TYPE
-                    </label>
-                    <div className={styles.selectWrapper}>
-                      <select
-                        id="enquiryType"
-                        name="enquiryType"
-                        value={form.enquiryType}
-                        onChange={(e) =>
-                          setForm({
-                            ...form,
-                            enquiryType: e.target.value as FormState["enquiryType"],
-                          })
-                        }
-                        className={styles.selectField}
-                      >
-                        <option value="Property Details">Property Details</option>
-                        <option value="Floor Plans">Floor Plans & Architectural Dossier</option>
-                        <option value="Site Visit">Private Site Visit</option>
-                        <option value="General Enquiry">General Enquiry</option>
-                      </select>
-                      <span className={styles.selectArrow}>▾</span>
-                    </div>
-                  </div>
-
-                  {/* Message (Optional) */}
-                  <div className={styles.fieldGroup}>
-                    <label htmlFor="message" className={styles.fieldLabel}>
-                      MESSAGE <span className={styles.optionalTag}>(OPTIONAL)</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={3}
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      placeholder="Share any specific requirements or preferred timing for a conversation..."
-                      className={styles.textareaField}
-                    />
-                  </div>
-
                   {/* Privacy Notice */}
                   <p className={styles.privacyNotice}>
                     Your submitted details will be used solely to respond to your
@@ -546,25 +432,6 @@ export const PrivateEnquiry: React.FC = () => {
                   </button>
                 </form>
               )}
-            </div>
-
-            {/* Mobile Supporting Image: Positioned below form on mobile */}
-            <div className={styles.mobileImageCard}>
-              <div className={styles.imageInner}>
-                <Image
-                  src="/digital-assets/Villa Images/Sunlit Rooftop Terrace with Mountain Views.png"
-                  alt="Fortune Haven Private Sunlit Rooftop Terrace Overlooking Nandi Hills"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 680px"
-                  className={styles.editorialImg}
-                  quality={92}
-                />
-              </div>
-
-              <div className={styles.imageOverlayTag}>
-                <span className={styles.overlayDot} />
-                <span className={styles.overlayText}>NANDI HILLS FOOTHILLS • NH-207</span>
-              </div>
             </div>
           </div>
         </div>

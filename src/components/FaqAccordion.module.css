@@ -119,6 +119,7 @@
 .accordionItem {
   border-bottom: 1px solid var(--color-border-subtle);
   transition: background-color 0.2s var(--ease-soft);
+  box-sizing: border-box;
 }
 
 .accordionItemOpen {
@@ -131,13 +132,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1.5rem 0.5rem;
+  padding: 1.6rem 1.75rem; /* 28px generous horizontal padding */
+  box-sizing: border-box;
   background: none;
   border: none;
   color: var(--color-text-primary);
   text-align: left;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .accordionTrigger:hover .questionText {
@@ -146,7 +148,7 @@
 
 .accordionTrigger:focus-visible {
   outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
+  outline-offset: -2px;
 }
 
 .triggerLeft {
@@ -205,7 +207,8 @@
 }
 
 .accordionContent {
-  padding: 0 0.5rem 1.5rem calc(0.5rem + 1.25rem + 1.25rem);
+  padding: 0 1.75rem 1.6rem 1.75rem; /* Matches trigger 28px horizontal padding */
+  box-sizing: border-box;
 }
 
 .answerParagraph {
@@ -216,6 +219,7 @@
   color: var(--color-text-secondary);
   white-space: pre-line;
   max-width: 820px;
+  margin: 0;
 }
 
 .viewAllFooter {
@@ -261,7 +265,22 @@
     gap: 0.85rem;
   }
 
+  .accordionTrigger {
+    padding: 1.25rem 1.15rem; /* ~18px horizontal padding on mobile */
+    gap: 1rem;
+  }
+
   .accordionContent {
-    padding-left: 0.5rem;
+    padding: 0 1.15rem 1.35rem 1.15rem; /* ~18px horizontal padding matching trigger */
+  }
+
+  .questionText {
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+
+  .answerParagraph {
+    font-size: 0.95rem;
+    line-height: 1.65;
   }
 }

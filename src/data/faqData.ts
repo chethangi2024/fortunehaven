@@ -17,7 +17,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "what-is-fortune-haven",
     question: "What is Fortune Haven?",
     answer:
-      "Fortune Haven is an exclusive gated residential enclave developed by Cannas Lily Infrastructure Pvt. Ltd., featuring twenty-four bespoke four-storey private residences thoughtfully envisioned for a life shaped by vertical space, calm seclusion, and refined architectural distinction.",
+      "Fortune Haven is an exclusive gated residential enclave developed by Cannas Lily Infrastructure Pvt. Ltd., featuring twenty-four distinctive four-storey private residences thoughtfully envisioned for a life shaped by vertical space, calm seclusion, and refined architectural distinction.",
     category: "Project & Vision",
   },
   {
@@ -87,7 +87,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "contact-team",
     question: "How can I contact the Fortune Haven team?",
     answer:
-      "You can connect directly with our advisory team through the Private Enquiry form on this website or by submitting a formal brochure request. Our representatives will respond with bespoke guidance regarding architectural details and consultation scheduling.",
+      "You can connect directly with our advisory team through the Private Enquiry form on this website or by submitting a formal brochure request. Our representatives will respond with dedicated guidance regarding architectural details and consultation scheduling.",
     category: "Enquiry & Visits",
   },
   {

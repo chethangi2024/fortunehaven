@@ -227,9 +227,28 @@
   height: 100%;
 }
 
+/* Property Disclaimer */
+.propertyDisclaimer {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.disclaimerParagraph {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  line-height: 1.65;
+  color: #8C8880;
+  margin: 0;
+}
+
+.disclaimerParagraph strong {
+  color: #C2BFB8;
+  font-weight: 600;
+}
+
 /* Bottom Sub-Footer Bar */
 .bottomBar {
-  padding-top: 1.5rem;
+  padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;

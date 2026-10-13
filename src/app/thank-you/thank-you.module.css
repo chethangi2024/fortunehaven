@@ -1,0 +1,152 @@
+.thankYouWrapper {
+  min-height: 100vh;
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.thankYouMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: var(--space-3xl);
+  position: relative;
+}
+
+.cardContainer {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius, 10px);
+  padding: 3.5rem 3rem;
+  box-shadow: 0 16px 40px rgba(41, 39, 34, 0.04);
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--color-canvas-alt);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 999px;
+  font-family: var(--font-nav);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 2.5vw, 2.35rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+
+.message {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.detailsBox {
+  background: var(--color-canvas);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--site-radius-sm, 6px);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.25rem;
+  text-align: left;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detailLabel {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.detailValue {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.backHomeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--color-text-primary);
+  color: #FFFFFF;
+  font-family: var(--font-nav);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--site-radius, 10px);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.backHomeBtn:hover {
+  background: var(--color-gold);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btnArrow {
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.backHomeBtn:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+}

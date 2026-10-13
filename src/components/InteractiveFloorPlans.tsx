@@ -25,14 +25,31 @@ interface FloorLevel {
 
 const FLOOR_LEVELS: FloorLevel[] = [
   {
-    id: "basement",
+    id: "site-plan",
     number: "01",
-    tabLabel: "BASEMENT / STILT",
-    levelTitle: "SITE PLAN & BASEMENT",
+    tabLabel: "SITE PLAN",
+    levelTitle: "MASTER SITE PLAN",
+    area: "24 VILLAS",
+    subtitle: "Gated Enclave • Private Layout • Verdant Buffer",
+    imageSrc: "/digital-assets/Floor Plane and Site Plan/Indicative Site Plan.jpeg",
+    altText: "Fortune Haven Master Site Plan Layout showing 24 gated boutique villas and internal avenue",
+    highlights: [
+      "Master layout encompassing 24 boutique four-storey villas.",
+      "Dedicated internal circulation avenues and wide tree-lined access.",
+      "Strategic orientation framing open views toward Nandi Hills.",
+      "Lush perimeter landscaping and gated security perimeter.",
+      "Generous private garden buffers between each residence.",
+    ],
+  },
+  {
+    id: "basement",
+    number: "02",
+    tabLabel: "BASEMENT",
+    levelTitle: "BASEMENT & PARKING",
     area: "1,086 SQ FT",
     subtitle: "Park • Work • Charge • Connect • Breathe",
     imageSrc: "/digital-assets/Floor Plane and Site Plan/Floor Plan 1.png",
-    altText: "Fortune Haven Basement and Stilt Floor Architectural Plan showing 3-car parking, EV charging, and home office",
+    altText: "Fortune Haven Basement Floor Architectural Plan showing 3-car parking, EV charging, and home office",
     highlights: [
       "Spacious parking for three cars.",
       "Dedicated EV charging point provision.",
@@ -43,7 +60,7 @@ const FLOOR_LEVELS: FloorLevel[] = [
   },
   {
     id: "ground",
-    number: "02",
+    number: "03",
     tabLabel: "GROUND FLOOR",
     levelTitle: "GROUND FLOOR LIVING",
     area: "1,226 SQ FT",
@@ -60,7 +77,7 @@ const FLOOR_LEVELS: FloorLevel[] = [
   },
   {
     id: "first",
-    number: "03",
+    number: "04",
     tabLabel: "FIRST FLOOR",
     levelTitle: "FIRST FLOOR SUITES",
     area: "1,226 SQ FT",
@@ -77,7 +94,7 @@ const FLOOR_LEVELS: FloorLevel[] = [
   },
   {
     id: "second",
-    number: "04",
+    number: "05",
     tabLabel: "SECOND FLOOR",
     levelTitle: "SECOND FLOOR RETREAT",
     area: "743 SQ FT",
@@ -337,26 +354,17 @@ export const InteractiveFloorPlans: React.FC = () => {
                   ))}
                 </ul>
               </div>
-
-              <div className={styles.architecturalNote}>
-                <span className={styles.noteTitle}>SPATIAL NOTE</span>
-                <p className={styles.noteBody}>
-                  Directly preserved from approved brochure schematics. Designed to provide natural separation
-                  between everyday gathering and private family seclusion.
-                </p>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Materials & Finishes Section (Brochure Page 12) */}
+        {/* Materials & Finishes Section */}
         <div className={styles.materialsSection}>
           <div className={styles.materialsHeaderLine}>
             <div>
               <span className={styles.materialsTag}>MATERIALS & SPECIFICATIONS</span>
               <h3 className={styles.materialsTitle}>The Details You Live With Every Day.</h3>
             </div>
-            <span className={styles.materialsSource}>CLIENT BROCHURE PAGE 12 SPECIFICATIONS</span>
           </div>
 
           <div className={styles.materialsGrid}>

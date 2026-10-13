@@ -40,7 +40,7 @@ const REASONS: ReasonItem[] = [
   {
     number: "05",
     title: "SPACIOUS 3-CAR PARKING",
-    description: "Dedicated basement and stilt parking bays for your family's vehicles with EV provision.",
+    description: "Dedicated basement parking bays for your family's vehicles with EV provision.",
   },
   {
     number: "06",
@@ -65,7 +65,7 @@ const REASONS: ReasonItem[] = [
   {
     number: "10",
     title: "READY TO MOVE IN",
-    description: "Completed boutique enclave with OC received, BIAAPA approval, and RERA registration.",
+    description: "Completed boutique enclave with OC received, BIAAPA approval, and RERA Approved.",
   },
 ];
 

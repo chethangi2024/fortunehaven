@@ -138,14 +138,18 @@ export const Footer: React.FC<FooterProps> = ({ onBrochureClick }) => {
           </div>
         </div>
 
+        {/* Property Disclaimer */}
+        <div className={styles.propertyDisclaimer}>
+          <p className={styles.disclaimerParagraph}>
+            <strong>Disclaimer:</strong> Architectural renderings, visualisations, model villa representations, and interior furnishings shown across this website are artistic impressions and indicative for illustrative purposes only. Villa specifications, dimensions, amenities, layouts, and materials are subject to the applicable approved architectural plans and sanction documents. Distances, travel times, and regional connectivity metrics are approximate and may vary depending on routes, traffic conditions, and infrastructural developments. Prospective purchasers are advised to verify all project details directly with the developer before entering into any transaction.
+          </p>
+        </div>
+
         {/* Bottom Legal & Regulatory Bar */}
         <div className={styles.bottomBar}>
           <div className={styles.copyrightRow}>
             <span>
               © {currentYear} Cannas Lily Infrastructure Pvt. Ltd. All rights reserved.
-            </span>
-            <span className={styles.disclaimerText}>
-              All imagery, architectural layouts, and specifications are indicative representations.
             </span>
           </div>
 
