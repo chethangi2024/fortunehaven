@@ -20,27 +20,27 @@ interface OutdoorFeature {
 const OUTDOOR_FEATURES: OutdoorFeature[] = [
   {
     number: "01",
-    title: "PRIVATE INDOOR & OUTDOOR GARDEN",
+    title: "PRIVATE GARDEN",
     description:
-      "A personal green sanctuary for quiet mornings, family relaxation, and unhurried evenings, seamlessly connecting interior living with lush natural foliage.",
+      "A personal green space for quiet mornings, family time and relaxed evenings.",
   },
   {
     number: "02",
-    title: "FRONT & BACKYARD LANDSCAPING",
+    title: "FRONT & BACKYARD LANDSCAPE",
     description:
-      "Dedicated front arrival lawn and private rear yard that lend each four-storey villa an unmistakable sense of openness, individuality, and boundary seclusion.",
+      "Landscaped outdoor areas that give the villa a sense of openness and privacy.",
   },
   {
     number: "03",
     title: "4 PRIVATE BALCONIES",
     description:
-      "Every bedroom opens directly to the outdoors through its own dedicated balcony, bringing fresh air and natural cross-ventilation into daily routines.",
+      "Each bedroom connects with the outdoors through its own balcony.",
   },
   {
     number: "04",
-    title: "SPACIOUS ELEVATED TERRACE",
+    title: "SPACIOUS TERRACE",
     description:
-      "A generous open-air crown perched on the top floor, providing an expansive setting for evening celebrations, stargazing, and panoramic views toward Nandi Hills.",
+      "An elevated outdoor retreat for entertaining, relaxing and enjoying the views.",
   },
 ];
 
@@ -149,16 +149,6 @@ export const ArchitecturalOutdoor: React.FC = () => {
                 entertain and enjoy the changing surroundings. With views towards Nandi Hills,
                 the outdoors brings a greater sense of openness to everyday living.
               </p>
-
-              <div className={styles.featuresSummary}>
-                <span className={styles.summaryItem}>Indoor & Outdoor Gardens</span>
-                <span className={styles.summaryDot}>•</span>
-                <span className={styles.summaryItem}>4 Private Balconies</span>
-                <span className={styles.summaryDot}>•</span>
-                <span className={styles.summaryItem}>Elevated Terrace</span>
-                <span className={styles.summaryDot}>•</span>
-                <span className={styles.summaryItem}>Nandi Hills Views</span>
-              </div>
             </div>
           </div>
         </div>
@@ -168,7 +158,7 @@ export const ArchitecturalOutdoor: React.FC = () => {
           <div ref={heroImageRef} className={styles.heroFrame}>
             <div ref={heroInnerRef} className={styles.imageInner}>
               <Image
-                src="/digital-assets/Villa Images/Villa 1.png"
+                src="/digital-assets/Villa Images/Villa.png"
                 alt="Fortune Haven Contemporary Villa Architecture Harmonized with Private Gardens"
                 fill
                 sizes="(max-width: 768px) 100vw, 1440px"

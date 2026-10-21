@@ -17,84 +17,63 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "what-is-fortune-haven",
     question: "What is Fortune Haven?",
     answer:
-      "Fortune Haven is an exclusive gated residential enclave developed by Cannas Lily Infrastructure Pvt. Ltd., featuring twenty-four distinctive four-storey private residences thoughtfully envisioned for a life shaped by vertical space, calm seclusion, and refined architectural distinction.",
+      "Fortune Haven is an exclusive gated enclave of twenty-four four-storey private residences in Devanahalli, Bengaluru Rural, developed by Cannas Lily Infrastructure Pvt. Ltd. (JCN Group). Each villa features four thoughtfully planned levels with a built-up area of 4,281 sq ft and an undivided land share (UDS) of 2,800 sq ft.",
     category: "Project & Vision",
   },
   {
-    id: "location",
-    question: "Where is Fortune Haven located?",
+    id: "approvals-status",
+    question: "What approvals does Fortune Haven have, and is it ready to move in?",
     answer:
-      "Fortune Haven is positioned along the NH-207 arterial corridor in the serene foothills of the Nandi Hills region, Bengaluru Rural, Karnataka. The setting combines natural foothill tranquility with direct regional connectivity to the NH-7 / Airport Expressway, Kempegowda International Airport (BLR), and North Bengaluru.",
+      "Fortune Haven has received its Occupancy Certificate (OC Received) and is BIAAPA Approved and RERA Approved. The residences are ready to move in, and a fully furnished model villa is available on-site for prospective buyers to inspect.",
+    category: "Project & Vision",
+  },
+  {
+    id: "location-connectivity",
+    question: "Where is Fortune Haven located and what is the connectivity?",
+    answer:
+      "Fortune Haven is situated adjacent to NH-207 and just 200 m from NH-44 in Devanahalli Town, Bengaluru Rural (Pin: 562110). It is 1 km from the STRR (Satellite Town Ring Road), 15 km from Kempegowda International Airport, 15 km from the Aerospace Industry Hub, and 20 km from Nandi Hills.",
     category: "Location",
-  },
-  {
-    id: "villa-count",
-    question: "How many villas are planned at Fortune Haven?",
-    answer:
-      "The enclave is deliberately limited to twenty-four (24) private residences, preserving acoustic privacy, expansive site buffers, and an intimate community atmosphere.",
-    category: "Project & Vision",
-  },
-  {
-    id: "distinctive-features",
-    question: "What makes the villas distinctive?",
-    answer:
-      "Each residence is conceived as a multi-tier vertical sanctuary spanning four levels (G+3 elevation). Key architectural signatures include double-height living salons, private elevator access across all floors, expansive rooftop viewing terraces, private gardens, and generous glass openings framing verdant foothill horizons.",
-    category: "Architecture",
   },
   {
     id: "floor-levels",
     question: "What are the different floor levels?",
     answer:
-      "The villas are organized into four dedicated tiers:\n• Level 01 (Basement/Stilt): Covered multi-vehicle parking bay, private home office/utility studio, arrival garden, and elevator core.\n• Level 02 (Ground Floor): Double-height living salon, dining area, open gourmet kitchen, guest suite, and private yard.\n• Level 03 (First Floor): Primary master bedroom sanctuary with dressing room and ensuite, family lounge, and private planter terrace.\n• Level 04 (Second Floor): Two ensuite bedroom suites, secondary TV lounge, view-framing balconies, and double-height architectural overlook.",
+      "Level 01 — Basement: Covered three-car parking, EV charging point, home office / utility room, private lift, staircase.\n\nLevel 02 — Ground Floor: Double-height living, dining area, kitchen, one bedroom, private lawn, private yard, sit-out.\n\nLevel 03 — First Floor: Two bedrooms with attached dressing areas and bathrooms, central TV lounge, private balconies.\n\nLevel 04 — Second Floor: Master bedroom with dressing area and attached bathroom, family lounge, spacious terrace.",
     category: "Architecture",
   },
   {
-    id: "outdoor-spaces",
-    question: "Do the villas include private outdoor spaces?",
+    id: "amenities",
+    question: "What shared clubhouse and enclave amenities are provided?",
     answer:
-      "Yes. Every villa incorporates multiple private open-air settings, including landscaped entrance gardens, private ground-level yards, deep shaded bedroom balconies, open mid-level planter terraces, and a private rooftop lookout terrace with open views toward the Nandi Hills and Skandagiri ridgelines.",
-    category: "Architecture",
-  },
-  {
-    id: "lifestyle-amenities",
-    question: "What lifestyle amenities are shown in the project?",
-    answer:
-      "Confirmed project amenities include a swimming pool with shallow lounging shelf and stone sun deck, a resident social clubhouse, a dedicated quiet library/study sanctum, landscaped perimeter pathways, and private rooftop entertaining zones.",
+      "Fortune Haven provides a dedicated clubhouse and community amenities including a swimming pool, jacuzzi, sauna, gymnasium, walking/jogging track, squash court, billiards & table tennis, chess & carrom lounge, restaurant, spiritual spaces, dedicated work space, EV charging infrastructure, and 24/7 CCTV surveillance.",
     category: "Lifestyle",
   },
   {
-    id: "explore-floor-plans",
-    question: "How can I explore the floor plans?",
+    id: "outdoor-spaces",
+    question: "What private outdoor spaces does each villa have?",
     answer:
-      "You can explore the interactive floor plans directly on the homepage in the 'Interactive Floor Plans' section, which allows you to toggle through all four levels and examine detailed spatial layouts and architectural specifications.",
-    category: "Exploration",
+      "Each four-storey villa includes a private front lawn, a landscaped backyard garden, a quiet sit-out, four private balconies, and a spacious open-air rooftop balcony terrace framing views of the Nandi Hills.",
+    category: "Architecture",
   },
   {
-    id: "request-brochure",
-    question: "How can I request the property brochure?",
+    id: "parking-lift",
+    question: "Is there private elevator access and dedicated car parking?",
     answer:
-      "You can request the comprehensive architectural monograph via the 'Request Brochure' button located in the navigation header, brochure section, or footer. After submitting your verified contact details, an instant access link to the high-resolution PDF document is provided.",
-    category: "Exploration",
+      "Yes. Every villa includes an individual private lift serving all four levels from basement to the second floor, as well as a spacious 3-car basement parking bay with EV charging provision.",
+    category: "Architecture",
   },
   {
     id: "site-visit",
-    question: "Can I arrange a site visit?",
+    question: "Can I visit the property and inspect the model villa?",
     answer:
-      "Private previews and on-site consultations are coordinated individually through the Private Enquiry form. Because Fortune Haven is an exclusive private enclave with ongoing site preparations, visits are scheduled by appointment only. Our advisory team will confirm arrangements upon reviewing your inquiry.",
+      "Yes. A fully furnished four-storey model villa is ready on-site in Devanahalli. You can schedule a private viewing by submitting the enquiry form on this website or by contacting the sales team at +91 91640 16999 / +91 91801 95940.",
     category: "Enquiry & Visits",
   },
   {
-    id: "contact-team",
-    question: "How can I contact the Fortune Haven team?",
+    id: "request-brochure",
+    question: "How can I obtain the official Fortune Haven brochure?",
     answer:
-      "You can connect directly with our advisory team through the Private Enquiry form on this website or by submitting a formal brochure request. Our representatives will respond with dedicated guidance regarding architectural details and consultation scheduling.",
-    category: "Enquiry & Visits",
-  },
-  {
-    id: "more-information",
-    question: "Where can I find more information about the project?",
-    answer:
-      "Detailed visual galleries, architectural narratives, connectivity maps, and legal disclosures are published across this website. For statutory queries or specific architectural queries not yet published, please submit an enquiry to receive official documentation directly from Cannas Lily Infrastructure Pvt. Ltd.",
+      "You can request the brochure through the 'Request Brochure' button in the navigation header or by submitting your contact details in the brochure request form on this website.",
     category: "Enquiry & Visits",
   },
 ];

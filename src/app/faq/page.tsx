@@ -32,7 +32,7 @@ const faqStructuredData = {
   "@id": `${SITE_URL}/faq/#faqpage`,
   name: "Fortune Haven Property FAQ",
   description:
-    "Essential questions and answers regarding Fortune Haven's ultra-luxury four-storey villas in the Nandi Hills foothills.",
+    "Essential questions and answers regarding Fortune Haven's ultra luxury villas in the Nandi Hills foothills.",
   mainEntity: FAQ_ITEMS.map((item) => ({
     "@type": "Question",
     name: item.question,

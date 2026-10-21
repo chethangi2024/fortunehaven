@@ -19,53 +19,53 @@ interface ReasonItem {
 const REASONS: ReasonItem[] = [
   {
     number: "01",
-    title: "FOUR-STOREY VILLA FORMAT",
-    description: "More space for living, retreating and entertaining across dedicated vertical levels.",
+    title: "FOUR-STOREY VILLA",
+    description: "More space for living, retreating and entertaining.",
   },
   {
     number: "02",
-    title: "SPACIOUS 4 BHK CONFIGURATION",
-    description: "4,281 sq ft built-up area and 2,800 sq ft undivided land share for contemporary living.",
+    title: "4 BHK",
+    description: "A spacious configuration designed for contemporary family living.",
   },
   {
     number: "03",
     title: "FULLY FURNISHED MODEL VILLA",
-    description: "A completed model home on-site prepared for you to inspect and experience in person.",
+    description: "A home prepared for you to inspect and make your own.",
   },
   {
     number: "04",
-    title: "INDIVIDUAL PRIVATE LIFT",
-    description: "Private elevator access connecting all villa levels from basement parking to rooftop.",
+    title: "INDIVIDUAL LIFT",
+    description: "Private lift access designed for everyday convenience.",
   },
   {
     number: "05",
-    title: "SPACIOUS 3-CAR PARKING",
-    description: "Dedicated basement parking bays for your family's vehicles with EV provision.",
+    title: "3-CAR PARKING",
+    description: "Dedicated parking for your family's vehicles.",
   },
   {
     number: "06",
     title: "INDOOR & OUTDOOR SPACES",
-    description: "Front and backyard gardens, four private balconies and a spacious view-framing terrace.",
+    description: "Front and backyard gardens, balconies and a spacious terrace.",
   },
   {
     number: "07",
     title: "NANDI HILLS VIEWS",
-    description: "A distinctive natural backdrop framing everyday life with fresh air and open skies.",
+    description: "A distinctive natural backdrop from the villa.",
   },
   {
     number: "08",
-    title: "EV CHARGING PROVISION",
-    description: "Dedicated charging points installed at each villa for modern electric vehicle convenience.",
+    title: "EV CHARGING",
+    description: "Charging provision for your electric vehicle.",
   },
   {
     number: "09",
     title: "MODERN INFRASTRUCTURE",
-    description: "100% power backup, rainwater harvesting systems, and treated continuous water supply.",
+    description: "Power backup, water systems and rainwater harvesting.",
   },
   {
     number: "10",
     title: "READY TO MOVE IN",
-    description: "Completed boutique enclave with OC received, BIAAPA approval, and RERA Approved.",
+    description: "Step into a completed home designed for immediate living.",
   },
 ];
 
@@ -153,16 +153,6 @@ export const WhyFortuneHaven: React.FC = () => {
                 every level around your lifestyle. Live at Fortune Haven, where success, privacy and
                 elegance come together.
               </p>
-
-              <div className={styles.reasonsSummary}>
-                <span className={styles.sumItem}>24 Boutique Villas</span>
-                <span className={styles.sumDot}>•</span>
-                <span className={styles.sumItem}>4,281 Sq Ft Layout</span>
-                <span className={styles.sumDot}>•</span>
-                <span className={styles.sumItem}>2,800 Sq Ft UDS</span>
-                <span className={styles.sumDot}>•</span>
-                <span className={styles.sumItem}>OC Received</span>
-              </div>
             </div>
           </div>
         </div>
@@ -189,8 +179,8 @@ export const WhyFortuneHaven: React.FC = () => {
             <p className={styles.devDesc}>
               One of Bengaluru’s premium real-estate developers, JCN has been instrumental in developing
               quality residential projects in and around Bengaluru. Our objective has always been to create
-              living spaces that balance experience and aesthetics, with ultimate customer satisfaction as our
-              focal point.
+              premium living spaces that balance experience and aesthetics, with ultimate customer satisfaction
+              as our focal point.
             </p>
           </div>
           <div className={styles.devColRight}>

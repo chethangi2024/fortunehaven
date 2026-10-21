@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onBrochureClick }) => {
               <div className={styles.logoWrapper}>
                 <Image
                   src="/digital-assets/Logo/Logo 1.png"
-                  alt="Fortune Haven Ultra Luxury Four-Storey Villas"
+                  alt="Fortune Haven Ultra Luxury Villas"
                   width={2000}
                   height={359}
                   className={styles.logoImg}
@@ -149,7 +149,7 @@ export const Footer: React.FC<FooterProps> = ({ onBrochureClick }) => {
         <div className={styles.bottomBar}>
           <div className={styles.copyrightRow}>
             <span>
-              © {currentYear} Cannas Lily Infrastructure Pvt. Ltd. All rights reserved.
+              © {currentYear} Fortune Haven. All rights reserved.
             </span>
           </div>
 

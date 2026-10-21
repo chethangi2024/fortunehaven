@@ -144,6 +144,31 @@
   letter-spacing: 0.01em;
 }
 
+/* Property Facts row */
+.propertyFactsList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.15rem;
+}
+
+.propertyFactItem {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: var(--site-radius, 6px);
+  font-family: var(--font-nav);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #F3EFE6;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 /* Highlights Line */
 .highlightLine {
   display: inline-flex;
@@ -421,6 +446,16 @@
     max-width: 100%;
     margin-bottom: 1.15rem;
     color: #E2DDD5;
+  }
+
+  .propertyFactsList {
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+  }
+
+  .propertyFactItem {
+    font-size: 0.68rem;
+    padding: 0.25rem 0.55rem;
   }
 
   .highlightLine {

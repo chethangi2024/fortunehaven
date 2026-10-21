@@ -24,23 +24,23 @@ const DISTANCE_NODES: DistanceNode[] = [
   {
     category: "AIRPORT & CONNECTIVITY",
     items: [
-      { destination: "NH-207 Arterial", distance: "Adjacent to Fortune Haven" },
-      { destination: "NH-44 Expressway", distance: "200 m" },
-      { destination: "STRR (Satellite Town Ring Road)", distance: "1 km" },
+      { destination: "NH-207", distance: "Adjacent to Fortune Haven" },
+      { destination: "NH-44", distance: "200 m" },
+      { destination: "STRR – Satellite Town Ring Road", distance: "1 km" },
       { destination: "Kempegowda International Airport", distance: "15 km" },
       { destination: "Yelahanka", distance: "20 km" },
       { destination: "Doddaballapura", distance: "23 km" },
-      { destination: "Hebbal Flyover", distance: "30 km" },
+      { destination: "Hebbal", distance: "30 km" },
     ],
   },
   {
-    category: "BUSINESS & TECH CORRIDORS",
+    category: "BUSINESS CORRIDOR",
     items: [
       { destination: "Prestige Tech Cloud", distance: "11 km" },
       { destination: "Puravankara Aerocity", distance: "14 km" },
-      { destination: "Foxconn Assembly Campus", distance: "15 km" },
+      { destination: "Foxconn", distance: "15 km" },
       { destination: "Aerospace Industry Hub", distance: "15 km" },
-      { destination: "Hardware Park / KIADB IT SEZ", distance: "20 km" },
+      { destination: "Hardware Park", distance: "20 km" },
       { destination: "KWIN City (Proposed)", distance: "60 km" },
     ],
   },
@@ -48,23 +48,23 @@ const DISTANCE_NODES: DistanceNode[] = [
     category: "EDUCATION & HEALTHCARE",
     items: [
       { destination: "Ramaiah Leena Hospital", distance: "2 km" },
-      { destination: "Shri Shirdi Sai Hospital", distance: "3 km" },
-      { destination: "Akash Institute of Medical Sciences", distance: "4 km" },
-      { destination: "Harrow International School", distance: "10 km" },
+      { destination: "Shri Shirdi Sai Multispeciality Hospital", distance: "3 km" },
+      { destination: "Akash Institute of Medical Sciences & Research Centre", distance: "4 km" },
       { destination: "Chanakya University", distance: "10 km" },
-      { destination: "Amity International School & University", distance: "11 km" },
-      { destination: "Cambridge Institute of Technology", distance: "14 km" },
+      { destination: "Harrow International School", distance: "10 km" },
+      { destination: "Amity International School & University Bengaluru", distance: "11 km" },
+      { destination: "Cambridge Institute Of Technology North Campus", distance: "14 km" },
     ],
   },
   {
-    category: "HERITAGE, LEISURE & RETREATS",
+    category: "DESTINATIONS, HERITAGE & LEISURE",
     items: [
-      { destination: "Devanahalli Fort & Town", distance: "2 km" },
-      { destination: "JW Marriott Prestige Golfshire", distance: "7 km" },
-      { destination: "Prestige High-End Mall (Upcoming)", distance: "10 km" },
-      { destination: "Nandi Hills Lookout", distance: "20 km" },
-      { destination: "Skandagiri Hills Trekking Base", distance: "22 km" },
-      { destination: "Isha Foundation Chikkaballapura", distance: "32 km" },
+      { destination: "Devanahalli Fort", distance: "2 km" },
+      { destination: "JW Marriott Bengaluru Prestige Golfshire", distance: "7 km" },
+      { destination: "Prestige High End Mall (Upcoming)", distance: "10 km" },
+      { destination: "Nandi Hills", distance: "20 km" },
+      { destination: "Skandagiri Hills", distance: "22 km" },
+      { destination: "Isha Foundation", distance: "32 km" },
     ],
   },
 ];
@@ -73,11 +73,11 @@ const DISTANCE_NODES: DistanceNode[] = [
  * Key immediate highlights shown in the right-column summary card
  */
 const KEY_NEARBY_HIGHLIGHTS = [
-  { destination: "NH-44 Airport Expressway", distance: "200 m" },
-  { destination: "STRR (Satellite Town Ring Road)", distance: "1 km" },
-  { destination: "Devanahalli Fort & Town", distance: "2 km" },
+  { destination: "NH-44", distance: "200 m" },
+  { destination: "STRR – Satellite Town Ring Road", distance: "1 km" },
+  { destination: "Devanahalli Fort", distance: "2 km" },
   { destination: "Prestige Tech Cloud", distance: "11 km" },
-  { destination: "Kempegowda International Airport (BLR)", distance: "15 km" },
+  { destination: "Kempegowda International Airport", distance: "15 km" },
   { destination: "Nandi Hills", distance: "20 km" },
 ];
 
@@ -150,7 +150,7 @@ export const LocationConnectivity: React.FC = () => {
           <div ref={mapCardRef} className={styles.mapCol}>
             <div className={styles.mapCard}>
               <iframe
-                title="Fortune Haven Ultra Luxury Four Storey Villas - Google Maps Location"
+                title="Fortune Haven Ultra Luxury Villas - Google Maps Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3883.4870540505685!2d77.7097017!3d13.257475399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb1e30017f8509f%3A0x36a7fc699f356f9!2sFORTUNE%20HAVEN%20-%20Ultra%20Luxury%20Four%20Storey%20Villas!5e0!3m2!1sen!2sin!4v1791712465965!5m2!1sen!2sin"
                 className={styles.mapIframe}
                 loading="lazy"
@@ -166,27 +166,26 @@ export const LocationConnectivity: React.FC = () => {
               <span className={styles.eyebrow}>LOCATION & CONNECTIVITY</span>
               <h2 className={styles.headline}>Connected to What Matters.</h2>
               <p className={styles.description}>
-                Fortune Haven places you within easy reach of North Bengaluru’s key landmarks, education
-                hubs, healthcare, business corridors, and the international airport. Situated directly on
-                NH-207 and just 200 metres from the 6-lane NH-44 Airport Expressway, the enclave balances
-                restful foothill seclusion with seamless urban access.
+                Fortune Haven places you within reach of North Bengaluru&apos;s key landmarks, education hubs,
+                healthcare, hospitality, business destinations and major connectivity corridors. Situated adjacent
+                to NH-207 and just 200 m from NH-44, the enclave balances natural surroundings with seamless access.
               </p>
 
               {/* Quick Proximity Pill Badges */}
               <div className={styles.quickPills}>
                 <div className={styles.pillBadge}>
                   <span className={styles.pillDot} />
-                  <span>NH-44 Expressway:</span>
+                  <span>NH-44:</span>
                   <span className={styles.pillValue}>200 m</span>
                 </div>
                 <div className={styles.pillBadge}>
                   <span className={styles.pillDot} />
-                  <span>KIA Airport (BLR):</span>
+                  <span>Kempegowda Int. Airport:</span>
                   <span className={styles.pillValue}>15 km</span>
                 </div>
                 <div className={styles.pillBadge}>
                   <span className={styles.pillDot} />
-                  <span>Aerospace Park:</span>
+                  <span>Aerospace Industry Hub:</span>
                   <span className={styles.pillValue}>15 km</span>
                 </div>
                 <div className={styles.pillBadge}>

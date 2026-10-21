@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({ onTourClick }) => {
             <div className={styles.logoWrapper}>
               <Image
                 src="/digital-assets/Logo/Logo 1.png"
-                alt="Fortune Haven Ultra Luxury Four-Storey Villas"
+                alt="Fortune Haven Ultra Luxury Villas"
                 width={2000}
                 height={359}
                 priority
@@ -107,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({ onTourClick }) => {
               />
               <Image
                 src="/digital-assets/Logo/Logo.png"
-                alt="Fortune Haven Ultra Luxury Four-Storey Villas"
+                alt="Fortune Haven Ultra Luxury Villas"
                 width={2000}
                 height={359}
                 priority

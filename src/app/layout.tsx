@@ -30,9 +30,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fortunehaven.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Fortune Haven | Ultra-Luxury Four-Storey Villas",
+  title: "Fortune Haven | Ultra Luxury Villas",
   description:
-    "Discover Fortune Haven, a private collection of ultra-luxury four-storey villas near the Nandi Hills region, designed around space, architecture and considered living.",
+    "Discover Fortune Haven, a private collection of ultra luxury villas near the Nandi Hills region, designed around space, architecture and considered living.",
   keywords: [
     "Fortune Haven luxury villas",
     "Luxury villas near Nandi Hills",
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     apple: "/digital-assets/Logo/Fevicon.png",
   },
   openGraph: {
-    title: "Fortune Haven | Ultra-Luxury Four-Storey Villas",
+    title: "Fortune Haven | Ultra Luxury Villas",
     description:
-      "Discover Fortune Haven, a private collection of ultra-luxury four-storey villas near the Nandi Hills region, designed around space, architecture and considered living.",
+      "Discover Fortune Haven, a private collection of ultra luxury villas near the Nandi Hills region, designed around space, architecture and considered living.",
     url: "/",
     siteName: "Fortune Haven",
     images: [
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fortune Haven | Ultra-Luxury Four-Storey Villas",
+    title: "Fortune Haven | Ultra Luxury Villas",
     description:
-      "Discover Fortune Haven, a private collection of ultra-luxury four-storey villas near the Nandi Hills region, designed around space, architecture and considered living.",
+      "Discover Fortune Haven, a private collection of ultra luxury villas near the Nandi Hills region, designed around space, architecture and considered living.",
     images: ["/digital-assets/Villa Images/Upscale_this_image_2K_20261007212944.jpg"],
   },
   robots: {
@@ -110,7 +110,7 @@ const structuredData = {
       url: SITE_URL,
       name: "Fortune Haven",
       description:
-        "Official website for Fortune Haven, a private collection of 24 ultra-luxury four-storey villas along the NH-207 corridor in the Nandi Hills foothills.",
+        "Official website for Fortune Haven, a private collection of 24 ultra luxury villas along the NH-207 corridor in the Nandi Hills foothills.",
       publisher: {
         "@id": `${SITE_URL}/#organization`,
       },

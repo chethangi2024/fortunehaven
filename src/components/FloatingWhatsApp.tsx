@@ -2,9 +2,7 @@ import React from "react";
 import styles from "./FloatingWhatsApp.module.css";
 
 export const FloatingWhatsApp: React.FC = () => {
-  // Direct WhatsApp link format for phone number +91 91801 95940 with URL encoded prefilled query
-  const whatsappUrl =
-    "https://wa.me/919180195940?text=Hello%20Fortune%20Haven%20Team%2C%20I%20would%20like%20to%20know%20more%20about%20the%20villas.";
+  const whatsappUrl = "https://wa.me/919164016999";
 
   return (
     <a
@@ -12,8 +10,8 @@ export const FloatingWhatsApp: React.FC = () => {
       target="_blank"
       rel="noopener noreferrer"
       className={styles.floatingBtn}
-      aria-label="Chat with Fortune Haven on WhatsApp (+91 91801 95940)"
-      title="Chat on WhatsApp (+91 91801 95940)"
+      aria-label="Chat with Fortune Haven on WhatsApp"
+      title="Chat with Fortune Haven on WhatsApp"
     >
       <svg
         viewBox="0 0 24 24"

@@ -18,6 +18,7 @@ interface HeroScene {
   headline: string;
   description: string;
   highlight: string;
+  propertyFacts?: readonly string[];
   imageSrc: string;
   altText: string;
   ctaText: string;
@@ -38,11 +39,12 @@ const HERO_SCENES: readonly HeroScene[] = [
     id: "scene-1",
     theme: "The First Impression",
     eyebrow: "Devanahalli, Bengaluru",
-    headline: "A Life Above Ordinary.",
+    headline: "A Brighter Tomorrow Begins with the Right Address.",
     description:
-      "A gated enclave of 24 four-BHK Boutique Villas near the serene foothills of Nandi Hills. Clean forms, generous openings and carefully considered proportions create a distinctive architectural presence.",
-    highlight: "OC Received • BIAAPA & RERA Approved",
-    imageSrc: "/digital-assets/Hero Section/ezgif-frame-001.jpg",
+      "An exclusive gated enclave of 24 four-BHK boutique villas in Devanahalli, designed for families who value space, privacy and individuality.",
+    propertyFacts: ["4 Storeys", "4,281 Sq. Ft. Built-up Area", "2,800 Sq. Ft. UDS"],
+    highlight: "OC Received • BIAAPA Approved • RERA Approved",
+    imageSrc: "/digital-assets/Hero Section/ezgif-frame-002.jpg",
     altText:
       "Fortune Haven contemporary four-storey boutique villa architectural facade in Devanahalli",
     ctaText: "Explore The Villas",
@@ -56,7 +58,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     eyebrow: "Four-Storey Format • 4,281 Sq Ft",
     headline: "Room to Live, Grow and Thrive.",
     description:
-      "Designed for families who value space, privacy, and individuality. The four-storey format creates a natural separation between everyday living, private spaces, personal pursuits and leisure.",
+      "Four thoughtfully planned levels create dedicated spaces for family living, private retreats, work and leisure—giving every member of the family room to call their own.",
     highlight: "4 En-Suite Bedrooms • Private Lift • 3-Car Parking",
     imageSrc: "/digital-assets/Hero Section/ezgif-frame-075.jpg",
     altText:
@@ -72,7 +74,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     eyebrow: "Landscape & Outdoor Living",
     headline: "Where the Home Meets the Outdoors.",
     description:
-      "From sunrise yoga in your private garden to starlit evenings on the rooftop terrace, outdoor space becomes an extension of your home. Four private balconies connect every bedroom directly to fresh air.",
+      "Private gardens, four balconies and a spacious rooftop terrace bring outdoor living into everyday life, with views towards the Nandi Hills.",
     highlight: "Private Lawn • 4 Balconies • Terrace Retreat",
     imageSrc: "/digital-assets/Hero Section/ezgif-frame-150.jpg",
     altText:
@@ -88,7 +90,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     eyebrow: "Limited to 24 Families",
     headline: "Life, on Your Own Terms.",
     description:
-      "An exclusive community with a multi-storey clubhouse, swimming pool, and sports facilities, all set against the tranquil backdrop of the Nandi Hills corridor. Model villa ready for inspection.",
+      "A private community of just 24 villas, complemented by a clubhouse and shared leisure amenities. Visit the completed model villa and experience Fortune Haven in person.",
     highlight: "2,800 Sq Ft UDS • Clubhouse Pavilion • Ready To Move In",
     imageSrc: "/digital-assets/Hero Section/ezgif-frame-225.jpg",
     altText:
@@ -317,6 +319,15 @@ export const Hero: React.FC = () => {
                   <span className={styles.eyebrow}>{scene.eyebrow}</span>
                   <h1 className={styles.headline}>{scene.headline}</h1>
                   <p className={styles.description}>{scene.description}</p>
+                  {scene.propertyFacts && scene.propertyFacts.length > 0 && (
+                    <div className={styles.propertyFactsList} aria-label="Key Property Facts">
+                      {scene.propertyFacts.map((fact, fIdx) => (
+                        <span key={fIdx} className={styles.propertyFactItem}>
+                          {fact}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <div className={styles.highlightLine}>
                     <span>{scene.highlight}</span>
                   </div>

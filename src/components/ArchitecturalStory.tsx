@@ -40,7 +40,7 @@ const PILLARS: ExperiencePillar[] = [
     number: "04",
     title: "PRIVATE LEISURE",
     description:
-      "A dedicated Second floor retreat featuring a standard or an optional bar counter, home theatre and view-framing terrace.",
+      "A dedicated second-floor retreat featuring a bar counter, flexible entertainment space and view-framing terrace.",
   },
 ];
 
@@ -100,16 +100,6 @@ export const ArchitecturalStory: React.FC = () => {
             ease: "power3.out",
           },
           "-=0.5"
-        )
-        .from(
-          `.${styles.factsLine}`,
-          {
-            y: 12,
-            opacity: 0,
-            duration: 0.7,
-            ease: "power3.out",
-          },
-          "-=0.4"
         );
 
       // Primary Image reveal & gentle drift
@@ -204,24 +194,10 @@ export const ArchitecturalStory: React.FC = () => {
             {/* Right Column: Approved Brochure Description and Clean Typographic Facts Line */}
             <div className={styles.introColRight}>
               <p className={styles.description}>
-                A gated enclave of 24 four-BHK Boutique Villas in Devanahalli, with a built-up area of
-                4,281 sq ft each. At Fortune Haven, the four-storey format creates a natural
-                separation between everyday living, private spaces, personal pursuits and leisure.
+                Thoughtfully planned across four vertical levels, each villa creates a natural
+                separation between lively gatherings, quiet personal retreats, productive work and open-air leisure.
                 Gather together when you want to. Retreat when you need to.
               </p>
-
-              {/* Simple typographic facts line — not inside a box */}
-              <div className={styles.factsLine}>
-                <span className={styles.factPart}>24 Boutique Villas</span>
-                <span className={styles.factDot}>•</span>
-                <span className={styles.factPart}>4 Storeys</span>
-                <span className={styles.factDot}>•</span>
-                <span className={styles.factPart}>4,281 Sq Ft Built-up</span>
-                <span className={styles.factDot}>•</span>
-                <span className={styles.factPart}>2,800 Sq Ft UDS</span>
-                <span className={styles.factDot}>•</span>
-                <span className={styles.factPart}>Individual Lift</span>
-              </div>
             </div>
           </div>
         </div>
@@ -279,14 +255,6 @@ export const ArchitecturalStory: React.FC = () => {
                 <p className={styles.pillarDescription}>{pillar.description}</p>
               </div>
             ))}
-          </div>
-
-          {/* Quiet Status Row */}
-          <div className={styles.verifiedStatusLine}>
-            <span className={styles.statusLabel}>VERIFIED STATUS:</span>
-            <span className={styles.statusDetails}>
-              Occupancy Certificate (OC) Received • BIAAPA Approved • RERA Approved • Model Villa Ready
-            </span>
           </div>
         </div>
       </div>

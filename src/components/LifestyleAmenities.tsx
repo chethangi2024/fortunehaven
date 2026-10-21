@@ -23,7 +23,6 @@ const AMENITY_CATEGORIES: AmenityCategory[] = [
       { name: "Swimming Pool", desc: "A refreshing space to unwind, stay active and enjoy leisurely moments." },
       { name: "Gymnasium", desc: "A dedicated fitness space for maintaining an active and healthy routine." },
       { name: "Walking & Jogging Track", desc: "A landscaped route for morning walks, evening jogs and movement." },
-      { name: "Badminton Court", desc: "Friendly matches and energetic indoor recreation." },
       { name: "Squash Court", desc: "High-paced active court for sports enthusiasts." },
     ],
   },
@@ -156,10 +155,9 @@ export const LifestyleAmenities: React.FC = () => {
 
             <div className={styles.introColRight}>
               <p className={styles.description}>
-                More than a shared space, the clubhouse is an extension of the Fortune Haven
-                lifestyle — a place to unwind, connect, celebrate and spend meaningful time together.
-                From sunrise yoga in your garden to starlit evenings on the rooftop terrace, Fortune
-                Haven gives you more room to experience life your way.
+                More than a shared space, the clubhouse is a central hub for the Fortune Haven
+                community — bringing residents together for wellness, active recreation,
+                indoor sports and shared celebrations.
               </p>
 
               <div className={styles.lifestyleHighlights}>

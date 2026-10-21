@@ -9,7 +9,7 @@ import styles from "./not-found.module.css";
 export const metadata: Metadata = {
   title: "A Different Path | Fortune Haven",
   description:
-    "The page you're looking for may have moved or may no longer be available. Return home to discover Fortune Haven's ultra-luxury four-storey villas.",
+    "The page you're looking for may have moved or may no longer be available. Return home to discover Fortune Haven's ultra luxury villas.",
   robots: {
     index: false,
     follow: false,

@@ -105,21 +105,9 @@ export const InteriorExperience: React.FC = () => {
 
             <div className={styles.introColRight}>
               <p className={styles.description}>
-                The heart of Fortune Haven is designed around the way families actually live.
-                Generous living spaces, warm materials, natural light and carefully selected finishes
-                create an environment that feels welcoming from morning to evening. Where space becomes
-                freedom, privacy becomes a privilege, and every day feels extraordinary.
+                Thoughtfully planned around how families gather and unwind, each room balances generous proportions,
+                warm tactile materials and abundant natural light to create an inviting interior environment from morning to evening.
               </p>
-
-              <div className={styles.interiorPointers}>
-                <span className={styles.pointerItem}>Double-Height Living</span>
-                <span className={styles.pointerDot}>•</span>
-                <span className={styles.pointerItem}>Designer Kitchen</span>
-                <span className={styles.pointerDot}>•</span>
-                <span className={styles.pointerItem}>Wooden Bedroom Suites</span>
-                <span className={styles.pointerDot}>•</span>
-                <span className={styles.pointerItem}>Home Theatre & Bar</span>
-              </div>
             </div>
           </div>
         </div>
@@ -214,11 +202,10 @@ export const InteriorExperience: React.FC = () => {
 
           <div className={styles.sceneContent}>
             <span className={styles.sceneCategory}>BEDROOMS // PRIVATE RETREATS</span>
-            <h3 className={styles.sceneTitle}>Where Privacy Meets Prestige.</h3>
+            <h3 className={styles.sceneTitle}>Quiet Sanctuary and Personal Space.</h3>
             <p className={styles.sceneText}>
-              A four-storey home gives every member of the family something valuable — space of
-              their own. Fortune Haven bedrooms are designed as private retreats with comfortable
-              proportions, warm wooden flooring, planned wardrobes, study spaces and private balconies.
+              Each bedroom suite is planned for individual comfort, featuring generous proportions,
+              warm wooden flooring, dedicated wardrobe niches, study areas and direct access to private balconies.
             </p>
             <div className={styles.sceneSpecs}>
               <span className={styles.specLabel}>KEY HIGHLIGHTS:</span>

@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
                   <h2 className={styles.sectionTitle}>Data Fiduciary & Website Operator</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  This website provides information regarding Fortune Haven, a private collection of 24 ultra-luxury four-storey villas situated along the NH-207 corridor in the foothills of Nandi Hills. The entity operating this platform and acting as the prospective Data Fiduciary is identified below:
+                  This website provides information regarding Fortune Haven, a private collection of 24 ultra luxury villas situated along the NH-207 corridor in the foothills of Nandi Hills. The entity operating this platform and acting as the prospective Data Fiduciary is identified below:
                 </p>
                 <div className={styles.entityInfoBox}>
                   <div className={styles.infoRow}>

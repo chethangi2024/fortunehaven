@@ -3,8 +3,8 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://fortunehaven.com";
 
-  const content = `# Fortune Haven — Ultra-Luxury Four-Storey Villas
-> A private collection of 24 ultra-luxury four-storey villas nestled in the tranquil foothills of Nandi Hills along the NH-207 corridor.
+  const content = `# Fortune Haven — Ultra Luxury Villas
+> A private collection of 24 ultra luxury villas nestled in the tranquil foothills of Nandi Hills along the NH-207 corridor.
 
 ## Project Overview
 Fortune Haven is an exclusive gated residential enclave developed by Cannas Lily Infrastructure Pvt. Ltd. The development features twenty-four distinctive four-storey private residences thoughtfully envisioned for a life shaped by space, privacy, and architectural distinction.
