@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -34,7 +34,7 @@ const FLOOR_LEVELS: FloorLevel[] = [
     imageSrc: "/digital-assets/Floor Plane and Site Plan/Master Plan.png",
     altText: "Fortune Haven Master Site Plan Layout showing 24 gated boutique villas and internal avenue",
     highlights: [
-      "Master layout encompassing 24 boutique four-storey villas.",
+      "Master layout encompassing 24 boutique Ultra Luxury Villas.",
       "Dedicated internal circulation avenues and wide tree-lined access.",
       "Strategic orientation framing open views toward Nandi Hills.",
       "Lush perimeter landscaping and gated security perimeter.",
@@ -161,6 +161,14 @@ export const InteractiveFloorPlans: React.FC = () => {
 
   const activeLevel = FLOOR_LEVELS[activeLevelIndex];
 
+  // Preload all floor plan images when the section loads so they are cached and ready
+  useEffect(() => {
+    FLOOR_LEVELS.forEach((level) => {
+      const img = new window.Image();
+      img.src = level.imageSrc;
+    });
+  }, []);
+
   useGSAP(
     () => {
       const headerTl = gsap.timeline({
@@ -204,24 +212,21 @@ export const InteractiveFloorPlans: React.FC = () => {
 
   const handleSelectLevel = (index: number) => {
     if (index === activeLevelIndex) return;
+    // Immediately switch the active floor plan without artificial delay
+    setActiveLevelIndex(index);
+
     if (planDisplayRef.current && detailsPanelRef.current) {
-      gsap.to([planDisplayRef.current, detailsPanelRef.current], {
-        opacity: 0.2,
-        y: 6,
-        duration: 0.18,
-        ease: "power2.in",
-        onComplete: () => {
-          setActiveLevelIndex(index);
-          gsap.to([planDisplayRef.current, detailsPanelRef.current], {
-            opacity: 1,
-            y: 0,
-            duration: 0.35,
-            ease: "power2.out",
-          });
-        },
-      });
-    } else {
-      setActiveLevelIndex(index);
+      gsap.killTweensOf([planDisplayRef.current, detailsPanelRef.current]);
+      gsap.fromTo(
+        [planDisplayRef.current, detailsPanelRef.current],
+        { opacity: 0.85, y: 3 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.2,
+          ease: "power2.out",
+        }
+      );
     }
   };
 
@@ -315,15 +320,28 @@ export const InteractiveFloorPlans: React.FC = () => {
                 aria-label={`View larger ${activeLevel.levelTitle} floor plan`}
                 title="Click to view larger floor plan"
               >
-                <Image
-                  src={activeLevel.imageSrc}
-                  alt={activeLevel.altText}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 70vw, 980px"
-                  className={styles.planImg}
-                  priority={activeLevelIndex === 0}
-                  quality={92}
-                />
+                {FLOOR_LEVELS.map((level, idx) => {
+                  const isActive = idx === activeLevelIndex;
+                  return (
+                    <div
+                      key={level.id}
+                      className={`${styles.planImageLayer} ${
+                        isActive ? styles.planImageLayerActive : styles.planImageLayerHidden
+                      }`}
+                      aria-hidden={!isActive}
+                    >
+                      <Image
+                        src={level.imageSrc}
+                        alt={level.altText}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 70vw, 980px"
+                        className={styles.planImg}
+                        priority
+                        quality={92}
+                      />
+                    </div>
+                  );
+                })}
                 <div className={styles.planClickHint} aria-hidden="true">
                   <span className={styles.hintIcon}>⤢</span>
                   <span className={styles.hintText}>Click to enlarge</span>
@@ -411,14 +429,28 @@ export const InteractiveFloorPlans: React.FC = () => {
             </div>
 
             <div className={styles.modalImageContainer}>
-              <Image
-                src={activeLevel.imageSrc}
-                alt={activeLevel.altText}
-                fill
-                sizes="95vw"
-                className={styles.modalImg}
-                quality={95}
-              />
+              {FLOOR_LEVELS.map((level, idx) => {
+                const isActive = idx === activeLevelIndex;
+                return (
+                  <div
+                    key={level.id}
+                    className={`${styles.modalImageLayer} ${
+                      isActive ? styles.modalImageLayerActive : styles.modalImageLayerHidden
+                    }`}
+                    aria-hidden={!isActive}
+                  >
+                    <Image
+                      src={level.imageSrc}
+                      alt={level.altText}
+                      fill
+                      sizes="95vw"
+                      className={styles.modalImg}
+                      priority
+                      quality={95}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

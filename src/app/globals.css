@@ -54,6 +54,9 @@
   --container-max: 1440px;
   --container-padding: 3rem;
 
+  /* Section Spacing: Harmonized consistent vertical inter-section rhythm */
+  --section-padding-y: clamp(3.75rem, 5vw, 5rem);
+
   /* Consistent Corner Radius */
   --site-radius: 10px;
   --site-radius-sm: 6px;
@@ -70,6 +73,7 @@
     --container-padding: 2rem;
     --header-height: 84px;
     --header-height-scrolled: 68px;
+    --section-padding-y: clamp(3rem, 4.5vw, 4rem);
     --space-3xl: 6.5rem;
   }
 }
@@ -79,6 +83,7 @@
     --container-padding: 1.25rem;
     --header-height: 72px;
     --header-height-scrolled: 62px;
+    --section-padding-y: clamp(2.5rem, 6vw, 3.25rem);
     --space-2xl: 4.5rem;
     --space-3xl: 5rem;
   }

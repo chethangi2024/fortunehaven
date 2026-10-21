@@ -84,7 +84,7 @@ export default function TermsAndConditionsPage() {
                   <h2 className={styles.sectionTitle}>Website Purpose & Scope</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  This website is operated to provide an editorial introduction to Fortune Haven, an enclave of 24 ultra-luxury four-storey residences located along the NH-207 corridor in the foothills of Nandi Hills. By browsing or submitting an inquiry through this site, you agree to comply with these terms.
+                  This website is operated to provide an editorial introduction to Fortune Haven, an enclave of 24 Ultra Luxury residences located along the NH-207 corridor in the foothills of Nandi Hills. By browsing or submitting an inquiry through this site, you agree to comply with these terms.
                 </p>
               </section>
 

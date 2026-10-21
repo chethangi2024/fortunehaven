@@ -12,14 +12,14 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fortunehaven.com";
 export const metadata: Metadata = {
   title: "Property FAQ | Fortune Haven Ultra-Luxury Villas",
   description:
-    "Explore essential information about Fortune Haven, its four-storey villa architecture, private vertical living spaces, amenities, location, and consultation steps.",
+    "Explore essential information about Fortune Haven, its Ultra Luxury Villa architecture, private vertical living spaces, amenities, location, and consultation steps.",
   alternates: {
     canonical: `${SITE_URL}/faq`,
   },
   openGraph: {
     title: "Property FAQ | Fortune Haven",
     description:
-      "Explore essential information about Fortune Haven, its four-storey villa architecture, private vertical living spaces, amenities, and consultation steps.",
+      "Explore essential information about Fortune Haven, its Ultra Luxury Villa architecture, private vertical living spaces, amenities, and consultation steps.",
     url: `${SITE_URL}/faq`,
     type: "website",
   },
@@ -79,7 +79,7 @@ export default function FaqPage() {
               <span className={styles.metaSep}>|</span>
               <span>Total Questions: <strong className={styles.metaHighlight}>{FAQ_ITEMS.length} Questions</strong></span>
               <span className={styles.metaSep}>|</span>
-              <span>Enclave: <strong className={styles.metaHighlight}>24 Four-Storey Private Residences</strong></span>
+              <span>Enclave: <strong className={styles.metaHighlight}>24 Ultra Luxury Private Residences</strong></span>
             </div>
           </div>
         </div>

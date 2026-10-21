@@ -11,176 +11,190 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export type GalleryCategory =
-  | "ALL"
-  | "ARCHITECTURE"
-  | "INTERIORS"
-  | "OUTDOORS & RECREATION";
-
 export interface GalleryItem {
   id: string;
   title: string;
-  category: "ARCHITECTURE" | "INTERIORS" | "OUTDOORS & RECREATION";
   caption: string;
   src: string;
   alt: string;
-  spanClass: "anchorLarge" | "medium" | "tall" | "standard";
+  ratioClass: "ratioWide" | "ratioStandard" | "ratioSquare" | "ratioTall";
 }
 
-// 7 Carefully curated primary photographs covering all facets
-const CURATED_GALLERY_ITEMS: GalleryItem[] = [
+// 16 Curated Photographs Exclusively From digital-assets/Villa Images
+// Arranged in the exact viewing sequence:
+// 1. Villa exteriors and overall architecture
+// 2. Living room
+// 3. Kitchen
+// 4. Bedrooms
+// 5. Balconies
+// 6. Second-floor balcony
+// 7. Elevator
+// 8. Bar counter
+// 9. Home theatre
+// 10. Terrace
+const GALLERY_ITEMS: GalleryItem[] = [
+  // 1. Villa exteriors and overall architecture
   {
-    id: "straight-view",
+    id: "ext-straight-view",
     title: "VILLA ARRIVAL & ARCHITECTURAL STATURE",
-    category: "ARCHITECTURE",
-    caption: "The commanding four-storey elevation viewed from the landscaped approach",
+    caption: "The commanding elevation viewed from the landscaped entrance approach",
     src: "/digital-assets/Villa Images/Straight view.png",
     alt: "Fortune Haven Villa Approach and Stature",
-    spanClass: "anchorLarge", // Visual Anchor (8 cols on desktop)
+    ratioClass: "ratioWide",
   },
   {
-    id: "rooftop-panorama",
-    title: "SUNLIT ROOFTOP LOOKOUT TERRACE",
-    category: "OUTDOORS & RECREATION",
-    caption: "Perched lookout opening out towards the tranquil Nandi foothills",
-    src: "/digital-assets/Villa Images/Sunlit Rooftop Terrace with Mountain Views.png",
-    alt: "Sunlit rooftop terrace overlooking the hills",
-    spanClass: "tall", // 4 cols tall
+    id: "ext-villa-facade",
+    title: "CONTEMPORARY VILLA FACADE",
+    caption: "Sculptural architectural lines harmonized with manicured landscaping",
+    src: "/digital-assets/Villa Images/Villa.png",
+    alt: "Modern Villa Architectural Facade",
+    ratioClass: "ratioTall",
   },
   {
-    id: "living-room-grand",
-    title: "DOUBLE-HEIGHT LIVING SALON",
-    category: "INTERIORS",
-    caption: "Soaring vertical volumes flooded with ambient natural illumination",
-    src: "/digital-assets/Villa Images/Livning Room 2.png",
-    alt: "Double-height living space with expansive glazing",
-    spanClass: "medium", // 4 cols
+    id: "ext-villa-row",
+    title: "ENCLAVE ARCHITECTURAL ROW",
+    caption: "Low-density streetscape showcasing cohesive boutique villa design",
+    src: "/digital-assets/Villa Images/Villa Row Image.jpg",
+    alt: "Fortune Haven Villa Row Enclave",
+    ratioClass: "ratioStandard",
   },
   {
-    id: "pool-sanctuary",
+    id: "ext-pool",
     title: "RESIDENTIAL SWIMMING POOL ENCLAVE",
-    category: "OUTDOORS & RECREATION",
-    caption: "Stone sun-deck alongside shimmering reflection waters",
+    caption: "Stone sun deck framed by tranquil reflection waters and verdant greens",
     src: "/digital-assets/Villa Images/Pool 2.png",
-    alt: "Enclave swimming pool with sun deck and greenery",
-    spanClass: "medium", // 4 cols
+    alt: "Enclave Swimming Pool and Sun Deck",
+    ratioClass: "ratioSquare",
   },
   {
-    id: "home-theatre-cinema",
-    title: "PRIVATE ENTERTAINMENT CINEMA",
-    category: "INTERIORS",
-    caption: "Upper-tier acoustic media lounge for private film screenings",
-    src: "/digital-assets/Villa Images/Home theatre.png",
-    alt: "Private home theatre with acoustic panels and ambient lighting",
-    spanClass: "medium", // 4 cols
+    id: "ext-aerial",
+    title: "MASTER ENCLAVE ARCHITECTURE & AERIAL PERSPECTIVE",
+    caption: "Comprehensive aerial view revealing the boutique architectural layout",
+    src: "/digital-assets/Villa Images/Aerial View.png",
+    alt: "Fortune Haven Master Aerial Architecture",
+    ratioClass: "ratioStandard",
+  },
+
+  // 2. Living room
+  {
+    id: "lr-grand-salon",
+    title: "DOUBLE-HEIGHT LIVING SALON",
+    caption: "Volumetric vertical living space flooded with natural daylight",
+    src: "/digital-assets/Villa Images/Livning Room.png",
+    alt: "Double Height Living Room Salon",
+    ratioClass: "ratioTall",
   },
   {
-    id: "clubhouse-pavilion",
-    title: "COMMUNITY CLUBHOUSE SOCIAL PAVILION",
-    category: "OUTDOORS & RECREATION",
-    caption: "A welcoming venue for shared recreation and neighbourly camaraderie",
-    src: "/digital-assets/Villa Images/Clubhouse.png",
-    alt: "Clubhouse social pavilion at Fortune Haven",
-    spanClass: "standard", // 6 cols
+    id: "lr-evening-ambiance",
+    title: "LIVING SALON EVENING ILLUMINATION",
+    caption: "Architectural lighting creating a warm and refined evening atmosphere",
+    src: "/digital-assets/Villa Images/Livning Room 4.png",
+    alt: "Living Salon with Ambient Evening Lighting",
+    ratioClass: "ratioSquare",
   },
+
+  // 3. Kitchen
   {
-    id: "culinary-kitchen",
+    id: "kit-culinary",
     title: "GOURMET CULINARY KITCHEN",
-    category: "INTERIORS",
-    caption: "Streamlined flush cabinetry and intuitive island preparation",
+    caption: "Precision flush cabinetry and intuitive center island preparation",
     src: "/digital-assets/Villa Images/Kitchen.png",
-    alt: "Contemporary culinary kitchen with island",
-    spanClass: "standard", // 6 cols
+    alt: "Contemporary Gourmet Culinary Kitchen",
+    ratioClass: "ratioStandard",
   },
-];
 
-// Additional folio photographs accessible through Lightbox or full folio
-const ADDITIONAL_GALLERY_ITEMS: GalleryItem[] = [
+  // 4. Bedrooms
   {
-    id: "aerial-enclave",
-    title: "ENCLAVE SETTING & FOOTHILL HARMONY",
-    category: "ARCHITECTURE",
-    caption: "Aerial perspective revealing the low-density master plan",
-    src: "/digital-assets/Villa Images/FH Aerial View.png",
-    alt: "Aerial view of Fortune Haven enclave against Nandi Hills",
-    spanClass: "standard",
-  },
-  {
-    id: "rooftop-sunset",
-    title: "DUSK ENTERTAINING LOUNGE",
-    category: "OUTDOORS & RECREATION",
-    caption: "Evenings unhurried beneath the amber skies of Nandi foothills",
-    src: "/digital-assets/Villa Images/Luxury Rooftop Terrace at Sunset.png",
-    alt: "Sunset open-air entertaining terrace",
-    spanClass: "standard",
-  },
-  {
-    id: "master-bedroom",
-    title: "PRIMARY SANCTUARY SUITE",
-    category: "INTERIORS",
-    caption: "Understated timber flooring and soft acoustic stillness",
+    id: "bed-master-suite",
+    title: "PRIMARY SANCTUARY BEDROOM",
+    caption: "Natural timber flooring and tranquil acoustic stillness for deep rest",
     src: "/digital-assets/Villa Images/Room with wooden floor.png",
-    alt: "Master bedroom suite with natural wood flooring",
-    spanClass: "standard",
+    alt: "Master Bedroom Suite with Natural Wood Flooring",
+    ratioClass: "ratioSquare",
   },
   {
-    id: "private-study",
-    title: "CONTEMPLATIVE STUDY & LIBRARY",
-    category: "INTERIORS",
-    caption: "A quiet alcove designed for deep thought and focused pursuits",
-    src: "/digital-assets/Villa Images/Private study.png",
-    alt: "Private study and library room with custom joinery",
-    spanClass: "standard",
-  },
-  {
-    id: "bedroom-balcony",
-    title: "BEDROOM VERANDAH & PRIVATE GARDENS",
-    category: "OUTDOORS & RECREATION",
-    caption: "Shaded personal balcony framing manicured courtyard greenery",
-    src: "/digital-assets/Villa Images/Balcony.png",
-    alt: "Private balcony overlooking lush landscaped grounds",
-    spanClass: "standard",
-  },
-  {
-    id: "wardrobes-dressing",
+    id: "bed-wardrobes",
     title: "CUSTOM DRESSING WARDROBES",
-    category: "INTERIORS",
-    caption: "Precision fitted joinery with integrated ambient lighting",
+    caption: "Precision fitted walk-in joinery with integrated subtle illumination",
     src: "/digital-assets/Villa Images/Wardrobes.png",
-    alt: "Walk-in wardrobe and dressing area",
-    spanClass: "standard",
+    alt: "Walk-in Wardrobe and Dressing Area",
+    ratioClass: "ratioStandard",
   },
-];
 
-const ALL_ITEMS = [...CURATED_GALLERY_ITEMS, ...ADDITIONAL_GALLERY_ITEMS];
+  // 5. Balconies
+  {
+    id: "balcony-primary",
+    title: "BEDROOM VERANDAH & BALCONY",
+    caption: "Private shaded personal balcony framing scenic landscaped greenery",
+    src: "/digital-assets/Villa Images/Balcony.png",
+    alt: "Private Bedroom Balcony Overlooking Gardens",
+    ratioClass: "ratioTall",
+  },
 
-const CATEGORIES: GalleryCategory[] = [
-  "ALL",
-  "ARCHITECTURE",
-  "INTERIORS",
-  "OUTDOORS & RECREATION",
+  // 6. Second-floor balcony
+  {
+    id: "balcony-second-floor-1",
+    title: "SECOND FLOOR BALCONY ELEVATION",
+    caption: "Elevated outdoor viewpoint overlooking the foothills and community grounds",
+    src: "/digital-assets/Villa Images/Second Floor Balcony.png",
+    alt: "Second Floor Balcony View",
+    ratioClass: "ratioSquare",
+  },
+  {
+    id: "balcony-second-floor-2",
+    title: "SECOND FLOOR BALCONY PANORAMA",
+    caption: "Expansive second-tier verandah designed for open-air relaxation",
+    src: "/digital-assets/Villa Images/Second Floor Balcony Option 2.png",
+    alt: "Second Floor Balcony Panoramic Perspective",
+    ratioClass: "ratioTall",
+  },
+
+  // 7. Elevator
+  {
+    id: "int-elevator",
+    title: "PRIVATE IN-VILLA ELEVATOR",
+    caption: "Seamless vertical connectivity across all villa levels with private elevator access",
+    src: "/digital-assets/Villa Images/Elevator.png",
+    alt: "Private In-Villa Elevator",
+    ratioClass: "ratioTall",
+  },
+
+  // 8. Bar counter
+  {
+    id: "int-bar-counter",
+    title: "ENTERTAINMENT BAR COUNTER",
+    caption: "Sophisticated bar counter nook crafted for hospitality and private hosting",
+    src: "/digital-assets/Villa Images/Bar counter.png",
+    alt: "Private Lounge Bar Counter",
+    ratioClass: "ratioStandard",
+  },
+
+  // 9. Home theatre
+  {
+    id: "int-home-theatre",
+    title: "PRIVATE ENTERTAINMENT CINEMA",
+    caption: "Tiered acoustic media lounge engineered for private cinematic screenings",
+    src: "/digital-assets/Villa Images/Home theatre.png",
+    alt: "Private Home Theatre with Acoustic Paneling",
+    ratioClass: "ratioSquare",
+  },
+
+  // 10. Terrace
+  {
+    id: "ext-rooftop-terrace",
+    title: "SUNLIT ROOFTOP LOOKOUT TERRACE",
+    caption: "Perched lookout opening out towards the serene Nandi foothills horizon",
+    src: "/digital-assets/Villa Images/Sunlit Rooftop Terrace with Mountain Views.png",
+    alt: "Sunlit Rooftop Terrace Overlooking Mountain Foothills",
+    ratioClass: "ratioTall",
+  },
 ];
 
 export const PropertyGallery: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<GalleryCategory>("ALL");
-  const [isExpandedFolio, setIsExpandedFolio] = useState<boolean>(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const galleryGridRef = useRef<HTMLDivElement>(null);
   const scrollPositionRef = useRef<number>(0);
-
-  // Active items based on category and expanded state
-  const activeBaseList = isExpandedFolio ? ALL_ITEMS : CURATED_GALLERY_ITEMS;
-  const displayItems =
-    selectedCategory === "ALL"
-      ? activeBaseList
-      : activeBaseList.filter((item) => item.category === selectedCategory);
-
-  // Lightbox pool
-  const lightboxPool =
-    selectedCategory === "ALL"
-      ? ALL_ITEMS
-      : ALL_ITEMS.filter((item) => item.category === selectedCategory);
 
   // GSAP scroll trigger entrance
   useGSAP(
@@ -223,14 +237,14 @@ export const PropertyGallery: React.FC = () => {
 
       // Gallery grid items reveal
       gsap.from(`.${styles.galleryCard}`, {
-        y: 24,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.06,
+        duration: 0.75,
+        stagger: 0.04,
         ease: "power2.out",
         scrollTrigger: {
           trigger: galleryGridRef.current,
-          start: "top 80%",
+          start: "top 82%",
           toggleActions: "play none none none",
         },
       });
@@ -240,7 +254,7 @@ export const PropertyGallery: React.FC = () => {
 
   // Open Lightbox with background scroll locking
   const openLightbox = (item: GalleryItem) => {
-    const idx = lightboxPool.findIndex((p) => p.id === item.id);
+    const idx = GALLERY_ITEMS.findIndex((p) => p.id === item.id);
     scrollPositionRef.current = window.scrollY;
     setLightboxIndex(idx >= 0 ? idx : 0);
     document.body.style.overflow = "hidden";
@@ -257,16 +271,16 @@ export const PropertyGallery: React.FC = () => {
   const handlePrev = useCallback(() => {
     if (lightboxIndex === null) return;
     setLightboxIndex((prev) =>
-      prev === null ? null : (prev - 1 + lightboxPool.length) % lightboxPool.length
+      prev === null ? null : (prev - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length
     );
-  }, [lightboxIndex, lightboxPool.length]);
+  }, [lightboxIndex]);
 
   const handleNext = useCallback(() => {
     if (lightboxIndex === null) return;
     setLightboxIndex((prev) =>
-      prev === null ? null : (prev + 1) % lightboxPool.length
+      prev === null ? null : (prev + 1) % GALLERY_ITEMS.length
     );
-  }, [lightboxIndex, lightboxPool.length]);
+  }, [lightboxIndex]);
 
   // Keyboard navigation & accessibility
   useEffect(() => {
@@ -286,14 +300,14 @@ export const PropertyGallery: React.FC = () => {
   }, [lightboxIndex, handlePrev, handleNext, closeLightbox]);
 
   const currentLightboxItem =
-    lightboxIndex !== null ? lightboxPool[lightboxIndex] : null;
+    lightboxIndex !== null ? GALLERY_ITEMS[lightboxIndex] : null;
 
   return (
     <section
       ref={sectionRef}
       id="gallery"
       className={styles.gallerySection}
-      aria-label="Cinematic Property Gallery"
+      aria-label="Villa Photography Gallery"
     >
       <div className="editorial-container">
         {/* Section Heading & Intro */}
@@ -322,38 +336,12 @@ export const PropertyGallery: React.FC = () => {
           </div>
         </div>
 
-        {/* Category Filter Navigation */}
-        <div className={styles.filterWrapper}>
-          <nav
-            className={styles.categoryNav}
-            aria-label="Filter property gallery by category"
-            role="tablist"
-          >
-            {CATEGORIES.map((cat) => {
-              const isActive = cat === selectedCategory;
-              return (
-                <button
-                  key={cat}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  className={`${styles.filterBtn} ${isActive ? styles.activeFilter : ""}`}
-                  onClick={() => setSelectedCategory(cat)}
-                >
-                  <span>{cat}</span>
-                  {isActive && <span className={styles.filterHairline} />}
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-
-        {/* Compact Asymmetrical Editorial Composition Grid */}
+        {/* Full-Width Aligned Masonry Gallery Grid (No Labels/Badges) */}
         <div ref={galleryGridRef} className={styles.galleryGrid}>
-          {displayItems.map((item) => (
+          {GALLERY_ITEMS.map((item) => (
             <article
               key={item.id}
-              className={`${styles.galleryCard} ${styles[item.spanClass]}`}
+              className={styles.galleryCard}
               onClick={() => openLightbox(item)}
               role="button"
               tabIndex={0}
@@ -365,12 +353,12 @@ export const PropertyGallery: React.FC = () => {
               }}
               aria-label={`View photograph: ${item.title}`}
             >
-              <div className={styles.imageWrapper}>
+              <div className={`${styles.imageWrapper} ${styles[item.ratioClass]}`}>
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+                  sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, (max-width: 1200px) 33vw, 25vw"
                   className={styles.galleryImg}
                 />
                 <div className={styles.hoverOverlay} />
@@ -378,31 +366,8 @@ export const PropertyGallery: React.FC = () => {
                   <span className={styles.expandIcon}>+</span>
                 </div>
               </div>
-
-              <div className={styles.cardMeta}>
-                <div className={styles.cardMetaLeft}>
-                  <span className={styles.cardCategory}>{item.category}</span>
-                  <span className={styles.metaDot}>•</span>
-                  <span className={styles.cardTitle}>{item.title}</span>
-                </div>
-              </div>
             </article>
           ))}
-        </div>
-
-        {/* Toggle View More / View Less */}
-        <div className={styles.galleryActionRow}>
-          <button
-            type="button"
-            className={styles.viewMoreBtn}
-            onClick={() => setIsExpandedFolio(!isExpandedFolio)}
-            aria-expanded={isExpandedFolio}
-          >
-            <span>{isExpandedFolio ? "View less" : "View more"}</span>
-            <span className={styles.btnArrow}>
-              {isExpandedFolio ? "↑" : "↓"}
-            </span>
-          </button>
         </div>
       </div>
 
@@ -421,12 +386,10 @@ export const PropertyGallery: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className={styles.lightboxInfo}>
-              <span className={styles.lightboxCategory}>
-                {currentLightboxItem.category}
-              </span>
+              <span className={styles.lightboxBadge}>FORTUNE HAVEN FOLIO</span>
               <span className={styles.lightboxDivider}>|</span>
               <span className={styles.lightboxCounter}>
-                {lightboxIndex + 1} OF {lightboxPool.length}
+                {lightboxIndex + 1} OF {GALLERY_ITEMS.length}
               </span>
             </div>
 

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   keywords: [
     "Fortune Haven luxury villas",
     "Luxury villas near Nandi Hills",
-    "Four-storey luxury villas",
+    "Ultra Luxury villas",
     "Luxury villas near Bengaluru",
     "Villas near NH-207",
     "Cannas Lily Infrastructure",
@@ -121,7 +121,7 @@ const structuredData = {
       "@id": `${SITE_URL}/#residence`,
       name: "Fortune Haven Luxury Villas",
       description:
-        "Twenty-four limited-edition four-storey private villas featuring vertical living, private landscaped terraces, and foothill views near Nandi Hills.",
+        "Twenty-four limited-edition Ultra Luxury private villas featuring vertical living, private landscaped terraces, and foothill views near Nandi Hills.",
       url: SITE_URL,
       containedInPlace: {
         "@type": "Place",

@@ -29,7 +29,7 @@ interface HeroScene {
 
 /**
  * 4 Approved Brochure Scenes utilizing actual high-res frames from the Hero Section folder.
- * Frame 001: Arrival angle showcasing the four-storey contemporary architectural stature.
+ * Frame 001: Arrival angle showcasing the Ultra Luxury contemporary architectural stature.
  * Frame 075: Elevation focusing on the 4-BHK multi-level vertical living format.
  * Frame 150: Perspective emphasizing private lawns, double balconies & terrace retreats.
  * Frame 225/300: High-angle daylight composition of the 24-villa enclave along Nandi Hills foothills.
@@ -44,25 +44,26 @@ const HERO_SCENES: readonly HeroScene[] = [
       "An exclusive gated enclave of 24 four-BHK boutique villas in Devanahalli, designed for families who value space, privacy and individuality.",
     propertyFacts: ["4 Storeys", "4,281 Sq. Ft. Built-up Area", "2,800 Sq. Ft. UDS"],
     highlight: "OC Received • BIAAPA Approved • RERA Approved",
-    imageSrc: "/digital-assets/Hero Section/ezgif-frame-002.jpg",
+    imageSrc: "/digital-assets/Hero Section/ezgif-frame-001.jpg",
     altText:
-      "Fortune Haven contemporary four-storey boutique villa architectural facade in Devanahalli",
+      "Fortune Haven contemporary Ultra Luxury boutique villa architectural facade in Devanahalli",
     ctaText: "Explore The Villas",
     ctaHref: "#experience",
-    secondaryText: "Request Brochure",
-    secondaryHref: "#enquire",
+    secondaryText: "Download Brochure",
+    secondaryHref:
+      "https://drive.google.com/file/d/1S53qSMtEWk8EcJMRrPClwETjxDD1E5mS/view?usp=sharing",
   },
   {
     id: "scene-2",
     theme: "Space to Live",
-    eyebrow: "Four-Storey Format • 4,281 Sq Ft",
+    eyebrow: "Ultra Luxury Format • 4,281 Sq Ft",
     headline: "Room to Live, Grow and Thrive.",
     description:
       "Four thoughtfully planned levels create dedicated spaces for family living, private retreats, work and leisure—giving every member of the family room to call their own.",
     highlight: "4 En-Suite Bedrooms • Private Lift • 3-Car Parking",
     imageSrc: "/digital-assets/Hero Section/ezgif-frame-075.jpg",
     altText:
-      "Fortune Haven four-storey villa structural elevation showcasing expansive multi-level living",
+      "Fortune Haven Ultra Luxury Villa structural elevation showcasing expansive multi-level living",
     ctaText: "View Floor Plans",
     ctaHref: "#floor-plans",
     secondaryText: "Book Viewing",
@@ -106,6 +107,7 @@ export const Hero: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const [activeSceneIndex, setActiveSceneIndex] = useState(0);
+  const activeIndexRef = useRef(0);
 
   useGSAP(
     () => {
@@ -119,8 +121,8 @@ export const Hero: React.FC = () => {
         imageEls.forEach((img, idx) => {
           gsap.set(img, {
             autoAlpha: idx === 0 ? 1 : 0,
-            scale: 1,
-            clearProps: "transform",
+            zIndex: idx + 1,
+            clearProps: "transform,scale",
           });
         });
 
@@ -134,21 +136,28 @@ export const Hero: React.FC = () => {
       });
 
       // Desktop & Mobile Scroll-driven 4-scene sequence (reduced-motion: no-preference)
-      mm.add("(prefers-reduced-motion: no-preference)", (context) => {
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
         const isMobile = window.innerWidth <= 768;
         const imageEls = gsap.utils.toArray<HTMLElement>(`.${styles.imageLayer}`);
         const sceneEls = gsap.utils.toArray<HTMLElement>(`.${styles.sceneCard}`);
 
         if (imageEls.length === 0 || sceneEls.length === 0) return;
 
-        // Set explicit starting values for all scenes
-        gsap.set(imageEls[0], { autoAlpha: 1, scale: 1 });
-        gsap.set(sceneEls[0], { autoAlpha: 1, y: 0 });
+        // Set explicit starting values for all scenes with proper stacking
+        imageEls.forEach((img, i) => {
+          gsap.set(img, {
+            autoAlpha: i === 0 ? 1 : 0,
+            zIndex: i + 1,
+            clearProps: "scale",
+          });
+        });
 
-        for (let i = 1; i < imageEls.length; i++) {
-          gsap.set(imageEls[i], { autoAlpha: 0, scale: 1.03 });
-          gsap.set(sceneEls[i], { autoAlpha: 0, y: 16 });
-        }
+        sceneEls.forEach((scene, i) => {
+          gsap.set(scene, {
+            autoAlpha: i === 0 ? 1 : 0,
+            y: i === 0 ? 0 : 16,
+          });
+        });
 
         const scrollDistance = isMobile ? 1400 : 1800;
 
@@ -160,88 +169,105 @@ export const Hero: React.FC = () => {
             end: `+=${scrollDistance}`,
             pin: stageRef.current,
             pinSpacing: true,
-            scrub: isMobile ? 0.6 : 0.8,
+            scrub: isMobile ? 0.5 : 0.6,
             anticipatePin: 1,
             onUpdate: (self) => {
               const p = self.progress;
-              const sceneIdx = Math.min(
-                HERO_SCENES.length - 1,
-                Math.floor(p * HERO_SCENES.length)
-              );
-              setActiveSceneIndex(sceneIdx);
+              let newIdx = 0;
+              if (p >= 0.79) {
+                newIdx = 3;
+              } else if (p >= 0.50) {
+                newIdx = 2;
+              } else if (p >= 0.21) {
+                newIdx = 1;
+              } else {
+                newIdx = 0;
+              }
+
+              if (newIdx !== activeIndexRef.current) {
+                activeIndexRef.current = newIdx;
+                setActiveSceneIndex(newIdx);
+              }
             },
           },
         });
 
-        // 3 transitions between 4 scenes
-        const numTransitions = HERO_SCENES.length - 1;
-        const segDuration = 1.0;
+        // Generous hold durations so every scene is enjoyed with complete stability
+        const holdDuration = 0.7;
+        const transDuration = 1.0;
 
-        for (let i = 0; i < numTransitions; i++) {
+        // 1. Initial hold on Scene 0 so it remains completely stable during initial scroll
+        tl.to({}, { duration: holdDuration });
+
+        for (let i = 0; i < HERO_SCENES.length - 1; i++) {
           const curImg = imageEls[i];
           const nextImg = imageEls[i + 1];
           const curScene = sceneEls[i];
           const nextScene = sceneEls[i + 1];
-          const stepLabel = `step-${i}`;
+          const transLabel = `trans-${i}`;
 
-          tl.addLabel(stepLabel);
+          tl.addLabel(transLabel);
 
-          // 1. Text fades out with slight upward glide
+          // TEXT TRANSITION:
+          // A. Outgoing text dissolves and glides slightly up (first 35% of transition)
           tl.to(
             curScene,
             {
               autoAlpha: 0,
               y: -14,
-              duration: segDuration * 0.35,
-              ease: "power1.inOut",
+              duration: transDuration * 0.35,
+              ease: "power2.in",
             },
-            stepLabel
+            transLabel
           );
 
-          // 2. Image crossfade with restrained gentle movement
+          // B. Incoming text glides up from below (starts right after outgoing text has dissolved)
+          // Strictly prevents overlapping text between scenes during transitions
+          tl.to(
+            nextScene,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: transDuration * 0.45,
+              ease: "power2.out",
+            },
+            `${transLabel}+=${transDuration * 0.38}`
+          );
+
+          // IMAGE CROSSFADE:
+          // Continuous opacity crossfade:
+          // Next image (on top in z-index) fades in from 0 to 1 across the full transition duration
+          tl.to(
+            nextImg,
+            {
+              autoAlpha: 1,
+              duration: transDuration,
+              ease: "sine.inOut",
+            },
+            transLabel
+          );
+
+          // Current image stays solid at 100% underneath while next image fades in,
+          // then gracefully fades out in the second half of the transition.
+          // This ensures zero background bleed-through, zero darkening, zero flickering!
           tl.to(
             curImg,
             {
               autoAlpha: 0,
-              scale: 0.99,
-              duration: segDuration * 0.7,
+              duration: transDuration * 0.5,
               ease: "sine.inOut",
             },
-            `${stepLabel}+=0.08`
+            `${transLabel}+=${transDuration * 0.5}`
           );
 
-          tl.fromTo(
-            nextImg,
-            { autoAlpha: 0, scale: 1.03 },
-            {
-              autoAlpha: 1,
-              scale: 1,
-              duration: segDuration * 0.7,
-              ease: "sine.inOut",
-            },
-            `${stepLabel}+=0.08`
-          );
-
-          // 3. Next text glides in gently from below
-          tl.fromTo(
-            nextScene,
-            { autoAlpha: 0, y: 16 },
-            {
-              autoAlpha: 1,
-              y: 0,
-              duration: segDuration * 0.45,
-              ease: "power2.out",
-            },
-            `${stepLabel}+=0.38`
-          );
-
-          // Settle pause so the scene is fully enjoyed before starting next transition
-          tl.to({}, { duration: segDuration * 0.3 });
+          // Settle hold for the newly arrived scene
+          tl.to({}, { duration: holdDuration });
         }
       });
 
       // Handle intentional reset-hero event (e.g. clicking Home or Logo)
       const handleResetHero = () => {
+        activeIndexRef.current = 0;
         setActiveSceneIndex(0);
         const st = ScrollTrigger.getById("hero-trigger");
         if (st && st.animation) {
@@ -264,9 +290,12 @@ export const Hero: React.FC = () => {
     const st = ScrollTrigger.getById("hero-trigger");
     if (st && typeof st.start === "number" && typeof st.end === "number") {
       const scrollRange = st.end - st.start;
-      const targetScroll = st.start + scrollRange * (index / (HERO_SCENES.length - 1));
+      const targetProgressMap = [0.0, 0.353, 0.647, 0.96];
+      const targetP = targetProgressMap[index] ?? (index / (HERO_SCENES.length - 1));
+      const targetScroll = st.start + scrollRange * targetP;
       window.scrollTo({ top: targetScroll, behavior: "smooth" });
     } else {
+      activeIndexRef.current = index;
       setActiveSceneIndex(index);
     }
   };
@@ -337,7 +366,13 @@ export const Hero: React.FC = () => {
                     <a href={scene.ctaHref} className={styles.primaryCta}>
                       <span>{scene.ctaText}</span>
                     </a>
-                    <a href={scene.secondaryHref} className={styles.secondaryCta}>
+                    <a
+                      href={scene.secondaryHref}
+                      className={styles.secondaryCta}
+                      {...(scene.secondaryHref.startsWith("http")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
                       <span>{scene.secondaryText}</span>
                     </a>
                   </div>

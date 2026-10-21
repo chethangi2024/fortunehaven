@@ -17,7 +17,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "what-is-fortune-haven",
     question: "What is Fortune Haven?",
     answer:
-      "Fortune Haven is an exclusive gated enclave of twenty-four four-storey private residences in Devanahalli, Bengaluru Rural, developed by Cannas Lily Infrastructure Pvt. Ltd. (JCN Group). Each villa features four thoughtfully planned levels with a built-up area of 4,281 sq ft and an undivided land share (UDS) of 2,800 sq ft.",
+      "Fortune Haven is an exclusive gated enclave of twenty-four Ultra Luxury private residences in Devanahalli, Bengaluru Rural, developed by Cannas Lily Infrastructure Pvt. Ltd. (JCN Group). Each villa features four thoughtfully planned levels with a built-up area of 4,281 sq ft and an undivided land share (UDS) of 2,800 sq ft.",
     category: "Project & Vision",
   },
   {
@@ -52,7 +52,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "outdoor-spaces",
     question: "What private outdoor spaces does each villa have?",
     answer:
-      "Each four-storey villa includes a private front lawn, a landscaped backyard garden, a quiet sit-out, four private balconies, and a spacious open-air rooftop balcony terrace framing views of the Nandi Hills.",
+      "Each Ultra Luxury Villa includes a private front lawn, a landscaped backyard garden, a quiet sit-out, four private balconies, and a spacious open-air rooftop balcony terrace framing views of the Nandi Hills.",
     category: "Architecture",
   },
   {
@@ -66,7 +66,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "site-visit",
     question: "Can I visit the property and inspect the model villa?",
     answer:
-      "Yes. A fully furnished four-storey model villa is ready on-site in Devanahalli. You can schedule a private viewing by submitting the enquiry form on this website or by contacting the sales team at +91 91640 16999 / +91 91801 95940.",
+      "Yes. A fully furnished Ultra Luxury model villa is ready on-site in Devanahalli. You can schedule a private viewing by submitting the enquiry form on this website or by contacting the sales team at +91 91640 16999 / +91 91801 95940.",
     category: "Enquiry & Visits",
   },
   {

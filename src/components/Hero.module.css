@@ -1,7 +1,7 @@
 /* ==========================================================================
    FORTUNE HAVEN — SCROLL-DRIVEN ARCHITECTURAL HERO
-   4 Pinned Scenes, Restrained Crossfades, Charcoal Atmospheric Underlay,
-   Subtle Progress Indicator, Montserrat Display & Lato Body, Full Accessibility
+   4 Pinned Scenes, Balanced Left-Aligned Editorial Composition,
+   Prominent Villa Framing on Right, Zero Component Overlap, Full Viewport Fit
    ========================================================================== */
 
 /* Outer scroll track for GSAP ScrollTrigger pinning */
@@ -10,7 +10,6 @@
   width: 100%;
   margin-top: 0;
   background-color: var(--color-canvas-dark); /* #1E1C18 deep charcoal */
-  /* Fallback height for non-JS / reduced motion / mobile */
   min-height: 100vh;
 }
 
@@ -19,8 +18,10 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  min-height: 620px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   background-color: var(--color-canvas-dark);
   overflow: hidden;
 }
@@ -35,8 +36,13 @@
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  will-change: opacity, transform;
+  will-change: opacity;
 }
+
+.imageLayer:nth-child(1) { z-index: 1; }
+.imageLayer:nth-child(2) { z-index: 2; }
+.imageLayer:nth-child(3) { z-index: 3; }
+.imageLayer:nth-child(4) { z-index: 4; }
 
 /* Scene 1 visible by default before GSAP initializes */
 .imageLayer:first-child {
@@ -44,49 +50,50 @@
   visibility: visible;
 }
 
+/* Right-biased focal point keeps the villa architecture, facade, and balconies prominent */
 .heroImg {
   object-fit: cover;
-  object-position: center 36%;
+  object-position: 68% 35%;
   width: 100%;
   height: 100%;
 }
 
 /* Refined directional atmospheric scrim:
-   Deep charcoal on left (#1E1C18) protecting text contrast,
-   gently tapering out to let villa architecture, greenery and sky shine */
+   Deep charcoal on left (#161411) protecting 100% text contrast and readability,
+   gently tapering out to let villa architecture, greenery and open sky shine brilliantly */
 .scrim {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(30, 28, 24, 0.88) 0%,
-    rgba(30, 28, 24, 0.72) 36%,
-    rgba(30, 28, 24, 0.32) 64%,
-    rgba(30, 28, 24, 0.12) 100%
+    rgba(22, 20, 17, 0.90) 0%,
+    rgba(22, 20, 17, 0.80) 36%,
+    rgba(22, 20, 17, 0.40) 58%,
+    rgba(22, 20, 17, 0.06) 78%,
+    rgba(22, 20, 17, 0) 100%
   );
-  z-index: 2;
+  z-index: 10;
   pointer-events: none;
 }
 
-
-
-/* Content Container: Anchored in the left 46% of the viewport */
+/* Content Container: Optically centered in the visible viewport */
 .contentArea {
   position: relative;
-  z-index: 5;
+  z-index: 20;
   width: 100%;
-  padding-top: calc(var(--header-height) + 1rem);
-  padding-bottom: var(--space-xl);
+  padding-top: calc(var(--header-height) * 0.45);
+  padding-bottom: 2rem;
 }
 
+/* Constrained text container for natural, balanced headline line wraps */
 .sceneContainer {
   position: relative;
   width: 100%;
-  max-width: 620px;
-  min-height: 360px;
+  max-width: 530px;
+  min-height: 400px;
 }
 
-/* Each text scene card: absolute stack for crossfades */
+/* Each text scene card: absolute stack for synchronized crossfades */
 .sceneCard {
   position: absolute;
   top: 0;
@@ -100,17 +107,13 @@
   align-items: flex-start;
 }
 
-.sceneCard:first-child,
-.sceneCard.activeCard {
+/* Scene 1 visible by default before GSAP initializes */
+.sceneCard:first-child {
   opacity: 1;
   visibility: visible;
 }
 
-.imageLayer.activeLayer {
-  opacity: 1;
-  visibility: visible;
-}
-
+/* Consistent Vertical Rhythm between Text Elements */
 .eyebrow {
   font-family: var(--font-nav);
   font-size: 0.72rem;
@@ -118,50 +121,51 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-gold);
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.65rem;
   display: inline-block;
+  line-height: 1.2;
 }
 
 .headline {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-size: clamp(2.1rem, 3.2vw, 2.9rem);
   font-weight: 600;
-  line-height: 1.14;
+  line-height: 1.15;
   letter-spacing: -0.025em;
   color: #FFFFFF;
-  margin-bottom: 1.25rem;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
 }
 
 .description {
   font-family: var(--font-sans);
-  font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+  font-size: clamp(0.96rem, 1.05vw, 1.05rem);
   font-weight: 400;
-  line-height: 1.62;
+  line-height: 1.6;
   color: #DDD8CE;
-  max-width: 520px;
-  margin-bottom: 1.75rem;
+  max-width: 490px;
+  margin-bottom: 1rem;
   letter-spacing: 0.01em;
 }
 
-/* Property Facts row */
+/* Property Facts Row */
 .propertyFactsList {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1.15rem;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
 }
 
 .propertyFactItem {
   display: inline-flex;
   align-items: center;
-  padding: 0.32rem 0.75rem;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(212, 175, 55, 0.28);
+  padding: 0.3rem 0.7rem;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(212, 175, 55, 0.32);
   border-radius: var(--site-radius, 6px);
   font-family: var(--font-nav);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: #F3EFE6;
@@ -169,27 +173,28 @@
   -webkit-backdrop-filter: blur(8px);
 }
 
-/* Highlights Line */
+/* Approval / Highlights Line */
 .highlightLine {
   display: inline-flex;
   align-items: center;
   gap: 0.85rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.4rem;
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #BFBAB0;
+  color: #C5BFB4;
   border-left: 2px solid var(--color-gold);
-  padding-left: 0.85rem;
+  padding-left: 0.75rem;
+  line-height: 1.3;
 }
 
-/* CTA Group: Restrained, sharp, architectural */
+/* CTA Buttons */
 .ctaContainer {
   display: flex;
   align-items: center;
-  gap: 1.15rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -197,18 +202,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
+  height: 44px;
   min-height: 44px;
-  padding: 0 2rem;
+  padding: 0 1.85rem;
   font-family: var(--font-nav);
-  font-size: 0.76rem;
-  letter-spacing: 0.1em;
+  font-size: 0.74rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   font-weight: 600;
   background-color: var(--color-gold);
   color: #1A1916;
   border: 1px solid var(--color-gold);
-  border-radius: var(--site-radius, 10px);
+  border-radius: var(--site-radius, 8px);
   text-decoration: none;
   transition: background-color 0.25s var(--ease-soft), border-color 0.25s var(--ease-soft), transform 0.2s ease;
   cursor: pointer;
@@ -224,12 +229,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
+  height: 44px;
   min-height: 44px;
-  padding: 0 2rem;
+  padding: 0 1.85rem;
   font-family: var(--font-nav);
-  font-size: 0.76rem;
-  letter-spacing: 0.1em;
+  font-size: 0.74rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   font-weight: 600;
   color: #FFFFFF;
@@ -237,7 +242,7 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: var(--site-radius, 10px);
+  border-radius: var(--site-radius, 8px);
   text-decoration: none;
   transition: background-color 0.25s var(--ease-soft), border-color 0.25s var(--ease-soft), transform 0.2s ease;
   cursor: pointer;
@@ -249,21 +254,24 @@
   transform: translateY(-1px);
 }
 
-/* Subtle Scene Progress Indicator:
-   Quiet, restrained pill tabs docked gracefully at bottom right */
+/* ==========================================================================
+   BOTTOM CONTROLS: Cleanly docked without overlapping content or WhatsApp
+   ========================================================================== */
+
+/* Slide indicators docked neatly to the left of the WhatsApp button (right: 180px) */
 .progressIndicator {
   position: absolute;
-  bottom: 2.5rem;
-  right: var(--container-padding);
-  z-index: 10;
+  bottom: 28px;
+  right: 180px;
+  z-index: 30;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  background-color: rgba(30, 28, 24, 0.65);
+  gap: 0.65rem;
+  background-color: rgba(30, 28, 24, 0.72);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 0.55rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 30px;
 }
 
@@ -278,7 +286,7 @@
 }
 
 .progressTrack {
-  width: 28px;
+  width: 24px;
   height: 2px;
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 2px;
@@ -303,12 +311,12 @@
   color: #FFFFFF;
 }
 
-/* Scroll Prompt */
+/* Scroll Prompt on Bottom Left */
 .scrollPrompt {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 28px;
   left: var(--container-padding);
-  z-index: 10;
+  z-index: 30;
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -341,26 +349,26 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Zero scroll-jacking on mobile)
+   RESPONSIVE DESIGN (Tablets & Mobile)
    ========================================================================== */
 
 @media (max-width: 1024px) {
   .headline {
-    font-size: 2.5rem;
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
   }
 
   .sceneContainer {
-    max-width: 520px;
-    min-height: 380px;
+    max-width: 480px;
+    min-height: 400px;
   }
 
   .progressIndicator {
-    bottom: 1.75rem;
-    right: 1.5rem;
+    bottom: 24px;
+    right: 170px;
   }
 
   .scrollPrompt {
-    bottom: 1.75rem;
+    bottom: 24px;
     left: 1.5rem;
   }
 }
@@ -376,7 +384,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    min-height: 580px;
+    min-height: 560px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -384,7 +392,6 @@
     overflow: hidden;
   }
 
-  /* Deliberate mobile framing: keep architecture visible while providing high text contrast */
   .heroImg {
     object-position: center 25%;
   }
@@ -393,18 +400,18 @@
     background: linear-gradient(
       180deg,
       rgba(24, 22, 19, 0.72) 0%,
-      rgba(24, 22, 19, 0.42) 28%,
-      rgba(24, 22, 19, 0.78) 60%,
-      rgba(20, 18, 15, 0.94) 100%
+      rgba(24, 22, 19, 0.38) 28%,
+      rgba(24, 22, 19, 0.82) 58%,
+      rgba(20, 18, 15, 0.95) 100%
     );
   }
 
   .contentArea {
     position: relative;
-    z-index: 5;
+    z-index: 20;
     width: 100%;
-    padding-top: calc(var(--header-height) + 0.5rem);
-    padding-bottom: 5.5rem;
+    padding-top: calc(var(--header-height) * 0.7);
+    padding-bottom: 4.5rem;
     padding-left: 0;
     padding-right: 0;
   }
@@ -427,42 +434,42 @@
   .eyebrow {
     font-size: 0.68rem;
     letter-spacing: 0.14em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
   }
 
   .headline {
-    font-size: clamp(1.85rem, 6.8vw, 2.35rem);
+    font-size: clamp(1.75rem, 6.5vw, 2.2rem);
     line-height: 1.18;
     letter-spacing: -0.02em;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.75rem;
     word-break: normal;
     overflow-wrap: break-word;
     max-width: 100%;
   }
 
   .description {
-    font-size: 0.94rem;
-    line-height: 1.55;
+    font-size: 0.92rem;
+    line-height: 1.5;
     max-width: 100%;
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.85rem;
     color: #E2DDD5;
   }
 
   .propertyFactsList {
-    gap: 0.45rem;
-    margin-bottom: 1rem;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
   }
 
   .propertyFactItem {
     font-size: 0.68rem;
-    padding: 0.25rem 0.55rem;
+    padding: 0.22rem 0.5rem;
   }
 
   .highlightLine {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.05em;
-    margin-bottom: 1.35rem;
-    padding-left: 0.75rem;
+    margin-bottom: 1.15rem;
+    padding-left: 0.65rem;
   }
 
   .ctaContainer {
@@ -470,38 +477,36 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.65rem;
   }
 
   .primaryCta,
   .secondaryCta {
     flex: 1;
-    height: 44px;
-    min-height: 44px;
-    padding: 0 1rem;
-    font-size: 0.72rem;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 0.85rem;
+    font-size: 0.7rem;
     letter-spacing: 0.06em;
     white-space: nowrap;
   }
 
-  /* Docked bottom scene progress indicator: fits neatly inside mobile viewport */
+  /* Docked on the left side on mobile so it never collides with WhatsApp on the right */
   .progressIndicator {
     position: absolute;
-    bottom: 1.25rem;
-    right: 1.25rem;
-    left: auto;
+    bottom: 20px;
+    left: 1.25rem;
+    right: auto;
     z-index: 10;
     display: flex;
     align-items: center;
-    gap: 0.45rem;
-    background-color: rgba(30, 28, 24, 0.75);
+    gap: 0.4rem;
+    background-color: rgba(30, 28, 24, 0.78);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    padding: 0.4rem 0.75rem;
+    padding: 0.35rem 0.7rem;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
-    margin-top: 0;
-    align-self: auto;
   }
 
   .progressItem {
@@ -510,7 +515,7 @@
   }
 
   .progressTrack {
-    width: 18px;
+    width: 16px;
     height: 2px;
   }
 
@@ -523,11 +528,11 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .ctaContainer {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.6rem;
+    gap: 0.55rem;
   }
 
   .primaryCta,
@@ -536,17 +541,17 @@
   }
 
   .headline {
-    font-size: 1.8rem;
+    font-size: 1.65rem;
   }
 
   .description {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.88rem;
+    line-height: 1.48;
   }
 
   .progressIndicator {
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 16px;
+    left: 1rem;
   }
 }
 

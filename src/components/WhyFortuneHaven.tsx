@@ -19,7 +19,7 @@ interface ReasonItem {
 const REASONS: ReasonItem[] = [
   {
     number: "01",
-    title: "FOUR-STOREY VILLA",
+    title: "ULTRA LUXURY VILLA",
     description: "More space for living, retreating and entertaining.",
   },
   {
@@ -149,7 +149,7 @@ export const WhyFortuneHaven: React.FC = () => {
 
             <div className={styles.introColRight}>
               <p className={styles.description}>
-                A private four-storey villa brings together space, independence and the freedom to shape
+                A private Ultra Luxury Villa brings together space, independence and the freedom to shape
                 every level around your lifestyle. Live at Fortune Haven, where success, privacy and
                 elegance come together.
               </p>

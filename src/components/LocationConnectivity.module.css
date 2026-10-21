@@ -1,8 +1,8 @@
 .locationSection {
   position: relative;
   width: 100%;
-  padding-top: var(--space-2xl);
-  padding-bottom: var(--space-3xl);
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
   background-color: var(--color-canvas-alt); /* Soft limestone alternate tone #EEEAE2 */
   color: var(--color-text-primary);
   overflow: hidden;
@@ -344,8 +344,8 @@
 
 @media (max-width: 768px) {
   .locationSection {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-2xl);
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
   }
 
   .matrixGrid {

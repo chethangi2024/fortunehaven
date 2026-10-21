@@ -220,11 +220,10 @@ export const InteriorExperience: React.FC = () => {
             =================================================================== */}
         <div className={styles.retreatSection}>
           <div className={styles.retreatHeader}>
-            <span className={styles.sceneCategory}>SECOND-FLOOR RETREAT // LEISURE & ENTERTAINMENT</span>
-            <h3 className={styles.retreatTitle}>Above the Everyday.</h3>
+            <span className={styles.sceneCategory}>THOUGHTFULLY DESIGNED // LIVING & ENTERTAINMENT</span>
+            <h3 className={styles.retreatTitle}>Spaces for Living. Moments for Enjoying.</h3>
             <p className={styles.retreatDesc}>
-              The second floor brings a different rhythm to the home. An informal family lounge opening out
-              onto an open-sky terrace, complemented by an optional private bar counter or home theatre setup.
+              Discover thoughtfully designed spaces across two levels, from a welcoming first-floor living room to a dedicated second-floor home theatre for relaxing and entertaining.
             </p>
           </div>
 
@@ -241,10 +240,9 @@ export const InteriorExperience: React.FC = () => {
                 />
               </div>
               <div className={styles.retreatCardBody}>
-                <h4 className={styles.retreatCardTitle}>Informal Family Lounge</h4>
+                <h4 className={styles.retreatCardTitle}>First-Floor Living Room</h4>
                 <p className={styles.retreatCardText}>
-                  A relaxed setting for unhurried weekends and conversations with friends, extending
-                  directly onto the elevated terrace overlooking open greenery.
+                  A welcoming living space designed for everyday family time, relaxed conversations and comfortable gatherings.
                 </p>
               </div>
             </div>
@@ -261,10 +259,9 @@ export const InteriorExperience: React.FC = () => {
                 />
               </div>
               <div className={styles.retreatCardBody}>
-                <h4 className={styles.retreatCardTitle}>Home Theatre & Bar Option</h4>
+                <h4 className={styles.retreatCardTitle}>Second-Floor Home Theatre</h4>
                 <p className={styles.retreatCardText}>
-                  A dedicated venue for intimate gatherings, immersive movie nights, and private
-                  entertaining away from the ground-floor living quarters.
+                  A dedicated entertainment space for immersive movie nights and private screenings, separate from the main living areas.
                 </p>
               </div>
             </div>

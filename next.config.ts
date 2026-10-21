@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false, // Security: suppress X-Powered-By: Next.js
+  images: {
+    qualities: [75, 90, 92],
+  },
 
   async headers() {
     return [

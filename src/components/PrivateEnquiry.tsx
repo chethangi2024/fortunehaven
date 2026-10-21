@@ -166,7 +166,7 @@ export const PrivateEnquiry: React.FC = () => {
               <span className={styles.eyebrow}>BOOK A PRIVATE VIEWING</span>
               <h2 className={styles.headline}>Book a Private Viewing.</h2>
               <p className={styles.description}>
-                Discover the experience of a fully furnished four-storey model villa in Devanahalli,
+                Discover the experience of a fully furnished Ultra Luxury model villa in Devanahalli,
                 ready for inspection. Schedule a private guided walk-through or request detailed
                 specifications directly from our development team.
               </p>

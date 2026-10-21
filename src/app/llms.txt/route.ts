@@ -7,7 +7,7 @@ export async function GET() {
 > A private collection of 24 ultra luxury villas nestled in the tranquil foothills of Nandi Hills along the NH-207 corridor.
 
 ## Project Overview
-Fortune Haven is an exclusive gated residential enclave developed by Cannas Lily Infrastructure Pvt. Ltd. The development features twenty-four distinctive four-storey private residences thoughtfully envisioned for a life shaped by space, privacy, and architectural distinction.
+Fortune Haven is an exclusive gated residential enclave developed by Cannas Lily Infrastructure Pvt. Ltd. The development features twenty-four distinctive Ultra Luxury private residences thoughtfully envisioned for a life shaped by space, privacy, and architectural distinction.
 
 - **Typology**: 4-Storey Private Residences (G+3 Elevations)
 - **Scale**: Limited enclave of 24 residences
