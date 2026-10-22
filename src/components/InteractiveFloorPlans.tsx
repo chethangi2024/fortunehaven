@@ -137,7 +137,7 @@ const MATERIALS_SPECS: MaterialSpecification[] = [
   },
   {
     category: "ELECTRICAL",
-    specification: "Legrand Fittings",
+    specification: "Premium Fittings",
     detail: "Selected premium electrical modular switches and conduits for everyday reliability.",
   },
   {

@@ -42,7 +42,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     headline: "A Brighter Tomorrow Begins with the Right Address.",
     description:
       "An exclusive gated enclave of 24 four-BHK boutique villas in Devanahalli, designed for families who value space, privacy and individuality.",
-    propertyFacts: ["4 Storeys", "4,281 Sq. Ft. Built-up Area", "2,800 Sq. Ft. UDS"],
+    propertyFacts: ["B+G+2", "4,281 Sq. Ft. Built-up Area", "2,800 Sq. Ft. UDS"],
     highlight: "OC Received • BIAAPA Approved • RERA Approved",
     imageSrc: "/digital-assets/Hero Section/ezgif-frame-001.jpg",
     altText:

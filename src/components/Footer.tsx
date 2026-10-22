@@ -15,7 +15,10 @@ interface FooterProps {
   onBrochureClick?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onBrochureClick }) => {
+// All 11 navigation links: Home, Experience, Architecture, Interiors, Clubhouse, Floor Plans, Location, Why Us, Enquire, FAQ, Gallery
+const EXPLORE_ITEMS = [...FOOTER_NAV_ITEMS, ...FOOTER_ADDITIONAL_ITEMS];
+
+export const Footer: React.FC<FooterProps> = () => {
   const currentYear = 2026;
   const pathname = usePathname();
 
@@ -44,9 +47,9 @@ export const Footer: React.FC<FooterProps> = ({ onBrochureClick }) => {
   return (
     <footer className={styles.footer} role="contentinfo" aria-label="Site Footer">
       <div className="editorial-container">
-        {/* Closing Monograph Grid */}
+        {/* Three-Column Editorial Monograph Grid */}
         <div className={styles.footerGrid}>
-          {/* Column 1: Brand & Closing Manifesto */}
+          {/* Column 1: Brand */}
           <div className={styles.brandCol}>
             <Link
               href="/"
@@ -75,11 +78,11 @@ export const Footer: React.FC<FooterProps> = ({ onBrochureClick }) => {
             </div>
           </div>
 
-          {/* Column 2: Navigation Links — Unified Single Source of Truth */}
+          {/* Column 2: Explore */}
           <div className={styles.navCol}>
-            <span className={styles.colTitle}>Navigation</span>
-            <ul className={styles.navList}>
-              {FOOTER_NAV_ITEMS.map((item) => (
+            <span className={styles.colTitle}>EXPLORE</span>
+            <ul className={styles.exploreList} aria-label="Explore Fortune Haven navigation links">
+              {EXPLORE_ITEMS.map((item) => (
                 <li key={item.label} className={styles.navItem}>
                   <Link
                     href={item.href}
@@ -92,22 +95,9 @@ export const Footer: React.FC<FooterProps> = ({ onBrochureClick }) => {
                 </li>
               ))}
             </ul>
-
-            {/* Additional Secondary Links */}
-            <div className={styles.navDivider} aria-hidden="true" />
-            <ul className={styles.secondaryNavList} aria-label="Additional Links">
-              {FOOTER_ADDITIONAL_ITEMS.map((item) => (
-                <li key={item.label} className={styles.navItem}>
-                  <Link href={item.href} className={styles.navLink}>
-                    <span className={styles.linkArrow}>›</span>
-                    <span>{item.label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
-          {/* Column 3: Brochure Access & Advisory */}
+          {/* Column 3: Brochure & Enquiries */}
           <div className={styles.actionCol}>
             <span className={styles.colTitle}>ARCHITECTURAL DOSSIER</span>
             <p className={styles.actionDesc}>
@@ -115,28 +105,25 @@ export const Footer: React.FC<FooterProps> = ({ onBrochureClick }) => {
               distributions, and spatial specifications.
             </p>
 
-            {onBrochureClick ? (
-              <button
-                type="button"
-                className={styles.brochureBtn}
-                onClick={onBrochureClick}
-                aria-label="Request the Fortune Haven Brochure"
-              >
-                <span>REQUEST BROCHURE</span>
-                <span className={styles.btnArrow}>→</span>
-              </button>
-            ) : (
-              <Link href="/#enquire" className={styles.brochureBtn}>
-                <span>REQUEST BROCHURE</span>
-                <span className={styles.btnArrow}>→</span>
-              </Link>
-            )}
+            <a
+              href="https://drive.google.com/file/d/1S53qSMtEWk8EcJMRrPClwETjxDD1E5mS/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.brochureBtn}
+              aria-label="Download the Fortune Haven Architectural Brochure in a new tab"
+            >
+              <span>DOWNLOAD BROCHURE</span>
+              <span className={styles.btnArrow}>→</span>
+            </a>
 
             <div className={styles.supportNote}>
               <span>ENQUIRIES MANAGED DIRECTLY BY THE DEVELOPER</span>
             </div>
           </div>
         </div>
+
+        {/* Subtle Divider between main footer content and bottom content */}
+        <div className={styles.footerDivider} aria-hidden="true" />
 
         {/* Property Disclaimer */}
         <div className={styles.propertyDisclaimer}>
