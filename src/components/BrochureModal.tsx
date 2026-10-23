@@ -139,6 +139,12 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
     "idle" | "submitting" | "validation_preview"
   >("idle");
 
+  const handleModalClose = useCallback(() => {
+    setSubmissionStatus("idle");
+    setErrors({});
+    onClose();
+  }, [onClose]);
+
   // Prevent background scrolling while modal is open
   useEffect(() => {
     if (isOpen) {
@@ -149,8 +155,6 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
       }, 100);
     } else {
       document.body.style.overflow = "";
-      setSubmissionStatus("idle");
-      setErrors({});
     }
 
     return () => {
@@ -163,10 +167,10 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
     (e: KeyboardEvent) => {
       if (!isOpen) return;
       if (e.key === "Escape") {
-        onClose();
+        handleModalClose();
       }
     },
-    [isOpen, onClose]
+    [isOpen, handleModalClose]
   );
 
   useEffect(() => {
@@ -252,7 +256,7 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
       role="dialog"
       aria-modal="true"
       aria-labelledby="brochure-modal-title"
-      onClick={onClose}
+      onClick={handleModalClose}
     >
       <div
         ref={modalContentRef}
@@ -270,7 +274,7 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
           <button
             type="button"
             className={styles.closeBtn}
-            onClick={onClose}
+            onClick={handleModalClose}
             aria-label="Close dialog (Escape)"
             title="Close (Esc)"
           >
@@ -343,6 +347,11 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
               onSubmit={handleSubmit}
               noValidate
             >
+              {modalServerError && (
+                <div className={styles.errorText} role="alert" style={{ marginBottom: "1rem" }}>
+                  {modalServerError}
+                </div>
+              )}
               <p className={styles.formIntro}>
                 Please confirm your details to receive access to the architectural
                 specifications and high-resolution villa plans.

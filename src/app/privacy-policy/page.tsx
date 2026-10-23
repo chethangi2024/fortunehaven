@@ -275,7 +275,7 @@ export default function PrivacyPolicyPage() {
               <section id="children" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>09</span>
-                  <h2 className={styles.sectionTitle}>Protection of Children's Personal Data</h2>
+                  <h2 className={styles.sectionTitle}>Protection of Children&apos;s Personal Data</h2>
                 </div>
                 <p className={styles.sectionText}>
                   Fortune Haven is an ultra-luxury real estate development intended exclusively for prospective adult buyers and investors. We do not knowingly solicit, collect, or process personal data of children (individuals under eighteen years of age).
@@ -289,7 +289,7 @@ export default function PrivacyPolicyPage() {
                   <h2 className={styles.sectionTitle}>Updates & Policy Versions</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  This policy will be updated as the substantive provisions of the DPDP Act and Rules come into full statutory force and upon confirmation of the developer entity's operational details.
+                  This policy will be updated as the substantive provisions of the DPDP Act and Rules come into full statutory force and upon confirmation of the developer entity&apos;s operational details.
                 </p>
               </section>
             </article>

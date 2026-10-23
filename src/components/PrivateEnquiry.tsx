@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useGSAP } from "@gsap/react";
@@ -285,6 +284,11 @@ export const PrivateEnquiry: React.FC = () => {
                   onSubmit={handleSubmit}
                   noValidate
                 >
+                  {serverError && (
+                    <div className={styles.errorText} style={{ marginBottom: "1rem" }} role="alert">
+                      {serverError}
+                    </div>
+                  )}
                   {/* Full Name */}
                   <div className={styles.fieldGroup}>
                     <label htmlFor="fullName" className={styles.fieldLabel}>

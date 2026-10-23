@@ -252,18 +252,28 @@ export const PropertyGallery: React.FC = () => {
     { scope: sectionRef }
   );
 
+  // Manage background scroll locking via effect
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex]);
+
   // Open Lightbox with background scroll locking
   const openLightbox = (item: GalleryItem) => {
     const idx = GALLERY_ITEMS.findIndex((p) => p.id === item.id);
     scrollPositionRef.current = window.scrollY;
     setLightboxIndex(idx >= 0 ? idx : 0);
-    document.body.style.overflow = "hidden";
   };
 
   // Close Lightbox and restore scroll
   const closeLightbox = useCallback(() => {
     setLightboxIndex(null);
-    document.body.style.overflow = "";
     window.scrollTo(0, scrollPositionRef.current);
   }, []);
 

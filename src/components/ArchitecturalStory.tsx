@@ -44,17 +44,6 @@ const PILLARS: ExperiencePillar[] = [
   },
 ];
 
-const SIGNATURE_BADGES = [
-  "4-Storey Private Living",
-  "Nandi Hills Vistas",
-  "24 Gated Boutique Residences",
-  "4,281 Sq Ft Built-up Area",
-  "2,800 Sq Ft Undivided Land Share",
-  "Individual Lift for Each Villa",
-  "3-Car Parking & EV Provision",
-  "OC Received • BIAAPA & RERA Approved",
-];
-
 export const ArchitecturalStory: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const mainImageContainerRef = useRef<HTMLDivElement>(null);
