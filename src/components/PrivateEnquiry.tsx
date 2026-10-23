@@ -169,12 +169,6 @@ export const PrivateEnquiry: React.FC = () => {
                 ready for inspection. Schedule a private guided walk-through or request detailed
                 specifications directly from our development team.
               </p>
-
-              <div className={styles.viewingChannels}>
-                <span className={styles.chanItem}>Call/WhatsApp: +91 91640 16999</span>
-                <span className={styles.chanDot}>•</span>
-                <span className={styles.chanItem}>sales@fortunehavens.com</span>
-              </div>
             </div>
 
             <div className={styles.leftColNotes}>
@@ -303,7 +297,7 @@ export const PrivateEnquiry: React.FC = () => {
                         setForm({ ...form, fullName: e.target.value });
                         if (errors.fullName) setErrors({ ...errors, fullName: undefined });
                       }}
-                      placeholder="e.g. Alexander Wright"
+                      placeholder="e.g. Rahul Sharma"
                       className={`${styles.inputField} ${errors.fullName ? styles.inputError : ""}`}
                       aria-required="true"
                       aria-invalid={!!errors.fullName}
@@ -357,7 +351,7 @@ export const PrivateEnquiry: React.FC = () => {
                           setForm({ ...form, email: e.target.value });
                           if (errors.email) setErrors({ ...errors, email: undefined });
                         }}
-                        placeholder="alexander@domain.com"
+                        placeholder="rahul.sharma@example.com"
                         className={`${styles.inputField} ${errors.email ? styles.inputError : ""}`}
                         aria-required="true"
                         aria-invalid={!!errors.email}

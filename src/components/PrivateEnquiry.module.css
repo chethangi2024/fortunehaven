@@ -481,7 +481,7 @@
 .contactLink {
   color: var(--color-text-primary);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: inherit;
   word-break: break-word;
   overflow-wrap: anywhere;
   transition: color 0.2s var(--ease-soft);
