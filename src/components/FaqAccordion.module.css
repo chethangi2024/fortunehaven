@@ -222,6 +222,11 @@
   margin: 0;
 }
 
+.phoneGroup {
+  white-space: nowrap;
+  display: inline-block;
+}
+
 .viewAllFooter {
   margin-top: var(--space-2xl);
   display: flex;

@@ -40,6 +40,21 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
     );
   };
 
+  const renderAnswer = (text: string) => {
+    const phoneGroup = "+91 91640 16999 / +91 91801 95940";
+    if (text.includes(phoneGroup)) {
+      const parts = text.split(phoneGroup);
+      return (
+        <>
+          {parts[0]}
+          <span className={styles.phoneGroup}>{phoneGroup}</span>
+          {parts.slice(1).join(phoneGroup)}
+        </>
+      );
+    }
+    return text;
+  };
+
   return (
     <section id="faq" className={styles.faqSectionWrapper} aria-labelledby="faq-heading">
       <div className={styles.ambientGlow} />
@@ -113,7 +128,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                   className={styles.accordionContent}
                   style={{ display: isOpen ? "block" : "none" }}
                 >
-                  <p className={styles.answerParagraph}>{item.answer}</p>
+                  <p className={styles.answerParagraph}>{renderAnswer(item.answer)}</p>
                 </div>
               </div>
             );

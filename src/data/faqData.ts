@@ -24,7 +24,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "approvals-status",
     question: "What approvals does Fortune Haven have, and is it ready to move in?",
     answer:
-      "Fortune Haven has received its Occupancy Certificate (OC Received) and is BIAAPA Approved and RERA Approved. The residences are ready to move in, and a fully furnished model villa is available on-site for prospective buyers to inspect.",
+      "Fortune Haven has obtained building plan approval from BIAAPA and its Occupancy Certificate (OC) from BIAAPA. The project is RERA-approved, and individual villa Khata documentation is ready. The residences are ready to move in, and a fully furnished model villa is available on-site for prospective buyers to inspect.",
     category: "Project & Vision",
   },
   {
@@ -45,7 +45,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "amenities",
     question: "What shared clubhouse and enclave amenities are provided?",
     answer:
-      "Fortune Haven provides a dedicated clubhouse and community amenities including a swimming pool, jacuzzi, sauna, gymnasium, walking/jogging track, squash court, billiards & table tennis, chess & carrom lounge, restaurant, spiritual spaces, dedicated work space, EV charging infrastructure, and 24/7 CCTV surveillance.",
+      "Fortune Haven provides a dedicated clubhouse and community amenities including a swimming pool, jacuzzi, sauna, gymnasium, squash court, billiards & table tennis, chess & carrom lounge, restaurant, spiritual spaces, dedicated work space, EV charging infrastructure, and 24/7 CCTV surveillance.",
     category: "Lifestyle",
   },
   {
