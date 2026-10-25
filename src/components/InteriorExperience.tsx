@@ -157,7 +157,7 @@ export const InteriorExperience: React.FC = () => {
           <div className={styles.sceneMedia}>
             <div className={styles.sceneFrameStandard}>
               <Image
-                src="/digital-assets/Villa Images/Kitchen.png"
+                src="/digital-assets/Villa Images/Kitchen Image.png"
                 alt="Fortune Haven Kitchen designed for cooking and made for gathering"
                 fill
                 sizes="(max-width: 900px) 100vw, 55vw"

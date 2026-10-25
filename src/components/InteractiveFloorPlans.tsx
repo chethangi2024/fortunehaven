@@ -1,11 +1,16 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./InteractiveFloorPlans.module.css";
+
+import basementPlanImg from "@/assets/floor-plans/Basement Plan.png";
+import groundPlanImg from "@/assets/floor-plans/Ground Floor Plan.png";
+import firstPlanImg from "@/assets/floor-plans/First Floor Plan.png";
+import secondPlanImg from "@/assets/floor-plans/Second Floor Plan.png";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +23,7 @@ interface FloorLevel {
   levelTitle: string;
   area: string;
   subtitle: string;
-  imageSrc: string;
+  imageSrc: string | StaticImageData;
   altText: string;
   highlights: string[];
 }
@@ -48,7 +53,8 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "BASEMENT & PARKING",
     area: "1,086 SQ FT",
     subtitle: "Park • Work • Charge • Connect • Breathe",
-    imageSrc: "/digital-assets/Floor Plane and Site Plan/Basement Plan.png",
+    // 1. Basement -> Basement Plan.png
+    imageSrc: basementPlanImg,
     altText: "Fortune Haven Basement Floor Architectural Plan showing 3-car parking, EV charging, and home office",
     highlights: [
       "Spacious parking for three cars.",
@@ -66,7 +72,8 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "GROUND FLOOR LIVING",
     area: "1,226 SQ FT",
     subtitle: "Welcome • Live • Gather",
-    imageSrc: "/digital-assets/Floor Plane and Site Plan/Ground Floor Plan.png",
+    // 2. Ground Floor -> Ground Floor Plan.png
+    imageSrc: groundPlanImg,
     altText: "Fortune Haven Ground Floor Architectural Plan showing living, dining, kitchen, and lawn",
     highlights: [
       "Spacious living area for family time and entertaining.",
@@ -84,7 +91,8 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "FIRST FLOOR SUITES",
     area: "1,226 SQ FT",
     subtitle: "Rest • Relax • Connect",
-    imageSrc: "/digital-assets/Floor Plane and Site Plan/First Floor Plan.png",
+    // 3. First Floor -> First Floor Plan.png
+    imageSrc: firstPlanImg,
     altText: "Fortune Haven First Floor Architectural Plan showing two bedrooms with attached dressing and TV lounge",
     highlights: [
       "Two spacious bedrooms for restful living.",
@@ -102,7 +110,8 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "SECOND FLOOR RETREAT",
     area: "743 SQ FT",
     subtitle: "Retreat • Unwind • Look Out",
-    imageSrc: "/digital-assets/Floor Plane and Site Plan/Second Floor Plan.png",
+    // 4. Second Floor -> Second Floor Plan.png
+    imageSrc: secondPlanImg,
     altText: "Fortune Haven Second Floor Architectural Plan showing master bedroom, family lounge, and spacious terrace",
     highlights: [
       "Master bedroom sanctuary with dedicated dressing area and attached toilet.",
@@ -165,7 +174,7 @@ export const InteractiveFloorPlans: React.FC = () => {
   useEffect(() => {
     FLOOR_LEVELS.forEach((level) => {
       const img = new window.Image();
-      img.src = level.imageSrc;
+      img.src = typeof level.imageSrc === "string" ? level.imageSrc : level.imageSrc.src;
     });
   }, []);
 

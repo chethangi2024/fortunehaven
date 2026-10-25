@@ -98,7 +98,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: "kit-culinary",
     title: "GOURMET CULINARY KITCHEN",
     caption: "Precision flush cabinetry and intuitive center island preparation",
-    src: "/digital-assets/Villa Images/Kitchen.png",
+    src: "/digital-assets/Villa Images/Kitchen Image 2.png",
     alt: "Contemporary Gourmet Culinary Kitchen",
     ratioClass: "ratioStandard",
   },
