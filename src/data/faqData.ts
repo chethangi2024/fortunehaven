@@ -24,21 +24,21 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "approvals-status",
     question: "What approvals does Fortune Haven have, and is it ready to move in?",
     answer:
-      "Fortune Haven has obtained building plan approval from BIAAPA and its Occupancy Certificate (OC) from BIAAPA. The project is RERA-approved, and individual villa Khata documentation is ready. The residences are ready to move in, and a fully furnished model villa is available on-site for prospective buyers to inspect.",
+      "Fortune Haven has obtained building plan approval and Occupancy Certificate (OC) from BIAAPA. The project is RERA-approved, and individual villa Khata documentation is ready. The residences are ready to move in, and a fully furnished model villa is available on-site for prospective buyers to inspect.",
     category: "Project & Vision",
   },
   {
     id: "location-connectivity",
     question: "Where is Fortune Haven located and what is the connectivity?",
     answer:
-      "Fortune Haven is situated adjacent to NH-207 and just 200 m from NH-44 in Devanahalli Town, Bengaluru Rural (Pin: 562110). It is 1 km from the STRR (Satellite Town Ring Road), 15 km from Kempegowda International Airport, 15 km from the Aerospace Industry Hub, and 20 km from Nandi Hills.",
+      "Fortune Haven is situated adjacent to NH-207 and just 200 m from NH-44 in Devanahalli Town, Bengaluru North (Pin: 562110). It is 1 km from the STRR (Satellite Town Ring Road), 15 km from Kempegowda International Airport, 15 km from the Aerospace Industry Hub, and 20 km from Nandi Hills.",
     category: "Location",
   },
   {
     id: "floor-levels",
     question: "What are the different floor levels?",
     answer:
-      "Level 01 — Basement: Covered three-car parking, EV charging point, home office / utility room, private lift, staircase.\n\nLevel 02 — Ground Floor: Double-height living, dining area, kitchen, one bedroom, private lawn, private yard, sit-out.\n\nLevel 03 — First Floor: Two bedrooms with attached dressing areas and bathrooms, central TV lounge, private balconies.\n\nLevel 04 — Second Floor: Master bedroom with dressing area and attached bathroom, family lounge, spacious terrace.",
+      "Level 01 — Basement: Covered three-car parking, EV charging point, home office / utility room, private lift, staircase.\n\nLevel 02 — Ground Floor: Double-height living, dining area, kitchen, one bedroom, private lawn, private yard, sit-out.\n\nLevel 03 — First Floor: Two bedrooms with attached dressing areas and bathrooms, central TV lounge, private balconies.\n\nLevel 04 — Second Floor: Master bedroom with dressing area and attached bathroom, family lounge, spacious balcony.",
     category: "Architecture",
   },
   {
