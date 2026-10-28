@@ -16,9 +16,7 @@ interface DistanceNode {
 }
 
 /**
- * Verified Client-Approved Brochure Distances (Brochure p. 14)
- * Neutralized leisure destination label ("JW Marriott Prestige Golfshire") to eliminate the word "resort"
- * while retaining 100% verified location data.
+ * Verified Location Landmark Distances from Fortune Haven
  */
 const DISTANCE_NODES: DistanceNode[] = [
   {
@@ -26,43 +24,47 @@ const DISTANCE_NODES: DistanceNode[] = [
     items: [
       { destination: "NH-207", distance: "Adjacent to Fortune Haven" },
       { destination: "NH-44", distance: "200 m" },
-      { destination: "STRR – Satellite Town Ring Road", distance: "1 km" },
+      { destination: "STRR (Satellite Town Ring Road)", distance: "1 km" },
       { destination: "Kempegowda International Airport", distance: "15 km" },
       { destination: "Yelahanka", distance: "20 km" },
-      { destination: "Doddaballapura", distance: "23 km" },
-      { destination: "Hebbal", distance: "30 km" },
     ],
   },
   {
-    category: "BUSINESS CORRIDOR",
+    category: "BUSINESS & EMPLOYMENT HUBS",
     items: [
       { destination: "Prestige Tech Cloud", distance: "11 km" },
       { destination: "Puravankara Aerocity", distance: "14 km" },
       { destination: "Foxconn", distance: "15 km" },
       { destination: "Aerospace Industry Hub", distance: "15 km" },
-      { destination: "Hardware Park", distance: "20 km" },
-      { destination: "KWIN City (Proposed)", distance: "60 km" },
     ],
   },
   {
-    category: "EDUCATION & HEALTHCARE",
+    category: "EDUCATION, HEALTHCARE & SPORTS",
     items: [
       { destination: "Ramaiah Leena Hospital", distance: "2 km" },
       { destination: "Shri Shirdi Sai Multispeciality Hospital", distance: "3 km" },
+      { destination: "Akash Super Speciality Hospital", distance: "4 km" },
       { destination: "Akash Institute of Medical Sciences & Research Centre", distance: "4 km" },
       { destination: "Chanakya University", distance: "10 km" },
       { destination: "Harrow International School", distance: "10 km" },
       { destination: "Amity International School & University Bengaluru", distance: "11 km" },
-      { destination: "Cambridge Institute Of Technology North Campus", distance: "14 km" },
+      { destination: "Cambridge Institute of Technology, North Campus", distance: "14 km" },
+      { destination: "Stonehill International School", distance: "18 km" },
+      { destination: "Padukone School of Badminton", distance: "22 km" },
     ],
   },
   {
     category: "DESTINATIONS, HERITAGE & LEISURE",
     items: [
+      { destination: "Empire Restaurant", distance: "1 km" },
       { destination: "Devanahalli Fort", distance: "2 km" },
-      { destination: "JW Marriott Bengaluru Prestige Golfshire", distance: "7 km" },
+      { destination: "Jain Temple", distance: "2 km" },
+      { destination: "JW Marriott Bengaluru Prestige Golfshire Resort & Spa", distance: "7 km" },
       { destination: "Prestige High End Mall (Upcoming)", distance: "10 km" },
+      { destination: "Aldovia Resort & Convention", distance: "13 km" },
+      { destination: "Nandi Temple", distance: "16 km" },
       { destination: "Nandi Hills", distance: "20 km" },
+      { destination: "Satya Sai Grama", distance: "20 km" },
       { destination: "Skandagiri Hills", distance: "22 km" },
       { destination: "Isha Foundation", distance: "32 km" },
     ],
@@ -74,7 +76,7 @@ const DISTANCE_NODES: DistanceNode[] = [
  */
 const KEY_NEARBY_HIGHLIGHTS = [
   { destination: "NH-44", distance: "200 m" },
-  { destination: "STRR – Satellite Town Ring Road", distance: "1 km" },
+  { destination: "STRR (Satellite Town Ring Road)", distance: "1 km" },
   { destination: "Devanahalli Fort", distance: "2 km" },
   { destination: "Prestige Tech Cloud", distance: "11 km" },
   { destination: "Kempegowda International Airport", distance: "15 km" },
