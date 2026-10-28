@@ -71,12 +71,38 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 5. Check if real compiled PDF exists or is configured
-    // Note: The approved compiled brochure PDF has not yet been placed into the repository
-    const brochurePdfAvailable = false;
-    const downloadUrl = brochurePdfAvailable
-      ? "/digital-assets/Brochure/Fortune_Haven_Monograph.pdf"
-      : null;
+    // 5. External Dispatch via Web3Forms
+    const web3FormsKey =
+      process.env.WEB3FORMS_ACCESS_KEY ||
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+      "7d92d672-b90b-4ba8-aaf4-387005adc781";
+
+    if (web3FormsKey) {
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: web3FormsKey,
+            subject: `New Brochure Request: ${fullName} (Fortune Haven)`,
+            from_name: "Fortune Haven Website",
+            name: fullName,
+            phone: phone,
+            email: email,
+            request_type: "Architectural Brochure & Specifications",
+            project: "Fortune Haven — Ultra Luxury Villas",
+          }),
+        });
+      } catch {
+        // Silently continue to deliver download URL
+      }
+    }
+
+    const downloadUrl =
+      "https://drive.google.com/file/d/1tTQSJyZFKSLqhDCpfVWPr58PtXvKkzGG/view?usp=sharing";
 
     return NextResponse.json({
       success: true,
@@ -84,11 +110,9 @@ export async function POST(request: NextRequest) {
         "Your brochure request has been validated and registered with the advisory desk.",
       data: {
         referenceId: `BR-${Date.now().toString(36).toUpperCase()}`,
-        brochureAvailable: brochurePdfAvailable,
+        brochureAvailable: true,
         downloadUrl,
-        notice: brochurePdfAvailable
-          ? "Official document ready for secure retrieval."
-          : "The compiled high-resolution architectural monograph is currently pending final publication release and will be transmitted upon availability.",
+        notice: "Official document ready for secure retrieval.",
       },
     });
   } catch {

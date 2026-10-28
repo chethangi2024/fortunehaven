@@ -203,6 +203,10 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
     return Object.keys(newErrors).length === 0;
   };
 
+const WEB3FORMS_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+  "7d92d672-b90b-4ba8-aaf4-387005adc781";
+
   const [modalServerError, setModalServerError] = useState<string | null>(null);
   const [modalResponse, setModalResponse] = useState<{
     referenceId?: string;
@@ -222,25 +226,42 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
     setSubmissionStatus("submitting");
 
     try {
-      const res = await fetch("/api/brochure-request", {
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `New Brochure Request: ${form.fullName.trim()} (Fortune Haven)`,
+        from_name: "Fortune Haven Website",
+        name: form.fullName.trim(),
+        phone: form.phone.trim(),
+        email: form.email.trim(),
+        request_type: "Architectural Brochure & Specifications",
+        project: "Fortune Haven — Ultra Luxury Villas",
+      };
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (!res.ok || !data.success) {
         setModalServerError(
-          data.error || "Failed to process brochure request. Please verify and retry."
+          data.message || "Failed to process brochure request. Please verify and retry."
         );
         setSubmissionStatus("idle");
         return;
       }
 
-      setModalResponse(data.data || null);
+      setModalResponse({
+        referenceId: `BR-${Date.now().toString(36).toUpperCase()}`,
+        brochureAvailable: true,
+        downloadUrl: "https://drive.google.com/file/d/1tTQSJyZFKSLqhDCpfVWPr58PtXvKkzGG/view?usp=sharing",
+        notice: "Your brochure request has been received and verified. You may now access the architectural brochure.",
+      });
       setSubmissionStatus("validation_preview");
     } catch {
       setModalServerError("Network error communicating with the server. Please try again.");
@@ -300,14 +321,14 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
               {/* Status Notice about Server & PDF Availability */}
               <div className={styles.statusBox}>
                 <div className={styles.statusRow}>
-                  <span className={styles.statusKey}>Server Route:</span>
-                  <span className={styles.statusVal}>Validated & Processed (/api/brochure-request)</span>
+                  <span className={styles.statusKey}>Submission:</span>
+                  <span className={styles.statusVal}>Verified & Dispatched</span>
                 </div>
                 <div className={styles.statusRow}>
                   <span className={styles.statusKey}>Document Status:</span>
                   <span className={styles.statusVal}>
                     {modalResponse?.brochureAvailable
-                      ? "Compiled PDF Ready"
+                      ? "Official Brochure Ready"
                       : "Pending Approved File Compilation"}
                   </span>
                 </div>
@@ -317,7 +338,8 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
                 {modalResponse?.brochureAvailable && modalResponse.downloadUrl ? (
                   <a
                     href={modalResponse.downloadUrl}
-                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={styles.downloadLinkBtn}
                   >
                     DOWNLOAD OFFICIAL BROCHURE (PDF)

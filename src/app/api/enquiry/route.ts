@@ -83,37 +83,44 @@ export async function POST(request: NextRequest) {
     // 5. Audit Logging (privacy-safe, avoiding sensitive leak in stdout)
     const timestamp = new Date().toISOString();
 
-    // 6. External Dispatch / Storage Provider Integration Check
-    const recipientEmail = process.env.ENQUIRY_RECIPIENT_EMAIL;
-    const resendApiKey = process.env.RESEND_API_KEY;
+    // 6. External Dispatch via Web3Forms
+    const web3FormsKey =
+      process.env.WEB3FORMS_ACCESS_KEY ||
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+      "7d92d672-b90b-4ba8-aaf4-387005adc781";
 
     let emailDelivered = false;
     let providerStatus = "unconfigured";
 
-    if (resendApiKey && recipientEmail) {
+    if (web3FormsKey) {
       try {
-        // Dynamic fetch call to Resend API if configured
-        const resendResponse = await fetch("https://api.resend.com/emails", {
+        const web3Response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${resendApiKey}`,
             "Content-Type": "application/json",
+            Accept: "application/json",
           },
           body: JSON.stringify({
-            from: process.env.EMAIL_FROM_ADDRESS || "advisory@fortunehaven.com",
-            to: [recipientEmail],
+            access_key: web3FormsKey,
             subject: `New Private Enquiry: ${fullName} (${enquiryType})`,
-            text: `A new consultation request has been submitted for Fortune Haven.\n\nName: ${fullName}\nPhone: ${phone}\nEmail: ${email}\nPreferred Contact: ${contactMethod}\nEnquiry Type: ${enquiryType}\nMarketing Consent: ${
-              marketingConsent ? "Yes" : "No"
-            }\nTimestamp: ${timestamp}\n\nMessage:\n${message || "No specific message provided."}`,
+            from_name: "Fortune Haven Website",
+            name: fullName,
+            phone: phone,
+            email: email,
+            preferred_contact_method: contactMethod,
+            enquiry_type: enquiryType,
+            marketing_consent: marketingConsent ? "Yes" : "No",
+            message: message || "No additional message provided.",
+            timestamp,
           }),
         });
 
-        if (resendResponse.ok) {
-          emailDelivered = true;
-          providerStatus = "sent";
-        } else {
-          providerStatus = "provider_error";
+        if (web3Response.ok) {
+          const resData = await web3Response.json().catch(() => ({}));
+          if (resData.success) {
+            emailDelivered = true;
+            providerStatus = "sent";
+          }
         }
       } catch {
         providerStatus = "network_error";

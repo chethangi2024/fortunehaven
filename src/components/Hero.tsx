@@ -51,7 +51,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     ctaHref: "#experience",
     secondaryText: "Download Brochure",
     secondaryHref:
-      "https://drive.google.com/file/d/1S53qSMtEWk8EcJMRrPClwETjxDD1E5mS/view?usp=sharing",
+      "https://drive.google.com/file/d/1tTQSJyZFKSLqhDCpfVWPr58PtXvKkzGG/view?usp=sharing",
   },
   {
     id: "scene-2",

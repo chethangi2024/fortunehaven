@@ -101,6 +101,10 @@ export const PrivateEnquiry: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+const WEB3FORMS_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+  "7d92d672-b90b-4ba8-aaf4-387005adc781";
+
   const [serverError, setServerError] = useState<string | null>(null);
   const [submissionResponse, setSubmissionResponse] = useState<{
     referenceId?: string;
@@ -119,29 +123,46 @@ export const PrivateEnquiry: React.FC = () => {
     setSubmissionStatus("submitting");
 
     try {
-      const res = await fetch("/api/enquiry", {
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `New Private Enquiry: ${form.fullName.trim()} (Fortune Haven)`,
+        from_name: "Fortune Haven Website",
+        name: form.fullName.trim(),
+        phone: form.phone.trim(),
+        email: form.email.trim(),
+        preferred_contact_method: form.contactMethod,
+        enquiry_type: "Private Consultation & Property Visit",
+        project: "Fortune Haven — Ultra Luxury Villas",
+      };
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (!res.ok || !data.success) {
         setServerError(
-          data.error || "Failed to submit enquiry. Please verify details and try again."
+          data.message || "Failed to submit enquiry. Please verify details and try again."
         );
         setSubmissionStatus("idle");
         return;
       }
 
-      setSubmissionResponse(data.data || null);
+      setSubmissionResponse({
+        referenceId: `FH-${Date.now().toString(36).toUpperCase()}`,
+        timestamp: new Date().toISOString(),
+        inquiryStatus: "notified",
+      });
       setSubmissionStatus("validation_preview");
       router.push("/thank-you");
     } catch {
-      setServerError("Network error communicating with enquiry server. Please retry.");
+      setServerError("Network error communicating with the enquiry service. Please try again.");
       setSubmissionStatus("idle");
     }
   };

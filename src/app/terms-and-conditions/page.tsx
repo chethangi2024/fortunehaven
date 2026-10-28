@@ -8,18 +8,18 @@ import styles from "@/components/LegalPage.module.css";
 export const metadata: Metadata = {
   title: "Terms & Conditions | Fortune Haven",
   description:
-    "Website terms and conditions for Fortune Haven, outlining permitted use, status of architectural visuals, non-binding inquiry nature, and intellectual property.",
+    "Terms and Conditions for using the Fortune Haven website and inquiring about our luxury villas in Devanahalli, Bengaluru.",
 };
 
 const TOC_TERMS = [
-  { id: "purpose", title: "1. Website Purpose & Scope" },
-  { id: "visuals", title: "2. Architectural Renderings & Imagery" },
-  { id: "plans", title: "3. Plans, Specifications & Dimensions" },
-  { id: "inquiries", title: "4. Inquiry Submissions & Consultations" },
-  { id: "ip", title: "5. Intellectual Property & Copyright" },
-  { id: "liability", title: "6. Limitation of Liability" },
-  { id: "governing-law", title: "7. Governing Law & Jurisdiction" },
-  { id: "entity", title: "8. Operator Contact & Clarifications" },
+  { id: "website-info", title: "Website Information" },
+  { id: "property-details", title: "Property Details" },
+  { id: "enquiries-visits", title: "Enquiries and Site Visits" },
+  { id: "intellectual-property", title: "Intellectual Property" },
+  { id: "external-links", title: "External Links" },
+  { id: "website-use", title: "Website Use" },
+  { id: "changes-terms", title: "Changes to These Terms" },
+  { id: "contact-us", title: "Contact Us" },
 ];
 
 export default function TermsAndConditionsPage() {
@@ -28,8 +28,6 @@ export default function TermsAndConditionsPage() {
       <Header />
 
       <main className={styles.legalMain}>
-        <div className={styles.ambientGlow} />
-
         <div className="editorial-container">
           {/* Header */}
           <div className={styles.legalHeader}>
@@ -44,11 +42,9 @@ export default function TermsAndConditionsPage() {
             <h1 className={styles.pageTitle}>Terms & Conditions</h1>
 
             <div className={styles.headerMetaRow}>
-              <span>Status: <strong className={styles.metaHighlight}>Pre-Production Draft for Legal Review</strong></span>
-              <span className={styles.metaSep}>|</span>
-              <span>Jurisdiction: <strong className={styles.metaHighlight}>Karnataka, India</strong></span>
-              <span className={styles.metaSep}>|</span>
-              <span>Subject to: <strong className={styles.metaHighlight}>Applicable Indian Consumer & Real Estate Law</strong></span>
+              <span>
+                Last updated: <strong className={styles.metaHighlight}>October 2026</strong>
+              </span>
             </div>
           </div>
 
@@ -56,9 +52,9 @@ export default function TermsAndConditionsPage() {
           <div className={styles.legalContentLayout}>
             {/* Table of Contents Column */}
             <aside className={styles.tocCol} aria-label="Table of Contents">
-              <span className={styles.tocTitle}>Index</span>
+              <span className={styles.tocTitle}>Contents</span>
               <ul className={styles.tocList}>
-                {TOC_TERMS.map((sec) => (
+                {TOC_TERMS.map((sec, idx) => (
                   <li key={sec.id}>
                     <a href={`#${sec.id}`} className={styles.tocLink}>
                       {sec.title}
@@ -70,138 +66,100 @@ export default function TermsAndConditionsPage() {
 
             {/* Article Body */}
             <article className={styles.legalArticle}>
-              <div className={styles.alertNotice}>
-                <span className={styles.alertTitle}>IMPORTANT STATUTORY & LEGAL DISCLAIMER</span>
-                <p className={styles.alertBody}>
-                  The content, renderings, floor distributions, and descriptions presented on this website are published solely for general informational and conceptual appreciation. Nothing contained herein constitutes an offer of sale, advertisement, prospectus, warranty, or legally binding transaction commitment. Any formal residential acquisition is governed exclusively by bilateral registered agreements.
-                </p>
-              </div>
+              <p className={styles.sectionText}>
+                By using the Fortune Haven website, you agree to these terms.
+              </p>
 
-              {/* 1. Purpose */}
-              <section id="purpose" className={styles.legalSection}>
+              {/* 1. Website Information */}
+              <section id="website-info" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>01</span>
-                  <h2 className={styles.sectionTitle}>Website Purpose & Scope</h2>
+                  <h2 className={styles.sectionTitle}>Website Information</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  This website is operated to provide an editorial introduction to Fortune Haven, an enclave of 24 Ultra Luxury residences located along the NH-207 corridor in the foothills of Nandi Hills. By browsing or submitting an inquiry through this site, you agree to comply with these terms.
+                  This website provides general information about Fortune Haven, its villas, amenities, floor plans, location, and connectivity. Information and images are provided for guidance and may be updated from time to time.
                 </p>
               </section>
 
-              {/* 2. Visuals */}
-              <section id="visuals" className={styles.legalSection}>
+              {/* 2. Property Details */}
+              <section id="property-details" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>02</span>
-                  <h2 className={styles.sectionTitle}>Architectural Renderings, Photography & Visuals</h2>
+                  <h2 className={styles.sectionTitle}>Property Details</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  All visual representations—including architectural renderings, computer-generated perspectives, interior furnishings, lighting schemes, and landscaping previews—are artistic impressions created to illustrate the design intent. Actual completed finishes, landscaping contours, materials, and elevations may vary in accordance with approvals and architectural execution.
+                  Specifications, layouts, amenities, distances, availability, and other project details should be confirmed with the authorized project representative before making a purchase decision. Illustrations and photographs may not represent every final detail.
                 </p>
               </section>
 
-              {/* 3. Plans */}
-              <section id="plans" className={styles.legalSection}>
+              {/* 3. Enquiries and Site Visits */}
+              <section id="enquiries-visits" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>03</span>
-                  <h2 className={styles.sectionTitle}>Plans, Specifications & Dimensions</h2>
+                  <h2 className={styles.sectionTitle}>Enquiries and Site Visits</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  Floor plans and spatial layouts displayed on this website represent verified project architectural schematics. However, furniture placements, electrical layouts, and decorative elements shown in plans are indicative. Final dimensions and sanctioned build specifications are defined exclusively in official sanctioned sanction drawings and formal customer agreements.
+                  Submitting an enquiry or requesting a site visit does not constitute a booking, allotment, or purchase agreement. Any purchase is subject to the applicable official documents and agreements.
                 </p>
               </section>
 
-              {/* 4. Inquiries */}
-              <section id="inquiries" className={styles.legalSection}>
+              {/* 4. Intellectual Property */}
+              <section id="intellectual-property" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>04</span>
-                  <h2 className={styles.sectionTitle}>Inquiry Submissions & Consultations</h2>
+                  <h2 className={styles.sectionTitle}>Intellectual Property</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  Submitting a contact form, requesting a site tour, or applying for the architectural brochure initiates a private informational dialogue. It does not:
+                  Website text, photographs, graphics, logos, and other materials may not be copied, reproduced, or used commercially without appropriate authorization.
                 </p>
-                <ul className={styles.bulletList}>
-                  <li className={styles.bulletItem}>
-                    <span className={styles.bulletDot} />
-                    <span>Create a reservation, priority booking, or allotment rights over any villa.</span>
-                  </li>
-                  <li className={styles.bulletItem}>
-                    <span className={styles.bulletDot} />
-                    <span>Guarantee pricing, payment milestones, or delivery schedules.</span>
-                  </li>
-                  <li className={styles.bulletItem}>
-                    <span className={styles.bulletDot} />
-                    <span>Constitute a binding contract between the visitor and the developer entity.</span>
-                  </li>
-                </ul>
               </section>
 
-              {/* 5. IP */}
-              <section id="ip" className={styles.legalSection}>
+              {/* 5. External Links */}
+              <section id="external-links" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>05</span>
-                  <h2 className={styles.sectionTitle}>Intellectual Property & Copyright</h2>
+                  <h2 className={styles.sectionTitle}>External Links</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  All architectural drawings, branding assets, photographic compositions, typography arrangements, and copy displayed on this website are protected under copyright, trademark, and intellectual property laws of India. Reproduction, commercial reuse, or syndication without prior written permission is strictly prohibited.
+                  The website may link to third-party services or websites. Fortune Haven is not responsible for their content, availability, or privacy practices.
                 </p>
               </section>
 
-              {/* 6. Liability */}
-              <section id="liability" className={styles.legalSection}>
+              {/* 6. Website Use */}
+              <section id="website-use" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>06</span>
-                  <h2 className={styles.sectionTitle}>Limitation of Liability</h2>
+                  <h2 className={styles.sectionTitle}>Website Use</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  To the extent permitted by applicable Indian law, the website operator and project promoter shall not be liable for any direct, indirect, incidental, or consequential damages resulting from reliance on website information or temporary platform unavailability. Visitors are encouraged to verify project documentation independently prior to making commercial decisions.
+                  You agree not to misuse the website, interfere with its operation, or submit false or misleading information.
                 </p>
               </section>
 
-              {/* 7. Governing Law */}
-              <section id="governing-law" className={styles.legalSection}>
+              {/* 7. Changes to These Terms */}
+              <section id="changes-terms" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>07</span>
-                  <h2 className={styles.sectionTitle}>Governing Law & Legal Review</h2>
+                  <h2 className={styles.sectionTitle}>Changes to These Terms</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  These terms are governed by the laws of India. Any disputes arising in connection with the use of this website shall be subject to the exclusive jurisdiction of the competent courts in Bengaluru, Karnataka.
-                </p>
-                <p className={styles.sectionText}>
-                  <em>Note for Legal Counsel:</em> These draft provisions must be formally reviewed by an Indian legal practitioner familiar with the Real Estate (Regulation and Development) Act, 2016 (RERA), the Consumer Protection Act, 2019, and the DPDP Act, 2023 prior to commercial publication.
+                  We may update these terms when necessary. The latest version will be published on this page.
                 </p>
               </section>
 
-              {/* 8. Entity */}
-              <section id="entity" className={styles.legalSection}>
+              {/* 8. Contact Us */}
+              <section id="contact-us" className={styles.legalSection}>
                 <div className={styles.sectionHeader}>
                   <span className={styles.sectionNum}>08</span>
-                  <h2 className={styles.sectionTitle}>Operator Contact & Clarifications</h2>
+                  <h2 className={styles.sectionTitle}>Contact Us</h2>
                 </div>
                 <p className={styles.sectionText}>
-                  For queries regarding these terms or the Fortune Haven website, please direct communications to:
+                  For questions about these terms, email{" "}
+                  <a href="mailto:sales@fortunehavens.com" className={styles.tocLink} style={{ color: "var(--color-gold)", textDecoration: "underline" }}>
+                    sales@fortunehavens.com
+                  </a>
+                  .
                 </p>
-                <div className={styles.entityInfoBox}>
-                  <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>PROJECT:</span>
-                    <span className={styles.infoVal}>Fortune Haven Luxury Villas</span>
-                  </div>
-                  <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>DEVELOPER ASSET MENTION:</span>
-                    <span className={styles.infoVal}>Cannas Lily Infrastructure Pvt. Ltd.</span>
-                  </div>
-                  <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>REGISTERED ENTITY:</span>
-                    <span className={styles.infoVal}>
-                      <span className={styles.placeholderTag}>[Pending Legal Confirmation]</span>
-                    </span>
-                  </div>
-                  <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>LEGAL ENQUIRIES:</span>
-                    <span className={styles.infoVal}>
-                      <span className={styles.placeholderTag}>[legal@fortunehaven.com — Pending Setup]</span>
-                    </span>
-                  </div>
-                </div>
               </section>
             </article>
           </div>
