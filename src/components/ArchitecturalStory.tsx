@@ -40,7 +40,7 @@ const PILLARS: ExperiencePillar[] = [
     number: "04",
     title: "PRIVATE LEISURE",
     description:
-      "A dedicated second-floor retreat featuring a bar counter, flexible entertainment space and view-framing terrace.",
+      "A dedicated second-floor retreat featuring a Bar Counter or Home Theatre, flexible entertainment space and view-framing terrace.",
   },
 ];
 

@@ -29,7 +29,7 @@ const AMENITY_CATEGORIES: AmenityCategory[] = [
   {
     title: "WELLNESS & RELAXATION",
     items: [
-      { name: "Jacuzzi", desc: "A private hydro-setting to relax, recharge and let the day slow down." },
+      { name: "Jacuzzi", desc: "A private space to unwind, refresh and enjoy a moment of calm." },
       { name: "Sauna", desc: "A warm, calming chamber designed for detoxification and deep wellness." },
       { name: "Yoga & Meditation Setting", desc: "Mindful moments in the fresh foothill air and garden greenery." },
     ],

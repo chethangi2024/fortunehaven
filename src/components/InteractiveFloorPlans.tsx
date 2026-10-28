@@ -23,8 +23,10 @@ interface FloorLevel {
   levelTitle: string;
   area: string;
   subtitle: string;
+  caption: string;
   imageSrc: string | StaticImageData;
   altText: string;
+  rooms: string[];
   highlights: string[];
 }
 
@@ -36,8 +38,15 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "MASTER SITE PLAN",
     area: "24 VILLAS",
     subtitle: "Gated Enclave • Private Layout • Verdant Buffer",
+    caption: "Master site plan layout encompassing 24 boutique Ultra Luxury Villas with private avenues and landscaped perimeter.",
     imageSrc: "/digital-assets/Floor Plane and Site Plan/Master Plan.png",
     altText: "Fortune Haven Master Site Plan Layout showing 24 gated boutique villas and internal avenue",
+    rooms: [
+      "24 Boutique Luxury Villas",
+      "Gated Security Perimeter",
+      "Tree-Lined Internal Avenues",
+      "Private Landscaped Garden Buffers",
+    ],
     highlights: [
       "Master layout encompassing 24 boutique Ultra Luxury Villas.",
       "Dedicated internal circulation avenues and wide tree-lined access.",
@@ -53,9 +62,18 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "BASEMENT & PARKING",
     area: "1,086 SQ FT",
     subtitle: "Park • Work • Charge • Connect • Breathe",
+    caption: "Basement level featuring covered 3-car parking, EV charging point, home office / utility room, and private lift access.",
     // 1. Basement -> Basement Plan.png
     imageSrc: basementPlanImg,
     altText: "Fortune Haven Basement Floor Architectural Plan showing 3-car parking, EV charging, and home office",
+    rooms: [
+      "Covered 3-Car Parking",
+      "Dedicated EV Charging Point",
+      "Home Office / Utility Room",
+      "Private Lift Access",
+      "Internal Staircase",
+      "Tree Provision",
+    ],
     highlights: [
       "Spacious parking for three cars.",
       "Dedicated EV charging point provision.",
@@ -72,9 +90,18 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "GROUND FLOOR LIVING",
     area: "1,226 SQ FT",
     subtitle: "Welcome • Live • Gather",
+    caption: "Ground floor layout showing double-height living, dining area, kitchen, one bedroom, private lawn, and sit-out.",
     // 2. Ground Floor -> Ground Floor Plan.png
     imageSrc: groundPlanImg,
-    altText: "Fortune Haven Ground Floor Architectural Plan showing living, dining, kitchen, and lawn",
+    altText: "Fortune Haven Ground Floor Architectural Plan showing living, dining, kitchen, one bedroom, and lawn",
+    rooms: [
+      "Double-Height Living Room",
+      "Dining Area",
+      "Thoughtful Kitchen",
+      "One Bedroom (with attached toilet)",
+      "Private Lawn",
+      "Private Yard & Sit-Out",
+    ],
     highlights: [
       "Spacious living area for family time and entertaining.",
       "Dining area designed for shared meals and memorable moments.",
@@ -91,9 +118,18 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "FIRST FLOOR SUITES",
     area: "1,226 SQ FT",
     subtitle: "Rest • Relax • Connect",
+    caption: "First floor layout showing two bedrooms with attached dressing and bathrooms, central TV lounge, and private balconies.",
     // 3. First Floor -> First Floor Plan.png
     imageSrc: firstPlanImg,
     altText: "Fortune Haven First Floor Architectural Plan showing two bedrooms with attached dressing and TV lounge",
+    rooms: [
+      "Two Spacious Bedrooms",
+      "Attached Dressing Areas",
+      "Attached Bathrooms (Toilets)",
+      "Central Bedroom TV Lounge",
+      "Private Balconies",
+      "Open Dining Void",
+    ],
     highlights: [
       "Two spacious bedrooms for restful living.",
       "Dedicated attached dressing space for added convenience.",
@@ -110,13 +146,22 @@ const FLOOR_LEVELS: FloorLevel[] = [
     levelTitle: "SECOND FLOOR RETREAT",
     area: "743 SQ FT",
     subtitle: "Retreat • Unwind • Look Out",
+    caption: "Second floor layout showing master bedroom with dressing area and attached bathroom, family lounge, and spacious balcony.",
     // 4. Second Floor -> Second Floor Plan.png
     imageSrc: secondPlanImg,
-    altText: "Fortune Haven Second Floor Architectural Plan showing master bedroom, family lounge, and spacious terrace",
+    altText: "Fortune Haven Second Floor Architectural Plan showing master bedroom, family lounge, and spacious balcony",
+    rooms: [
+      "Master Bedroom Sanctuary",
+      "Dedicated Dressing Area",
+      "Attached Bathroom (Toilet)",
+      "Family Lounge (Bar / Home Theatre)",
+      "Spacious Balcony",
+      "Private Lift Access",
+    ],
     highlights: [
       "Master bedroom sanctuary with dedicated dressing area and attached toilet.",
       "Family lounge for movie nights, private bar, reading, or relaxing.",
-      "Spacious balcony terrace for outdoor living, entertaining and open views.",
+      "Spacious balcony for outdoor living, entertaining and open views.",
       "Individual private lift access serving this retreat level.",
     ],
   },
@@ -157,7 +202,7 @@ const MATERIALS_SPECS: MaterialSpecification[] = [
   {
     category: "VERTICAL ACCESS",
     specification: "Individual Private Elevator",
-    detail: "Dedicated private lift installed in each villa serving all four floors from basement to rooftop.",
+    detail: "Dedicated private lift installed in each villa serving all four floors from basement to second floor.",
   },
 ];
 
@@ -356,6 +401,7 @@ export const InteractiveFloorPlans: React.FC = () => {
                   <span className={styles.hintText}>Click to enlarge</span>
                 </div>
               </div>
+              <p className={styles.planCaption}>{activeLevel.caption}</p>
             </div>
           </div>
 
@@ -364,12 +410,26 @@ export const InteractiveFloorPlans: React.FC = () => {
             <div className={styles.detailsCard}>
               <div className={styles.detailsHeader}>
                 <div className={styles.detailsBadge}>
-                  <span className={styles.badgeIndex}>LEVEL 0{activeLevel.number}</span>
-                  <span className={styles.badgeArea}>{activeLevel.area}</span>
+                  <span className={styles.badgeIndex}>LEVEL {activeLevel.number} — {activeLevel.area}</span>
                 </div>
                 <h3 className={styles.detailsTitle}>{activeLevel.levelTitle}</h3>
                 <p className={styles.detailsSubtitle}>{activeLevel.subtitle}</p>
               </div>
+
+              {/* Verified Room List */}
+              {activeLevel.rooms && activeLevel.rooms.length > 0 && (
+                <div className={styles.roomsBlock}>
+                  <span className={styles.roomsTag}>ROOMS & KEY SPACES</span>
+                  <ul className={styles.roomsList}>
+                    {activeLevel.rooms.map((room, rIdx) => (
+                      <li key={rIdx} className={styles.roomItem}>
+                        <span className={styles.roomBullet}>—</span>
+                        <span className={styles.roomText}>{room}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className={styles.detailsDivider} />
 
@@ -424,7 +484,7 @@ export const InteractiveFloorPlans: React.FC = () => {
           >
             <div className={styles.modalHeader}>
               <div className={styles.modalTitleBlock}>
-                <span className={styles.modalBadge}>LEVEL 0{activeLevel.number} • {activeLevel.area}</span>
+                <span className={styles.modalBadge}>LEVEL {activeLevel.number} — {activeLevel.area}</span>
                 <h4 className={styles.modalTitle}>{activeLevel.levelTitle}</h4>
               </div>
               <button

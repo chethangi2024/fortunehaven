@@ -214,7 +214,7 @@ export const LocationConnectivity: React.FC = () => {
               <address className={styles.verifiedAddressBody}>
                 195/59/60/5, Ward No. 9, Doddaballapura Road / NH-207,
                 <br />
-                Devanahalli Town, Bengaluru Rural — 562110
+                Devanahalli Town, North Bengaluru — 562110
               </address>
             </div>
           </div>
@@ -225,7 +225,7 @@ export const LocationConnectivity: React.FC = () => {
           <div className={styles.matrixHeader}>
             <div>
               <span className={styles.matrixTag}>REGIONAL CONNECTIVITY MATRIX</span>
-              <h3 className={styles.matrixTitle}>Verified Proximities from Fortune Haven</h3>
+              <h3 className={styles.matrixTitle}>Nearby Destinations & Connectivity</h3>
             </div>
           </div>
 

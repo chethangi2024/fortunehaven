@@ -121,7 +121,7 @@ export const InteriorExperience: React.FC = () => {
             <div ref={heroImageRef} className={styles.sceneFrameLandscape}>
               <div ref={heroInnerRef} className={styles.imageInner}>
                 <Image
-                  src="/digital-assets/Villa Images/Livning Room 2.png"
+                  src="/digital-assets/Villa Images/Warm Contemporary Open-Plan Interior.png"
                   alt="Fortune Haven Double-Height Living Space with soaring ceiling clearances"
                   fill
                   sizes="(max-width: 900px) 100vw, 55vw"
@@ -131,7 +131,7 @@ export const InteriorExperience: React.FC = () => {
                 />
               </div>
             </div>
-            <p className={styles.imageCaption}>Model villa showing in optional furnishing</p>
+            <p className={styles.imageCaption}>Model villa shown with optional furnishing</p>
           </div>
 
           <div className={styles.sceneContent}>
@@ -139,12 +139,12 @@ export const InteriorExperience: React.FC = () => {
             <h3 className={styles.sceneTitle}>Warm, Welcoming and Perfectly Proportioned.</h3>
             <p className={styles.sceneText}>
               Designed to accommodate everyday family life as well as larger gatherings. Layered
-              lighting, selected wall panel surfaces, and honed flooring combine to establish an
+              lighting, selected wall panel surfaces, and vitrified flooring combine to establish an
               inviting environment filled with natural illumination from morning to evening.
             </p>
             <div className={styles.sceneSpecs}>
-              <span className={styles.specLabel}>KEY HIGHLIGHTS:</span>
-              <span className={styles.specVal}>Double-Height Ceiling • Full-Height Glazing • Garden Vista</span>
+              <strong className={styles.specLabel}>KEY HIGHLIGHTS:</strong>
+              <strong className={styles.specVal}>Double-Height Ceiling • Full-Height Glazing • Garden Vista</strong>
             </div>
           </div>
         </div>
@@ -223,7 +223,7 @@ export const InteriorExperience: React.FC = () => {
             <span className={styles.sceneCategory}>THOUGHTFULLY DESIGNED // LIVING & ENTERTAINMENT</span>
             <h3 className={styles.retreatTitle}>Spaces for Living. Moments for Enjoying.</h3>
             <p className={styles.retreatDesc}>
-              Discover thoughtfully designed spaces across two levels, from a welcoming first-floor living room to a dedicated second-floor home theatre for relaxing and entertaining.
+              Designed across three levels — a welcoming living space on the ground floor, generous rooms on the first floor, and a second floor given over entirely to entertainment and relaxation, with a home theatre or bar counter opening onto a 500 sq ft balcony.
             </p>
           </div>
 
@@ -240,7 +240,7 @@ export const InteriorExperience: React.FC = () => {
                 />
               </div>
               <div className={styles.retreatCardBody}>
-                <h4 className={styles.retreatCardTitle}>First-Floor Living Room</h4>
+                <h4 className={styles.retreatCardTitle}>Ground Floor Living Room</h4>
                 <p className={styles.retreatCardText}>
                   A welcoming living space designed for everyday family time, relaxed conversations and comfortable gatherings.
                 </p>

@@ -445,7 +445,7 @@ const WEB3FORMS_ACCESS_KEY =
                     <span>
                       {submissionStatus === "submitting"
                         ? "VERIFYING DETAILS..."
-                        : "SUBMIT PRIVATE ENQUIRY"}
+                        : "Enquire"}
                     </span>
                     <span className={styles.btnArrow}>→</span>
                   </button>

@@ -206,7 +206,7 @@ export const Header: React.FC<HeaderProps> = ({ onTourClick }) => {
               className={styles.drawerCtaBtn}
               onClick={handleEnquireAction}
             >
-              Request A Private Tour
+              Enquire
             </button>
           </div>
         </div>

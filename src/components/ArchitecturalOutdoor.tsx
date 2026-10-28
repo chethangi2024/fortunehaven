@@ -34,7 +34,7 @@ const OUTDOOR_FEATURES: OutdoorFeature[] = [
     number: "03",
     title: "4 PRIVATE BALCONIES",
     description:
-      "Each bedroom connects with the outdoors through its own balcony.",
+      "Featuring three bedrooms with their own private balconies, plus an expansive 500 sq. ft. balcony on the second floor.",
   },
   {
     number: "04",
