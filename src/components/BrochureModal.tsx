@@ -205,7 +205,7 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({
 
 const WEB3FORMS_ACCESS_KEY =
   process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
-  "7d92d672-b90b-4ba8-aaf4-387005adc781";
+  "8a51d082-3c17-4b77-8e65-47519a286e74";
 
   const [modalServerError, setModalServerError] = useState<string | null>(null);
   const [modalResponse, setModalResponse] = useState<{

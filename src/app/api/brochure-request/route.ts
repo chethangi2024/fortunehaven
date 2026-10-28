@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
     const web3FormsKey =
       process.env.WEB3FORMS_ACCESS_KEY ||
       process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
-      "7d92d672-b90b-4ba8-aaf4-387005adc781";
+      "8a51d082-3c17-4b77-8e65-47519a286e74";
 
     if (web3FormsKey) {
       try {
