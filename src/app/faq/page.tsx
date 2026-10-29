@@ -46,12 +46,10 @@ const faqStructuredData = {
 export default function FaqPage() {
   return (
     <div className={styles.legalPageWrapper}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
 
       <Header />
 

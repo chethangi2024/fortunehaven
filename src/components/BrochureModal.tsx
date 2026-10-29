@@ -69,7 +69,7 @@ export const BrochureSection: React.FC<{ onOpenModal: () => void }> = ({
           <div className={styles.bannerVisualCol}>
             <div className={styles.bannerImageFrame}>
               <Image
-                src="/digital-assets/Villa Images/Brochure opening.png"
+                src="/digital-assets/Villa Images/Brochure opening.webp"
                 alt="Fortune Haven Comprehensive Architectural Brochure Preview"
                 fill
                 sizes="(max-width: 768px) 100vw, 480px"

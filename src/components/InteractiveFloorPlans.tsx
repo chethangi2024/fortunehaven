@@ -7,10 +7,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./InteractiveFloorPlans.module.css";
 
-import basementPlanImg from "@/assets/floor-plans/Basement Plan.png";
-import groundPlanImg from "@/assets/floor-plans/Ground Floor Plan.png";
-import firstPlanImg from "@/assets/floor-plans/First Floor Plan.png";
-import secondPlanImg from "@/assets/floor-plans/Second Floor Plan.png";
+import basementPlanImg from "@/assets/floor-plans/Basement Plan.webp";
+import groundPlanImg from "@/assets/floor-plans/Ground Floor Plan.webp";
+import firstPlanImg from "@/assets/floor-plans/First Floor Plan.webp";
+import secondPlanImg from "@/assets/floor-plans/Second Floor Plan.webp";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -39,7 +39,7 @@ const FLOOR_LEVELS: FloorLevel[] = [
     area: "24 VILLAS",
     subtitle: "Gated Enclave • Private Layout • Verdant Buffer",
     caption: "Master site plan layout encompassing 24 boutique Ultra Luxury Villas with private avenues and landscaped perimeter.",
-    imageSrc: "/digital-assets/Floor Plane and Site Plan/Master Plan.png",
+    imageSrc: "/digital-assets/Floor Plane and Site Plan/Master Plan.webp",
     altText: "Fortune Haven Master Site Plan Layout showing 24 gated boutique villas and internal avenue",
     rooms: [
       "24 Boutique Luxury Villas",
@@ -390,7 +390,7 @@ export const InteractiveFloorPlans: React.FC = () => {
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 70vw, 980px"
                         className={styles.planImg}
-                        priority
+                        priority={isActive}
                         quality={92}
                       />
                     </div>

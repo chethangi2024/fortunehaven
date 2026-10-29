@@ -227,7 +227,7 @@ const WEB3FORMS_ACCESS_KEY =
                 <div className={styles.noteTextGroup}>
                   <h4 className={styles.noteTitle}>OFFICIAL PROJECT EMAIL</h4>
                   <p className={styles.noteDesc}>
-                    Inquiries and documentation:{" "}
+                    Enquiries and documentation:{" "}
                     <a href="mailto:sales@fortunehavens.com" className={styles.contactLink}>
                       sales@fortunehavens.com
                     </a>

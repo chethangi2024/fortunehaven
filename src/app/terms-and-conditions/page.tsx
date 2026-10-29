@@ -54,7 +54,7 @@ export default function TermsAndConditionsPage() {
             <aside className={styles.tocCol} aria-label="Table of Contents">
               <span className={styles.tocTitle}>Contents</span>
               <ul className={styles.tocList}>
-                {TOC_TERMS.map((sec, idx) => (
+                {TOC_TERMS.map((sec) => (
                   <li key={sec.id}>
                     <a href={`#${sec.id}`} className={styles.tocLink}>
                       {sec.title}

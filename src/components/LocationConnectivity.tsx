@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
 
 interface DistanceNode {
   category: string;
-  items: { destination: string; distance: string }[];
+  items: { destination: string; distance: string; subtext?: string }[];
 }
 
 /**
@@ -25,17 +25,38 @@ const DISTANCE_NODES: DistanceNode[] = [
       { destination: "NH-207", distance: "Adjacent to Fortune Haven" },
       { destination: "NH-44", distance: "200 m" },
       { destination: "STRR (Satellite Town Ring Road)", distance: "1 km" },
+      { destination: "Devanahalli Railway Station", distance: "2 km" },
+      { destination: "Proposed Bus Terminal, Devanahalli", distance: "2 km" },
       { destination: "Kempegowda International Airport", distance: "15 km" },
+      { destination: "Namma Metro Blue Line – KIA (2027)", distance: "15 km" },
+      { destination: "Bengaluru Suburban Railway – Sampige Line", distance: "2 km" },
       { destination: "Yelahanka", distance: "20 km" },
     ],
   },
   {
     category: "BUSINESS & EMPLOYMENT HUBS",
     items: [
+      {
+        destination: "Bengaluru North District Headquarters",
+        distance: "12 km",
+        subtext: "Deputy Commissioner · Assistant Commissioner · Tahsildar · Mines & Geology",
+      },
       { destination: "Prestige Tech Cloud", distance: "11 km" },
+      { destination: "Amazon & Walmart Global Capability Centres", distance: "11 km" },
       { destination: "Puravankara Aerocity", distance: "14 km" },
       { destination: "Foxconn", distance: "15 km" },
       { destination: "Aerospace Industry Hub", distance: "15 km" },
+      {
+        destination: "Boeing India Campus",
+        distance: "15 km",
+        subtext: "Largest Boeing facility outside the United States",
+      },
+      { destination: "Aerospace SEZ & KIADB Industrial Area", distance: "15 km" },
+      { destination: "Bengaluru Signature Business Park (407 acres)", distance: "6 km" },
+      { destination: "KIADB Hardware Park", distance: "21 km" },
+      { destination: "Devanahalli Business Park", distance: "9 km" },
+      { destination: "BIAL IT Investment Region (Proposed)", distance: "15 km" },
+      { destination: "Deep Tech Park & Wisdom Valley, 2,700 acres (Proposed)", distance: "15 km" },
     ],
   },
   {
@@ -50,6 +71,10 @@ const DISTANCE_NODES: DistanceNode[] = [
       { destination: "Amity International School & University Bengaluru", distance: "11 km" },
       { destination: "Cambridge Institute of Technology, North Campus", distance: "14 km" },
       { destination: "Stonehill International School", distance: "18 km" },
+      { destination: "GITAM School of Technology", distance: "14 km" },
+      { destination: "Canadian International School, Yelahanka", distance: "22 km" },
+      { destination: "Mallya Aditi International School, Yelahanka", distance: "28 km" },
+      { destination: "UAS GKVK Campus", distance: "28 km" },
       { destination: "Padukone School of Badminton", distance: "22 km" },
     ],
   },
@@ -240,7 +265,12 @@ export const LocationConnectivity: React.FC = () => {
                 <ul className={styles.destinationList}>
                   {group.items.map((item, itemIdx) => (
                     <li key={itemIdx} className={styles.destinationItem}>
-                      <span className={styles.destTitle}>{item.destination}</span>
+                      <div className={styles.destMain}>
+                        <span className={styles.destTitle}>{item.destination}</span>
+                        {item.subtext && (
+                          <span className={styles.destSubtext}>{item.subtext}</span>
+                        )}
+                      </div>
                       <span className={styles.destDistance}>{item.distance}</span>
                     </li>
                   ))}

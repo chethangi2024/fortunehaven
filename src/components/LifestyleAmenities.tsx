@@ -22,7 +22,6 @@ const AMENITY_CATEGORIES: AmenityCategory[] = [
     items: [
       { name: "Swimming Pool", desc: "A refreshing space to unwind, stay active and enjoy leisurely moments." },
       { name: "Gymnasium", desc: "A dedicated fitness space for maintaining an active and healthy routine." },
-      { name: "Walking & Jogging Track", desc: "A landscaped route for morning walks, evening jogs and movement." },
       { name: "Squash Court", desc: "High-paced active court for sports enthusiasts." },
     ],
   },
@@ -179,7 +178,7 @@ export const LifestyleAmenities: React.FC = () => {
             <div ref={focalImgContainerRef} className={styles.clubhouseFrame}>
               <div ref={focalImgInnerRef} className={styles.imageInner}>
                 <Image
-                  src="/digital-assets/Villa Images/Clubhouse.png"
+                  src="/digital-assets/Villa Images/Clubhouse.webp"
                   alt="Fortune Haven Community Clubhouse Pavilion"
                   fill
                   sizes="(max-width: 900px) 100vw, 62vw"
@@ -193,7 +192,7 @@ export const LifestyleAmenities: React.FC = () => {
             <div className={styles.poolFrame}>
               <div className={styles.imageInner}>
                 <Image
-                  src="/digital-assets/Villa Images/Pool 2.png"
+                  src="/digital-assets/Villa Images/Pool 2.webp"
                   alt="Fortune Haven Swimming Pool and Sun Deck"
                   fill
                   sizes="(max-width: 900px) 100vw, 38vw"

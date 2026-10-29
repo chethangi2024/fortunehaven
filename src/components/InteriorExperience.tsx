@@ -121,7 +121,7 @@ export const InteriorExperience: React.FC = () => {
             <div ref={heroImageRef} className={styles.sceneFrameLandscape}>
               <div ref={heroInnerRef} className={styles.imageInner}>
                 <Image
-                  src="/digital-assets/Villa Images/Warm Contemporary Open-Plan Interior.png"
+                  src="/digital-assets/Villa Images/Warm Contemporary Open-Plan Interior.webp"
                   alt="Fortune Haven Double-Height Living Space with soaring ceiling clearances"
                   fill
                   sizes="(max-width: 900px) 100vw, 55vw"
@@ -157,7 +157,7 @@ export const InteriorExperience: React.FC = () => {
           <div className={styles.sceneMedia}>
             <div className={styles.sceneFrameStandard}>
               <Image
-                src="/digital-assets/Villa Images/Kitchen Image.png"
+                src="/digital-assets/Villa Images/Kitchen Image 2.webp"
                 alt="Fortune Haven Kitchen designed for cooking and made for gathering"
                 fill
                 sizes="(max-width: 900px) 100vw, 55vw"
@@ -190,7 +190,7 @@ export const InteriorExperience: React.FC = () => {
           <div className={styles.sceneMedia}>
             <div className={styles.sceneFrameStandard}>
               <Image
-                src="/digital-assets/Villa Images/Room with wooden floor.png"
+                src="/digital-assets/Villa Images/Room with wooden floor.webp"
                 alt="Fortune Haven Bedroom Suite with warm wooden flooring and private balcony"
                 fill
                 sizes="(max-width: 900px) 100vw, 55vw"
@@ -231,7 +231,7 @@ export const InteriorExperience: React.FC = () => {
             <div className={styles.retreatCard}>
               <div className={styles.retreatFrame}>
                 <Image
-                  src="/digital-assets/Villa Images/Livning Room 4.png"
+                  src="/digital-assets/Villa Images/Livning Room 4.webp"
                   alt="Fortune Haven Second Floor Informal Family Lounge"
                   fill
                   sizes="(max-width: 900px) 100vw, 48vw"
@@ -250,7 +250,7 @@ export const InteriorExperience: React.FC = () => {
             <div className={styles.retreatCard}>
               <div className={styles.retreatFrame}>
                 <Image
-                  src="/digital-assets/Villa Images/Home theatre.png"
+                  src="/digital-assets/Villa Images/Home theatre.webp"
                   alt="Fortune Haven Private Bar Counter or Home Theatre Setup"
                   fill
                   sizes="(max-width: 900px) 100vw, 48vw"

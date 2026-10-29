@@ -17,7 +17,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "what-is-fortune-haven",
     question: "What is Fortune Haven?",
     answer:
-      "Fortune Haven is an exclusive gated enclave of twenty-four Ultra Luxury private residences in Devanahalli, Bengaluru Rural, developed by Cannas Lily Infrastructure Pvt. Ltd. (JCN Group). Each villa features four thoughtfully planned levels with a built-up area of 4,281 sq ft and an undivided land share (UDS) of 2,800 sq ft.",
+      "Fortune Haven is an exclusive gated enclave of twenty-four Ultra Luxury private residences in Devanahalli, Bengaluru North, developed by Cannas Lily Infrastructure Pvt. Ltd. (JCN Group). Each villa features four thoughtfully planned levels with a built-up area of 4,281 sq ft and an undivided land share (UDS) of 2,800 sq ft.",
     category: "Project & Vision",
   },
   {

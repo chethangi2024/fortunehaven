@@ -44,7 +44,7 @@ const HERO_SCENES: readonly HeroScene[] = [
       "An exclusive gated enclave of 24 four-BHK boutique villas in Devanahalli, designed for families who value space, privacy and individuality.",
     propertyFacts: ["B+G+2", "4,281 Sq. Ft. Built-up Area", "2,800 Sq. Ft. UDS"],
     highlight: "OC Received • BIAAPA Approved • RERA Approved",
-    imageSrc: "/digital-assets/Hero Section/ezgif-frame-001.jpg",
+    imageSrc: "/digital-assets/Hero Section/ezgif-frame-001.webp",
     altText:
       "Fortune Haven contemporary Ultra Luxury boutique villa architectural facade in Devanahalli",
     ctaText: "Explore The Villas",
@@ -61,7 +61,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     description:
       "Four thoughtfully planned levels create dedicated spaces for family living, private retreats, work and leisure—giving every member of the family room to call their own.",
     highlight: "4 En-Suite Bedrooms • Private Lift • 3-Car Parking",
-    imageSrc: "/digital-assets/Hero Section/ezgif-frame-075.jpg",
+    imageSrc: "/digital-assets/Hero Section/ezgif-frame-075.webp",
     altText:
       "Fortune Haven Ultra Luxury Villa structural elevation showcasing expansive multi-level living",
     ctaText: "View Floor Plans",
@@ -77,7 +77,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     description:
       "Private gardens, four balconies and a spacious rooftop terrace bring outdoor living into everyday life, with views towards the Nandi Hills.",
     highlight: "Private Lawn • 4 Balconies • Terrace Retreat",
-    imageSrc: "/digital-assets/Hero Section/ezgif-frame-150.jpg",
+    imageSrc: "/digital-assets/Hero Section/ezgif-frame-150.webp",
     altText:
       "Fortune Haven villa private landscaped garden and cantilevered glass balconies",
     ctaText: "Outdoor Living",
@@ -93,7 +93,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     description:
       "A private community of just 24 villas, complemented by a clubhouse and shared leisure amenities. Visit the completed model villa and experience Fortune Haven in person.",
     highlight: "2,800 Sq Ft UDS • Clubhouse Pavilion • Ready To Move In",
-    imageSrc: "/digital-assets/Hero Section/ezgif-frame-225.jpg",
+    imageSrc: "/digital-assets/Hero Section/ezgif-frame-225.webp",
     altText:
       "Fortune Haven gated enclave and private villa row under open skies near Nandi Hills",
     ctaText: "Schedule Private Tour",

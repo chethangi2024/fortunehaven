@@ -52,7 +52,7 @@ export default function NotFound() {
 
           <div className={styles.imageFrame}>
             <Image
-              src="/digital-assets/Villa Images/Straight view.png"
+              src="/digital-assets/Villa Images/Straight view.webp"
               alt="Fortune Haven Villa Architectural Perspective"
               width={1536}
               height={1024}

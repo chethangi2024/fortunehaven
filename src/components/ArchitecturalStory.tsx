@@ -201,7 +201,7 @@ export const ArchitecturalStory: React.FC = () => {
             >
               <div ref={mainImageInnerRef} className={styles.dominantImageInner}>
                 <Image
-                  src="/digital-assets/Villa Images/Straight view.png"
+                  src="/digital-assets/Villa Images/Straight view.webp"
                   alt="Fortune Haven Boutique Villa Elevation and Forecourt"
                   fill
                   sizes="(max-width: 900px) 100vw, 68vw"
@@ -219,7 +219,7 @@ export const ArchitecturalStory: React.FC = () => {
             >
               <div ref={secondaryImageInnerRef} className={styles.portraitImageInner}>
                 <Image
-                  src="/digital-assets/Villa Images/Brochure opening.png"
+                  src="/digital-assets/Villa Images/Brochure opening.webp"
                   alt="Fortune Haven Contemporary Villa Architecture Framed by Nature"
                   fill
                   sizes="(max-width: 900px) 100vw, 32vw"

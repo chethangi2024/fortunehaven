@@ -158,7 +158,7 @@ export const ArchitecturalOutdoor: React.FC = () => {
           <div ref={heroImageRef} className={styles.heroFrame}>
             <div ref={heroInnerRef} className={styles.imageInner}>
               <Image
-                src="/digital-assets/Villa Images/Villa.png"
+                src="/digital-assets/Villa Images/Villa.webp"
                 alt="Fortune Haven Contemporary Villa Architecture Harmonized with Private Gardens"
                 fill
                 sizes="(max-width: 768px) 100vw, 1440px"
