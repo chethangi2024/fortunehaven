@@ -259,7 +259,7 @@ const WEB3FORMS_ACCESS_KEY =
       setModalResponse({
         referenceId: `BR-${Date.now().toString(36).toUpperCase()}`,
         brochureAvailable: true,
-        downloadUrl: "https://drive.google.com/file/d/1YDRrr2vpg4pwbjYyEbvU7Yqfv2-EjEi6/view?usp=sharing",
+        downloadUrl: "https://drive.google.com/file/d/1qRp-QFDUGCiWdglyWheZw5z9U5wzI8fs/view?usp=sharing",
         notice: "Your brochure request has been received and verified. You may now access the architectural brochure.",
       });
       setSubmissionStatus("validation_preview");

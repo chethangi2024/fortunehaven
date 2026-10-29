@@ -106,7 +106,7 @@ export const Footer: React.FC<FooterProps> = () => {
             </p>
 
             <a
-              href="https://drive.google.com/file/d/1YDRrr2vpg4pwbjYyEbvU7Yqfv2-EjEi6/view?usp=sharing"
+              href="https://drive.google.com/file/d/1qRp-QFDUGCiWdglyWheZw5z9U5wzI8fs/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.brochureBtn}
