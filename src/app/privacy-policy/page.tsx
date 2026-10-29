@@ -5,10 +5,42 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import styles from "@/components/LegalPage.module.css";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fortunehavens.com";
+
 export const metadata: Metadata = {
-  title: "Privacy Policy | Fortune Haven",
+  title: "Privacy Policy",
   description:
-    "Privacy Policy for Fortune Haven. Learn how we handle your personal information responsibly in accordance with applicable data protection laws.",
+    "Privacy Policy for Fortune Haven. Learn how Cannas Lily Infrastructure Pvt. Ltd. handles your personal information responsibly in accordance with applicable data protection laws.",
+  alternates: {
+    canonical: `${SITE_URL}/privacy-policy`,
+  },
+  openGraph: {
+    title: "Privacy Policy | Fortune Haven Ultra Luxury Villas",
+    description:
+      "Privacy Policy for Fortune Haven. Learn how we handle your personal information responsibly in accordance with applicable data protection laws.",
+    url: `${SITE_URL}/privacy-policy`,
+    type: "website",
+  },
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${SITE_URL}/privacy-policy/#breadcrumb`,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Privacy Policy",
+      item: `${SITE_URL}/privacy-policy`,
+    },
+  ],
 };
 
 const TOC_SECTIONS = [
@@ -24,6 +56,10 @@ const TOC_SECTIONS = [
 export default function PrivacyPolicyPage() {
   return (
     <div className={styles.legalPageWrapper}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
       <Header />
 
       <main className={styles.legalMain}>

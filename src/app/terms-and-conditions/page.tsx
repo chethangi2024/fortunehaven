@@ -5,10 +5,42 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import styles from "@/components/LegalPage.module.css";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fortunehavens.com";
+
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Fortune Haven",
+  title: "Terms & Conditions",
   description:
-    "Terms and Conditions for using the Fortune Haven website and inquiring about our luxury villas in Devanahalli, Bengaluru.",
+    "Terms and Conditions for using the Fortune Haven website and inquiring about our ultra luxury 4-BHK private villas in Devanahalli, Bengaluru North.",
+  alternates: {
+    canonical: `${SITE_URL}/terms-and-conditions`,
+  },
+  openGraph: {
+    title: "Terms & Conditions | Fortune Haven Ultra Luxury Villas",
+    description:
+      "Terms and Conditions for using the Fortune Haven website and inquiring about our ultra luxury villas in Devanahalli, Bengaluru North.",
+    url: `${SITE_URL}/terms-and-conditions`,
+    type: "website",
+  },
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${SITE_URL}/terms-and-conditions/#breadcrumb`,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Terms & Conditions",
+      item: `${SITE_URL}/terms-and-conditions`,
+    },
+  ],
 };
 
 const TOC_TERMS = [
@@ -25,6 +57,10 @@ const TOC_TERMS = [
 export default function TermsAndConditionsPage() {
   return (
     <div className={styles.legalPageWrapper}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
       <Header />
 
       <main className={styles.legalMain}>

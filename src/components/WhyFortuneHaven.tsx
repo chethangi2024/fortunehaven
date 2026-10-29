@@ -175,7 +175,7 @@ export const WhyFortuneHaven: React.FC = () => {
         <div className={styles.developerBanner}>
           <div className={styles.devColLeft}>
             <span className={styles.devTag}>ABOUT THE DEVELOPER</span>
-            <h4 className={styles.devTitle}>Cannas Lily Infrastructure Pvt. Ltd. (JCN Group)</h4>
+            <h4 className={styles.devTitle}>JCN Group, Cannas Lily Infrastructure Pvt. Ltd.</h4>
             <p className={styles.devDesc}>
               One of Bengaluru’s premium real-estate developers, JCN has been instrumental in developing
               quality residential projects in and around Bengaluru. Our objective has always been to create

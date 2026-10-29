@@ -106,7 +106,7 @@ export const Footer: React.FC<FooterProps> = () => {
             </p>
 
             <a
-              href="https://drive.google.com/file/d/1tTQSJyZFKSLqhDCpfVWPr58PtXvKkzGG/view?usp=sharing"
+              href="https://drive.google.com/file/d/1YDRrr2vpg4pwbjYyEbvU7Yqfv2-EjEi6/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.brochureBtn}
@@ -137,6 +137,18 @@ export const Footer: React.FC<FooterProps> = () => {
           <div className={styles.copyrightRow}>
             <span>
               © {currentYear} Fortune Haven. All rights reserved.
+            </span>
+            <span className={styles.copyrightSep} aria-hidden="true">•</span>
+            <span className={styles.creditText}>
+              Developed by{" "}
+              <a
+                href="https://growinvicta.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.creditLink}
+              >
+                Grow Invicta
+              </a>
             </span>
           </div>
 

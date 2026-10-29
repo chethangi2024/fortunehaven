@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
     }
 
     const downloadUrl =
-      "https://drive.google.com/file/d/1tTQSJyZFKSLqhDCpfVWPr58PtXvKkzGG/view?usp=sharing";
+      "https://drive.google.com/file/d/1YDRrr2vpg4pwbjYyEbvU7Yqfv2-EjEi6/view?usp=sharing";
 
     return NextResponse.json({
       success: true,

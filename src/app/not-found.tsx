@@ -7,9 +7,9 @@ import { Footer } from "@/components/Footer";
 import styles from "./not-found.module.css";
 
 export const metadata: Metadata = {
-  title: "A Different Path | Fortune Haven",
+  title: "Page Not Found",
   description:
-    "The page you're looking for may have moved or may no longer be available. Return home to discover Fortune Haven's ultra luxury villas.",
+    "The page you're looking for may have moved or is no longer available. Return to the homepage to discover Fortune Haven's ultra luxury villas in Devanahalli, Bengaluru North.",
   robots: {
     index: false,
     follow: false,
@@ -27,25 +27,29 @@ export default function NotFound() {
         <div className={styles.notFoundContent}>
           <div>
             <div className={styles.eyebrow}>
-              <span>FORTUNE HAVEN</span>
+              <span className={styles.eyebrowDot} />
+              <span>FORTUNE HAVEN • 404 ERROR</span>
             </div>
 
             <div className={styles.numericCode}>404</div>
 
-            <h1 className={styles.mainHeading}>A Different Path.</h1>
+            <h1 className={styles.mainHeading}>Page Not Found</h1>
 
             <p className={styles.supportingText}>
-              The page you&apos;re looking for may have moved or may no longer be available.
-              Let&apos;s help you find your way back.
+              The page you are looking for may have moved, been renamed, or is no longer available.
+              Let us help you return to our ultra luxury villa enclave.
             </p>
 
             <div className={styles.actionsGroup}>
               <Link href="/" className={styles.primaryCta}>
-                <span>Return Home</span>
+                <span>Return to Homepage</span>
                 <span>→</span>
               </Link>
-              <Link href="/#architecture" className={styles.secondaryCta}>
-                <span>Explore the Property</span>
+              <Link href="/#experience" className={styles.secondaryCta}>
+                <span>Explore The Villas</span>
+              </Link>
+              <Link href="/faq" className={styles.secondaryCta}>
+                <span>Property FAQ</span>
               </Link>
             </div>
           </div>
@@ -53,7 +57,7 @@ export default function NotFound() {
           <div className={styles.imageFrame}>
             <Image
               src="/digital-assets/Villa Images/Straight view.webp"
-              alt="Fortune Haven Villa Architectural Perspective"
+              alt="Fortune Haven Villa Architectural Perspective in Devanahalli"
               width={1536}
               height={1024}
               priority

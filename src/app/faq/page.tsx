@@ -7,17 +7,17 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { FAQ_ITEMS, FAQ_INTRO } from "@/data/faqData";
 import styles from "@/components/LegalPage.module.css";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fortunehaven.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fortunehavens.com";
 
 export const metadata: Metadata = {
-  title: "Property FAQ | Fortune Haven Ultra-Luxury Villas",
+  title: "Property FAQ — Ultra-Luxury Villas",
   description:
-    "Explore essential information about Fortune Haven, its Ultra Luxury Villa architecture, private vertical living spaces, amenities, location, and consultation steps.",
+    "Explore essential questions and answers regarding Fortune Haven, including its 4-BHK Ultra Luxury Villa architecture, private vertical living spaces, amenities, location, and consultation steps.",
   alternates: {
     canonical: `${SITE_URL}/faq`,
   },
   openGraph: {
-    title: "Property FAQ | Fortune Haven",
+    title: "Property FAQ | Fortune Haven Ultra Luxury Villas",
     description:
       "Explore essential information about Fortune Haven, its Ultra Luxury Villa architecture, private vertical living spaces, amenities, and consultation steps.",
     url: `${SITE_URL}/faq`,
@@ -25,22 +25,44 @@ export const metadata: Metadata = {
   },
 };
 
-// Semantic FAQPage structured data generated strictly from visible single-source-of-truth questions and answers
+// Semantic FAQPage and BreadcrumbList structured data
 const faqStructuredData = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": `${SITE_URL}/faq/#faqpage`,
-  name: "Fortune Haven Property FAQ",
-  description:
-    "Essential questions and answers regarding Fortune Haven's ultra luxury villas in the Nandi Hills foothills.",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer.replace(/\n/g, "<br>"),
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/faq/#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Property FAQ",
+          item: `${SITE_URL}/faq`,
+        },
+      ],
     },
-  })),
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/faq/#faqpage`,
+      name: "Fortune Haven Property FAQ",
+      description:
+        "Essential questions and answers regarding Fortune Haven's ultra luxury villas in Devanahalli, Bengaluru North.",
+      mainEntity: FAQ_ITEMS.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer.replace(/\n/g, "<br>"),
+        },
+      })),
+    },
+  ],
 };
 
 export default function FaqPage() {

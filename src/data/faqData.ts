@@ -38,14 +38,14 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: "floor-levels",
     question: "What are the different floor levels?",
     answer:
-      "Level 01 — Basement: Covered three-car parking, EV charging point, home office / utility room, private lift, staircase.\n\nLevel 02 — Ground Floor: Double-height living, dining area, kitchen, one bedroom, private lawn, private yard, sit-out.\n\nLevel 03 — First Floor: Two bedrooms with attached dressing areas and bathrooms, central TV lounge, private balconies.\n\nLevel 04 — Second Floor: Master bedroom with dressing area and attached bathroom, family lounge, spacious balcony.",
+      "Level 01 — Basement: Covered Three-Car Parking, EV Charging Point, Home Office / Utility Room, Private Lift, Staircase.\n\nLevel 02 — Ground Floor: Double-Height Living, Dining Area, Kitchen, One Spacious Bedroom with Reading Table, Private Lawn, Private Yard, Sit-Out.\n\nLevel 03 — First Floor: Two Spacious Bedrooms with Attached Dressing Areas and Bathrooms, Private Balconies.\n\nLevel 04 — Second Floor: Master Bedroom with Dressing Area and Attached Bathroom, Family Lounge, Spacious Balcony.",
     category: "Architecture",
   },
   {
     id: "amenities",
     question: "What shared clubhouse and enclave amenities are provided?",
     answer:
-      "Fortune Haven provides a dedicated clubhouse and community amenities including a swimming pool, jacuzzi, sauna, gymnasium, squash court, billiards & table tennis, chess & carrom lounge, restaurant, spiritual spaces, dedicated work space, EV charging infrastructure, and 24/7 CCTV surveillance.",
+      "Fortune Haven provides a dedicated Clubhouse and community amenities including a Swimming Pool, Jacuzzi, Sauna, Gymnasium, Squash Court, Billiards & Table Tennis, Chess & Carrom Lounge, Restaurant, Spiritual Spaces, Dedicated Work Space, EV Charging Infrastructure, and 24/7 CCTV Surveillance.",
     category: "Lifestyle",
   },
   {

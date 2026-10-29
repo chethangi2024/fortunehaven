@@ -246,6 +246,29 @@
 .copyrightRow {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+}
+
+.copyrightSep {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.creditText {
+  color: #8C8880;
+}
+
+.creditLink {
+  color: #C2BFB8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.creditLink:hover {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .legalLinks {

@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import styles from "./thank-you.module.css";
 
 export const metadata: Metadata = {
-  title: "Thank You | Fortune Haven Private Enquiry",
+  title: "Thank You — Private Consultation",
   description:
     "Thank you for contacting the Fortune Haven advisory desk. Your private consultation request has been received.",
   robots: {

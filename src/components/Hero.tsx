@@ -43,7 +43,8 @@ const HERO_SCENES: readonly HeroScene[] = [
     description:
       "An exclusive gated enclave of 24 four-BHK boutique villas in Devanahalli, designed for families who value space, privacy and individuality.",
     propertyFacts: ["B+G+2", "4,281 Sq. Ft. Built-up Area", "2,800 Sq. Ft. UDS"],
-    highlight: "OC Received • BIAAPA Approved • RERA Approved",
+    highlight:
+      "BIAAPA Approved • RERA PRM/KA/RERA/1250/303/PR/191015/002912 • OC Received",
     imageSrc: "/digital-assets/Hero Section/ezgif-frame-001.webp",
     altText:
       "Fortune Haven contemporary Ultra Luxury boutique villa architectural facade in Devanahalli",
@@ -51,7 +52,7 @@ const HERO_SCENES: readonly HeroScene[] = [
     ctaHref: "#experience",
     secondaryText: "Download Brochure",
     secondaryHref:
-      "https://drive.google.com/file/d/1tTQSJyZFKSLqhDCpfVWPr58PtXvKkzGG/view?usp=sharing",
+      "https://drive.google.com/file/d/1YDRrr2vpg4pwbjYyEbvU7Yqfv2-EjEi6/view?usp=sharing",
   },
   {
     id: "scene-2",
@@ -346,20 +347,45 @@ export const Hero: React.FC = () => {
                   aria-hidden={activeSceneIndex !== index}
                 >
                   <span className={styles.eyebrow}>{scene.eyebrow}</span>
-                  <h1 className={styles.headline}>{scene.headline}</h1>
+                  {index === 0 ? (
+                    <h1 className={styles.headline}>{scene.headline}</h1>
+                  ) : (
+                    <h2 className={styles.headline}>{scene.headline}</h2>
+                  )}
                   <p className={styles.description}>{scene.description}</p>
                   {scene.propertyFacts && scene.propertyFacts.length > 0 && (
-                    <div className={styles.propertyFactsList} aria-label="Key Property Facts">
+                    <div className={styles.specificationsContainer} aria-label="Project Specifications">
                       {scene.propertyFacts.map((fact, fIdx) => (
-                        <span key={fIdx} className={styles.propertyFactItem}>
+                        <span key={fIdx} className={styles.specItem}>
                           {fact}
                         </span>
                       ))}
                     </div>
                   )}
-                  <div className={styles.highlightLine}>
-                    <span>{scene.highlight}</span>
-                  </div>
+                  {scene.propertyFacts && scene.propertyFacts.length > 0 ? (
+                    <div className={styles.approvalsColumn} aria-label="Approvals and Status">
+                      {scene.highlight.split(" • ").map((item, aIdx) => (
+                        <div key={aIdx} className={styles.approvalLineItem}>
+                          <span className={styles.approvalBullet} aria-hidden="true">
+                            •
+                          </span>
+                          <span className={styles.approvalText}>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className={styles.highlightLine} aria-label="Key Highlights">
+                      {scene.highlight.includes(" • ") ? (
+                        scene.highlight.split(" • ").map((item, aIdx) => (
+                          <span key={aIdx} className={styles.approvalItem}>
+                            {item}
+                          </span>
+                        ))
+                      ) : (
+                        <span>{scene.highlight}</span>
+                      )}
+                    </div>
+                  )}
 
                   {/* Actions */}
                   <div className={styles.ctaContainer}>

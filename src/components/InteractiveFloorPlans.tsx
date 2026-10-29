@@ -409,9 +409,6 @@ export const InteractiveFloorPlans: React.FC = () => {
           <div ref={detailsPanelRef} className={styles.detailsCol}>
             <div className={styles.detailsCard}>
               <div className={styles.detailsHeader}>
-                <div className={styles.detailsBadge}>
-                  <span className={styles.badgeIndex}>LEVEL {activeLevel.number} — {activeLevel.area}</span>
-                </div>
                 <h3 className={styles.detailsTitle}>{activeLevel.levelTitle}</h3>
                 <p className={styles.detailsSubtitle}>{activeLevel.subtitle}</p>
               </div>
